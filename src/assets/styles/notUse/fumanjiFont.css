@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Mali';
+    src: url('../webfonts/Mali-Regular.ttf') format('truetype');
+}
+h1 {
+    position: relative;
+    font-family: 'Mali', cursive;
+    font-size: 100px;
+    letter-spacing: -3px;
+    color: rgba(0, 254, 254, 1);
+}
+
+h1:after {
+    content: "Fumanji";
+    position: absolute;
+    left: 1px;
+    top: -10px;
+    color: rgba(254, 0, 2, 1); 
+    mix-blend-mode: multiply;
+}

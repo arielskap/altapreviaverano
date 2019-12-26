@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" href="css/fumanjiFont.css">
+    <link rel="stylesheet" href="css/menuFumanji.css">
+</head>
+<body class="p-3 bg-success text-white">
+    <audio id="player">
+        <source src="audio/snoop.mp3" type="audio/mp3">
+    </audio>
+    <header>
+        <div id="return">
+            <a onclick="volver();" class="badge badge-pill badge-secondary animated fadeIn"><span class="icon-arrow-left2 h3"></span></a>
+        </div>
+        <div class="m-4 d-flex justify-content-center animated pulse">
+            <h1 id="titulo">Fumanji</h1>
+        </div>
+    </header>
+    <section class="wrapper">
+        <main>
+            <div class="justify-content-center">
+                <ul class="nav flex-column nav-fill">
+                    <li class="nav-item">
+                        <a id="btnAdicto" class="btn-liquid animated zoomIn shadow"><span id="textoBtn" class="inner">Adicto</span></a>
+                    </li>
+                    <br>
+                    <li class="nav-item mt-5">
+                        <button onclick="cantPicante('1');bye();" class="btn btn-warning btn-lg rounded-circle btn-block animated zoomIn shadow"><b>Casual</b></button>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </section>
+    <footer>
+        <img id="imgWeed" onclick="play();" class="mt-5 img-fluid" src="img/0894C3032.gif" alt="">
+    </footer>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/return.js"></script>
+    <script type="text/javascript" src="js/menuFumanji.js"></script>
+</body>
+</html>

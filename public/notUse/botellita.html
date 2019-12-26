@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts/walter/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/botellita.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <title>Botellita</title>
+</head>
+<body class="p-3 bg-primary" id="body">
+    <header>
+        <div id="return">
+            <a onclick="volver();" class="badge badge-pill badge-secondary animated fadeIn text-white"><span class="icon-arrow-left2 h3"></span></a>
+        </div>
+        <div class="m-4 d-flex justify-content-center">
+            <h1 class="animated tada">La Botellita</h1>
+        </div>
+    </header>
+    <section class="wrapper">
+        <div class="container">
+            <div>
+                <div class="d-flex align-items-center justify-content-center flex-column">
+                    <img src="img/vodka.png" class="img-fluid mt-4 animated fadeIn" id="spin" alt="Responsive image" onclick="randomBottle();">
+                    <p class="border border-dark h3 rounded animated pulse p-1" id="pSpin" onclick="randomBottle();">¡Touch!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/botellita.js"></script>
+    <script type="text/javascript" src="js/return.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts/walter/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/suave.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/botellita.css">
+    <title>¿Verdad o Reto?</title>
+</head>
+<body class="p-3 text-white" onload="cargar();ocultar();">
+    <div id="carga" class="w-100 h-100 bg-dark d-flex align-items-center justify-content-center">
+        <img id="iCarga" class="img-fluid h-25 animated fadeOut" src="img/carga.gif">
+    </div>
+    <header>
+        <div id="return" class="d-flex justify-content-between">
+            <a onclick="bye();" class="badge badge-pill badge-secondary animated fadeIn shadow text-white"><span class="icon-arrow-left2 h3"></span></a>
+            <!--<a onclick="escrachoOn();" class="badge badge-pill badge-secondary animated fadeIn shadow" id="bottle"><span class="icon-loop2 h3"></span></a>-->
+            <a onclick="showBottle();" class="badge badge-pill badge-secondary animated fadeIn shadow" id="bottle"><span class="icon-loop2 h3"></span></a>
+        </div>
+        <div class="m-4 d-flex justify-content-center bg-info rounded shadow" id="h1">
+            <h1 class="animated rubberBand" id="titulo">Suavecito... </h1><h1 id="contador"></h1>
+        </div>
+    </header>
+    <section class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <ul class="nav flex-column nav-fill">
+                        <li class="nav-item">
+                            <button class="btn btn-primary btn-lg btn-block animated fadeIn mt-5 mb-3 shadow" id="verdad" onclick="verdad('0');">Verdad</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-danger btn-lg btn-block animated fadeIn shadow" id="reto" onclick="reto('0');">Reto</button>
+                        </li>
+                    </ul>
+                    <div>
+                        <div class="d-flex align-items-center justify-content-center flex-column">
+                            <img src="img/vodka.png" class="img-fluid w-25 mt-4 animated fadeIn" id="spin" alt="Responsive image" onclick="randomBottle();">
+                            <p class="border border-primary h3 rounded animated pulse p-1" id="pSpin" onclick="randomBottle();">¡Touch!</p>
+                        </div>
+                        <span class="d-inline-block" data-placement="bottom" data-toggle="popover" data-content="MAIAMEEEEEE" id="spanFort">
+                            <img src="img/fort.gif" class="img-fluid mt-4 animated fadeIn" id="fort" alt="Responsive image" style="pointer-events: none;">
+                        </span>
+                    </div>
+                    <div>
+                        <p class="border border-primary h3 rounded animated pulse mt-3 p-2" id="pVerdad"></p>
+                        <p class="border border-danger h3 rounded animated pulse mt-3 p-2 mb-5" id="pReto"></p>
+                    </div>
+                    <div>
+                        <p class="h3 mb-5 text-center animated pulse" id="numAleatorio"></p>
+                        <button class="btn btn-info btn-lg btn-block mb-5 shadow animated fadeIn" id="bAleatorio" onclick="numAleatorio();">¡Numero aleatorio!</button>
+                    </div>
+                    <div class="btn-group btn-group-lg fixed-bottom" role="group">
+                        <button class="btn btn-danger" id="botonReto">No lo hizo...</button>
+                        <button class="btn btn-success btn-block" id="botonRealizado" onclick="ocultar();mostrar();contador();">¡Realizado!</button>
+                    </div>
+                    <!--<img class="img-fluid mt-1" id="random" alt="Responsive image">-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+    <script type="text/javascript" src="js/popper.min.js" ></script>
+    <script type="text/javascript" src="js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="js/suave.js" ></script>
+    <script type="text/javascript" src="js/botellita.js" ></script>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+</body>
+</html>

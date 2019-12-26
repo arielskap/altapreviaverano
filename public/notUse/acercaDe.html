@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts/walter/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/acercaDe.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <title>acercaDe</title>
+</head>
+<body class="p-3 bg-info">
+    <header>
+        <div id="return">
+            <a onclick="volver();" class="badge badge-pill badge-secondary animated fadeIn text-white"><span class="icon-arrow-left2 h3"></span></a>
+        </div>
+        <div class="m-4 d-flex justify-content-center">
+            <h1 class="animated fadeIn">Acerca De</h1>
+        </div>
+    </header>
+    <section class="wrapper">
+		<section class="main animated fadeIn">
+            <div class="d-flex justify-content-center">
+                <h2 class="bg-danger p-1 rounded">Alta Previa</h2>
+            </div>
+            <div class="d-flex justify-content-center flex-column">
+                <h3>Pregunta probable:</h3>
+                <h4>¿Por que usas lenguaje inclusivo?</h4>
+                <p class="mb-3 bg-success p-1 rounded">Bueno, porque el lenguaje influye en todo lo que hacemos. Tiene un valor más fuerte del que generalmente pensamos. Toda palabra tiene un porque y un significado que se le da directa o indirectamente. Yo desconozco a la persona que este leyendo esto o que este jugando a estos juegos, por eso no quiero presuponer y así habilitar a cualquiera a poder jugar :D</p>
+                <p class="bg-warning p-1 rounded">Como todavía no hay presupuesto para dejar tu comentario podes hacerlo en Instagram (Ahre solo quería seguidores)</p>
+                <div class="d-flex align-items-center justify-content-center social-icons-list mb-4">
+                    <span data-placement="bottom" data-toggle="popover" data-content="Ya no existe Facebook krak">
+                        <button href="#" class="fa fa-facebook rounded-circle btn"></button>
+                    </span>
+                    <a href="https://www.instagram.com/ecstasy_ring/" class="fa fa-instagram rounded-circle btn"></a>
+                </div>
+                <div>
+                    <div class="bg-dark text-white p-1 rounded">
+                        <p class="m-0">Si queres ser un todo hacker de la coctelería descargate: </p>
+                    </div>
+                    <div class="text-center my-2">
+                        <a id="linkPlayStore" href="https://play.google.com/store/apps/details?id=com.marte.barMat">
+                            <img class="img-fluid w-25" src="img/logo.png" alt="">
+                            <p class="blockquote-footer mb-0 text-dark"><cite title="Source Title">Bar-Mat</cite></p>
+                        </a>
+                    </div>
+                </div>
+				<p>Ariel Santiago Villarreal Gutierrez<br>
+                Copyright © 2019 Todos los Derechos Reservados<br></p>
+            </div>
+            <div class="d-flex justify-content-center">
+                <img class="h-50 w-50" src="img/planetaSida.png">
+            </div>
+		</section>
+	</section>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/return.js"></script>
+    <script type="text/javascript" src="js/acercaDe.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts/walter/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <title>Joda</title>
+</head>
+<body class="p-3 text-white bg-dark">
+    <div class="modal fade text-dark" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">DALE QUE SE SALEEEE AHHHHHHHH!!!!</h4>
+            </div>
+            <div id="cuerpoModal" class="modal-body">
+                <p id="textoModal">DALE QUE ES SABADO, RASQUETEA LO QUE QUEDA DEL FONDO DE LA BOLSITA Y SALI A JUGAR AL BOLICHE COMO EL GIGOLO EN SU MEJOR MOMENTO DAAAAALEEEEEEE</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div id="info" class="d-flex flex-row-reverse">
+            <a href="acercaDe.html" class="badge btn-circle badge-info animated fadeIn shadow"><span class="icon-notification h3"></span></a>
+        </div>
+        <blockquote class="blockquote m-4 animated pulse d-flex flex-column">
+            <h1 class="animated tada">Alta Previa <small class="h5"><span class="badge badge-warning">Beta</span></small></h1>
+            <footer class="blockquote-footer"><cite title="Source Title">Skere!!!</cite></footer>
+        </blockquote>
+    </header>
+    <section class="wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <ul class="nav flex-column nav-fill">
+                    <li class="nav-item">
+                        <button onclick="bye('menuReto');" class="btn btn-lg btn-block animated jackInTheBox shadow mb-3 mt-2" id="verdad">Verdad o Reto</button>
+                    </li>
+                    <li class="nav-item">
+                        <button onclick="bye('yoNunca');" class="btn btn-lg btn-block animated jackInTheBox shadow mb-3" id="nunca">Yo nunca</button>
+                    </li>
+                    <li class="nav-item">
+                        <button onclick="bye('botellita');" class="btn btn-lg btn-block btn-primary animated jackInTheBox shadow mb-3" id="botella">La Botellita</button>
+                    </li>
+                    <li class="nav-item">
+                        <button onclick="bye('fumanji');" class="btn btn-lg btn-block btn-success animated jackInTheBox shadow mb-3" id="botella">Fumanji (?<small class="h6 ml-2"><span class="badge badge-info">¡New!</span></small></button>
+                    </li>
+                    <li class="nav-item">
+                        <span class="d-inline-block" data-placement="bottom" data-toggle="popover" data-content="¿No ves que esta desactivado, krak?">
+                            <button class="btn btn-lg btn-block animated jackInTheBox mb-3" style="pointer-events: none;" disabled>Trago aleatorio <small class="h6"><span class="badge badge-danger">¡Proximamente!</span></small></button>
+                        </span>
+                    </li>
+                    <!--<button class="btn btn-secondary btn-lg btn-block animated jackInTheBox" disabled>A sacarse la ropa...</button>-->
+                </ul>
+                <div class="col-sm">
+                    <img src="img/dab.gif" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+</body>
+</html>

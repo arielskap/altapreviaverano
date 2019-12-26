@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts/walter/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/menuReto.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <title>Joda</title>
+</head>
+<body class="p-3 bg-dark text-white">
+    <header>
+        <div id="return">
+            <a onclick="volver();" class="badge badge-pill badge-secondary animated fadeIn"><span class="icon-arrow-left2 h3"></span></a>
+        </div>
+        <div class="m-4 d-flex justify-content-center animated pulse">
+            <h1>Verdad <br>o Reto...</h1>
+        </div>
+    </header>
+    <section class="wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <ul class="nav flex-column nav-fill">
+                    <li class="nav-item border border-primary p-2 rounded">
+                        <form class="form-group animated fadeIn">
+                            <label class="my-1 mr-2" for="formPicante">Cantidad de turnos para que se vuelva Picante</label>
+                            <select class="custom-select" id="formPicante">
+                                <option>∞</option>
+                                <option>3</option>
+                                <option>5</option>
+                                <option selected>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                                <option>25</option>
+                                <option>30</option>
+                                <option>35</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                                <option>70</option>
+                                <option>∞</option>
+                            </select>
+                        </form>
+                        <button onclick="cantPicante('1');bye();" class="btn btn-primary btn-lg btn-block animated zoomIn shadow">Suave</button>
+                    </li>
+                    <li class="nav-item">
+                        <button onclick="cantPicante('0');bye();" class="btn btn-danger btn-lg btn-block animated zoomIn shadow mt-3">Picante</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/menuReto.js"></script>
+    <script type="text/javascript" src="js/return.js"></script>
+</body>
+</html>

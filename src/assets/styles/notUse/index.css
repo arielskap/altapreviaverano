@@ -1,0 +1,12 @@
+body{
+    font-family:'Walter Turncoat Regular';
+}
+#verdad{
+    background-image: linear-gradient(to right, rgb(245, 32, 32) , rgb(247, 247, 93));
+}
+#nunca{
+    background-image: linear-gradient(to right, rgb(143, 55, 245) , rgb(243, 74, 243));
+}
+.btn-circle{
+    border-radius: 25px;
+}

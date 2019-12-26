@@ -1,0 +1,9 @@
+body{
+    font-family:'Walter Turncoat Regular';
+}
+h1{
+    text-align: center;
+}
+.border{
+    border-width:3px !important;
+}

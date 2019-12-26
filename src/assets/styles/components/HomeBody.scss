@@ -1,0 +1,45 @@
+.HomeBody {
+    .HomeBody-h1 {
+        background-color: rgba($color: rgb(247, 244, 102), $alpha: 0.6);
+    }
+
+    .HomeBody-h2{
+        background-color: rgba($color: rgb(102, 237, 247), $alpha: 0.6);
+    }
+
+    .HomeBody__Booom{
+        background-image: url('../../static/explosion.gif');
+    }
+
+    .HomeBody__Verdad-button {
+        background: rgb(248, 255, 0);
+        background: linear-gradient(90deg, rgba(248, 255, 0, 1) 0%, rgba(255, 0, 0, 1) 100%);
+        border-color: #c05621;
+    }
+
+    .HomeBody__Verdad-button:hover {
+        background: rgb(251, 255, 107);
+        background: linear-gradient(90deg, rgba(251, 255, 107, 1) 0%, rgba(255, 125, 125, 1) 100%);
+        border-color: #f6ad55;
+        color: gray;
+    }
+
+    .HomeBody__YoNunca-button {
+        background-color: pink;
+    }
+
+    .HomeBody__YoNunca-button:hover {
+        background-color: rgb(255, 228, 233);
+        color: #fed7e2;
+    }
+
+    .HomeBody__Botellita-button {
+        background: rgb(251, 255, 111);
+        background: linear-gradient(90deg, rgba(251, 255, 111, 1) 0%, rgba(35, 255, 245, 1) 100%);
+    }
+
+    .HomeBody__Trago-button {
+        background: rgb(255, 111, 252);
+        background: linear-gradient(90deg, rgba(255, 111, 252, 1) 0%, rgba(35, 255, 245, 1) 100%);
+    }
+}

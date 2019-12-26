@@ -1,0 +1,12 @@
+@import './Fonts.scss';
+@import './Vars.scss';
+
+html, body, #app, .App{
+    font-family: 'Walter Turncoat Regular';
+    background-color: cornsilk;
+}
+
+.App{
+    background-image: url('../static/palmera.png');
+    background-repeat: round;
+}

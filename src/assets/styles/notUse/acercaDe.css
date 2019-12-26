@@ -1,0 +1,32 @@
+body{
+    font-family:'Walter Turncoat Regular';
+}
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    height: 75px;
+    width: 75px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+  
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-instagram {
+    background: #ea4c89;
+    color: white;
+}
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+a:hover {
+    color: white;
+}

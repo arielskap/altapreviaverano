@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.marte.altaPrevia" version="1.0.45" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Alta Previa</name>
+    <description>
+        Alta Previa
+    </description>
+    <author email="marteindustria@gmail.com">
+        Marte team
+    </author>
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <icon src="img/picante.png"/>
+     <platform name="android">
+              <icon src="img/picante.png" density="ldpi" />
+              <icon src="img/picante.png" density="mdpi" />
+              <icon src="img/picante.png" density="hdpi" />
+              <icon src="img/picante.png" density="xhdpi" />
+              <allow-intent href="market:*" />
+     </platform>
+    <preference name="android-minSdkVersion"  value="16" />
+    <preference name="android-targetSdkVersion"  value="26" />
+    <content src="index.html" />
+</widget>
