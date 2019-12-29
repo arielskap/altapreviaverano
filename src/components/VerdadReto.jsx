@@ -9,7 +9,7 @@ class VerdadReto extends React.Component {
     const { changeState } = this.props;
     return (
       <section className='VerdadReto animated fadeIn min-h-screen'>
-        <VerdadRetoHeader changeState={changeState} />
+        <VerdadRetoHeader />
         <VerdadRetoBody juego={juego} cant={cant} changeState={changeState} />
       </section>
     );

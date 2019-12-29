@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from '../components/Home';
+import Mensaje from '../components/Mensaje';
 //import VerdadRetoOpcion from '../components/VerdadRetoOpcion';
 import '../assets/styles/tailwind.css';
 import '../assets/styles/App.scss';
@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      components: /*<VerdadRetoOpcion changeState={this.changeState} />*/<Home changeState={this.changeState} />,
+      components: <Mensaje changeState={this.changeState} />,
     };
   }
 
@@ -26,7 +26,9 @@ class App extends React.Component {
     const { components } = this.state;
     return (
       <section className='App'>
-        {components}
+        <div className='appChildren min-h-screen'>
+          {components}
+        </div>
       </section>
     );
   }

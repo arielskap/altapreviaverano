@@ -40,3 +40,7 @@ export const animateCSS = (element, animationName, callback) => {
 
   node.addEventListener('animationend', handleAnimationEnd);
 };
+
+export const vibrar = () => {
+  window.navigator.vibrate(50);
+};

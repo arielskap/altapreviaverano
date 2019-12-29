@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.marte.altaPrevia" version="1.0.45" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Alta Previa</name>
+<widget id="com.marte.altaPreviaVerano" version="1.0.53" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Alta Previa Verano</name>
     <description>
-        Alta Previa
+        Alta Previa Verano
     </description>
     <author email="marteindustria@gmail.com">
         Marte team
@@ -15,12 +15,12 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <icon src="img/picante.png"/>
+    <icon src="assets/picante.png"/>
      <platform name="android">
-              <icon src="img/picante.png" density="ldpi" />
-              <icon src="img/picante.png" density="mdpi" />
-              <icon src="img/picante.png" density="hdpi" />
-              <icon src="img/picante.png" density="xhdpi" />
+              <icon src="assets/picante.png" density="ldpi" />
+              <icon src="assets/picante.png" density="mdpi" />
+              <icon src="assets/picante.png" density="hdpi" />
+              <icon src="assets/picante.png" density="xhdpi" />
               <allow-intent href="market:*" />
      </platform>
     <preference name="android-minSdkVersion"  value="16" />

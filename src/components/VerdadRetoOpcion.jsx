@@ -1,13 +1,19 @@
 import React from 'react';
-import VerdadRetoOpcionHeader from './childrens/VerdadRetoOpcionHeader';
+import HeaderGoHome from './childrens/HeaderGoHome';
 import VerdadRetoOpcionBody from './childrens/VerdadRetoOpcionBody';
 
 class VerdadRetoOpcion extends React.Component {
+  constructor(props) {
+    super(props);
+    document.querySelector('.App').style.backgroundColor = 'black';
+    window.history.pushState('VerdadReto', null);
+  }
+
   render() {
     const { changeState } = this.props;
     return (
       <div className='VerdadRetoOpcion animated fadeIn min-h-screen'>
-        <VerdadRetoOpcionHeader changeState={changeState} />
+        <HeaderGoHome />
         <VerdadRetoOpcionBody changeState={changeState} />
       </div>
     );

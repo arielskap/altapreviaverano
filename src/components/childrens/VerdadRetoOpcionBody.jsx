@@ -1,6 +1,6 @@
 import React from 'react';
 import VerdadReto from '../VerdadReto';
-import { animateCSS } from '../../funciones';
+import { animateCSS, vibrar } from '../../funciones';
 import '../../assets/styles/components/VerdadRetoOpcionBody.scss';
 
 class VerdadRetoOpcionBody extends React.Component {
@@ -9,6 +9,7 @@ class VerdadRetoOpcionBody extends React.Component {
     const { changeState } = this.props;
     const e = document.querySelector('.VerdadRetoOpcionBody-select');
     const cant = e.options[e.selectedIndex].value;
+    window.history.pushState('VerdadRetoJuego', null);
     changeState(<VerdadReto juego={juego} cant={cant} changeState={changeState} />);
   }
 
@@ -16,10 +17,10 @@ class VerdadRetoOpcionBody extends React.Component {
     return (
       <section className='VerdadRetoOpcionBody'>
         <div className='VerdadRetoOpcionBody-header mb-4'>
-          <h1 className='text-center text-4xl mt-4'>Verdad O Reto</h1>
+          <h1 className='VerdadRetoOpcionBody-h1 text-center text-4xl mt-4 mx-4 rounded'>Verdad O Reto</h1>
         </div>
         <div className='VerdadRetoOpcionBody__body'>
-          <div className='VerdadRetoOpcionBody__body-option text-center border-blue-600 border-2 mx-4 flex flex-col px-4 py-4'>
+          <div className='VerdadRetoOpcionBody__body-option text-center border-blue-600 border-2 mx-4 flex flex-col px-4 py-4 rounded-lg'>
             <p>Cantidad de turno para que se vuelva Picante:</p>
             <div>
               <select defaultValue='∞' className='VerdadRetoOpcionBody-select border-red-600 border-2 w-full rounded mt-4'>
@@ -32,10 +33,13 @@ class VerdadRetoOpcionBody extends React.Component {
             </div>
             <button
               type='button'
-              className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-4'
-              onClick={() => animateCSS('.VerdadRetoOpcion', 'fadeOut', () => {
-                this.goVerdadReto('Suave');
-              })}
+              className='VerdadRetoOpcionBody__suave hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded mt-4'
+              onClick={() => {
+                vibrar();
+                animateCSS('.VerdadRetoOpcion', 'fadeOut', () => {
+                  this.goVerdadReto('Suave');
+                });
+              }}
             >
               Suave
             </button>
@@ -43,10 +47,13 @@ class VerdadRetoOpcionBody extends React.Component {
           <div className='mx-4'>
             <button
               type='button'
-              className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded mt-4 w-full'
-              onClick={() => animateCSS('.VerdadRetoOpcion', 'fadeOut', () => {
-                this.goVerdadReto('Picante');
-              })}
+              className='VerdadRetoOpcionBody__picante hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded mt-4 w-full'
+              onClick={() => {
+                vibrar();
+                animateCSS('.VerdadRetoOpcion', 'fadeOut', () => {
+                  this.goVerdadReto('Picante');
+                });
+              }}
             >
               Picante
             </button>
