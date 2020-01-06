@@ -1,27 +1,16 @@
 import React from 'react';
-import AcercaDe from '../AcercaDe';
-import { animateCSS, vibrar } from '../../funciones';
+import { Link } from 'react-router-dom';
 import '../../assets/styles/components/HomeHeader.scss';
 import information from '../../assets/static/information.png';
 
 class HomeHeader extends React.Component {
   render() {
-    const { changeState } = this.props;
     return (
       <section className='HomeHeader'>
         <div className='flex justify-end px-4 pt-4'>
-          <button
-            className='HomeHeader__information-button rounded-full h-12 w-12 bg-aqua-transparent flex justify-center'
-            type='button'
-            onClick={() => {
-              vibrar();
-              animateCSS('.Home', 'fadeOut', () => {
-                changeState(<AcercaDe />);
-              });
-            }}
-          >
+          <Link to='/acercaDe' className='HomeHeader__information-button rounded-full h-12 w-12 bg-aqua-transparent flex justify-center'>
             <img className='fill-current h-full w-full' src={information} alt='Informacion' />
-          </button>
+          </Link>
         </div>
       </section>
     );

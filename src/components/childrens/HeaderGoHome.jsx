@@ -1,14 +1,16 @@
 import React from 'react';
 import BackButton from './BackButton';
 
-class HeaderGoHome extends React.Component {
-  render() {
-    return (
-      <div className='VerdadRetoOpcionHeader pt-4 mx-4'>
-        <BackButton />
-      </div>
-    );
+function HeaderGoHome({ link }) {
+  let linkVar = link;
+  if (linkVar === undefined) {
+    linkVar = '/home';
   }
-}
+  return (
+    <div className='VerdadRetoOpcionHeader pt-4 mx-4'>
+      <BackButton link={linkVar} />
+    </div>
+  );
+};
 
 export default HeaderGoHome;

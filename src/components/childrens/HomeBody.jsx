@@ -1,9 +1,7 @@
 import React from 'react';
-import VerdadRetoOpcion from '../VerdadRetoOpcion';
-import YoNunca from '../YoNunca';
-import Botellita from '../Botellita';
+import { Link } from 'react-router-dom';
 import Boom from './Boom';
-import { animateCSS, vibrar } from '../../funciones';
+import { animateCSS } from '../../funciones';
 import '../../assets/styles/components/HomeBody.scss';
 import crashBaile from '../../assets/static/Baile_de_Crash.gif';
 
@@ -20,7 +18,6 @@ class HomeBody extends React.Component {
   }
 
   render() {
-    const { changeState } = this.props;
     return (
       <section className='HomeBody'>
         <div className='text-center mt-2 mx-2 flex justify-center flex-col'>
@@ -34,43 +31,16 @@ class HomeBody extends React.Component {
           </h2>
         </div>
         <div className='flex justify-center flex-col mt-6'>
-          <button
-            className='HomeBody__Verdad-button text-lg text-gray-900 font-bold py-2 px-4 border-2 rounded mx-16 my-3'
-            type='button'
-            onClick={() => {
-              vibrar();
-              animateCSS('.Home', 'fadeOut', () => {
-                changeState(<VerdadRetoOpcion changeState={changeState} />);
-              });
-            }}
-          >
+          <Link to='/verdadRetoOpcion' className='HomeBody__Verdad-button text-lg text-gray-900 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
             Verdad o Reto
-          </button>
-          <button
-            className='HomeBody__YoNunca-button text-lg text-pink-500 border-white font-bold py-2 px-4 border-2 rounded mx-16 my-3'
-            type='button'
-            onClick={() => {
-              vibrar();
-              animateCSS('.Home', 'fadeOut', () => {
-                changeState(<YoNunca changeState={changeState} />);
-              });
-            }}
-          >
+          </Link>
+          <Link to='/yoNunca' className='HomeBody__YoNunca-button text-lg text-pink-500 border-white font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
             Yo nunca
-          </button>
-          <button
-            className='HomeBody__Botellita-button text-lg text-gray-800 border-teal-500 font-bold py-2 px-4 border-2 rounded mx-16 my-3'
-            type='button'
-            onClick={() => {
-              vibrar();
-              animateCSS('.Home', 'fadeOut', () => {
-                changeState(<Botellita changeState={changeState} />);
-              });
-            }}
-          >
+          </Link>
+          <Link to='/botellita' className='HomeBody__Botellita-button text-lg text-gray-800 border-teal-500 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
             La Botellita
-          </button>
-          <button className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3' type='button' onClick={() => { changeState(); }}>Más probable a</button>
+          </Link>
+          <button className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3' type='button' onClick={() => { }}>Más probable a</button>
         </div>
         <div className='flex justify-center'>
           <img className='object-contain' src={crashBaile} alt='Gif Meme' />
