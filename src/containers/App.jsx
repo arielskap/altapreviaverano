@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import Mensaje from '../pages/Mensaje';
 import AcercaDe from '../pages/AcercaDe';
 import Home from '../pages/Home';
@@ -7,6 +7,7 @@ import VerdadRetoOpcion from '../pages/VerdadRetoOpcion';
 import VerdadReto from '../pages/VerdadReto';
 import YoNunca from '../pages/YoNunca';
 import Botellita from '../pages/Botellita';
+import AddGame from '../pages/AddGame';
 import NotFound from '../pages/NotFound';
 import '../assets/styles/tailwind.css';
 import '../assets/styles/App.scss';
@@ -15,7 +16,7 @@ function App() {
   return (
     <section className='App'>
       <div className='appChildren min-h-screen'>
-        <BrowserRouter>
+        <HashRouter>
           <Switch>
             <Route exact path='/'>
               <Mensaje />
@@ -38,11 +39,14 @@ function App() {
             <Route path='/botellita'>
               <Botellita />
             </Route>
+            <Route path='/addGame'>
+              <AddGame />
+            </Route>
             <Route path='*'>
               <NotFound />
             </Route>
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </section>
   );

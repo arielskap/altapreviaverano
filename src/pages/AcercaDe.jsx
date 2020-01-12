@@ -1,6 +1,5 @@
 import React from 'react';
-import HeaderGoHome from '../components/childrens/HeaderGoHome';
-import AcercaDeBody from '../components/childrens/AcercaDeBody';
+import AcercaDeBody from '../components/AcercaDeBody';
 
 class AcercaDe extends React.Component {
   componentDidMount() {
@@ -10,7 +9,6 @@ class AcercaDe extends React.Component {
   render() {
     return (
       <section className='AcercaDe animated fadeIn faster'>
-        <HeaderGoHome />
         <AcercaDeBody />
       </section>
     );

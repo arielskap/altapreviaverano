@@ -1,6 +1,6 @@
 import React from 'react';
-import HeaderGoHome from '../components/childrens/HeaderGoHome';
-import VerdadRetoOpcionBody from '../components/childrens/VerdadRetoOpcionBody';
+import Header from '../components/Header';
+import VerdadRetoOpcionBody from '../components/VerdadRetoOpcionBody';
 
 class VerdadRetoOpcion extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class VerdadRetoOpcion extends React.Component {
   render() {
     return (
       <div className='VerdadRetoOpcion animated fadeIn faster'>
-        <HeaderGoHome />
+        <Header />
         <VerdadRetoOpcionBody />
       </div>
     );

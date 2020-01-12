@@ -1,6 +1,6 @@
 import React from 'react';
-import HeaderGoHome from '../components/childrens/HeaderGoHome';
-import YoNuncaJuego from '../components/childrens/YoNuncaJuego';
+import Header from '../components/Header';
+import YoNuncaJuego from '../components/YoNuncaJuego';
 
 class YoNunca extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class YoNunca extends React.Component {
   render() {
     return (
       <section className='YoNunca animated fadeIn faster'>
-        <HeaderGoHome />
+        <Header />
         <YoNuncaJuego />
       </section>
     );

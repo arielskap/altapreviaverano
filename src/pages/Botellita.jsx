@@ -1,6 +1,6 @@
 import React from 'react';
-import HeaderGoHome from '../components/childrens/HeaderGoHome';
-import BotellitaJuego from '../components/childrens/BotellitaJuego';
+import Header from '../components/Header';
+import BotellitaJuego from '../components/BotellitaJuego';
 
 class Botellita extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class Botellita extends React.Component {
   render() {
     return (
       <div className='Botellita animated fadeIn faster'>
-        <HeaderGoHome />
+        <Header />
         <BotellitaJuego />
       </div>
     );

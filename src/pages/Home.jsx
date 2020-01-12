@@ -1,6 +1,6 @@
 import React from 'react';
-import HomeHeader from '../components/childrens/HomeHeader';
-import HomeBody from '../components/childrens/HomeBody';
+import HomeHeader from '../components/HomeHeader';
+import HomeBody from '../components/HomeBody';
 
 const Home = () => {
   return (
