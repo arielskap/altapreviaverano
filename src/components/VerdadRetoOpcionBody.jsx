@@ -11,7 +11,6 @@ function goVerdadReto(history, juego) {
 
 function VerdadRetoOpcionBody() {
   const history = useHistory();
-  console.log(history);
   return (
     <section className='VerdadRetoOpcionBody'>
       <div className='VerdadRetoOpcionBody-header mb-4'>
