@@ -14,10 +14,10 @@ const HomeBody = () => {
     setTimeout(() => {
       animateCSS('.HomeBody__Booom', 'fadeOut faster', () => {
         document.querySelector('.HomeBody__Booom').classList.add('hidden');
-        document.querySelector('.HomeBody-h1').classList.remove('jackInTheBox', 'faster');
-        animateCSS('.HomeBody-h1', 'bounceIn slower');
+        document.querySelector('.HomeBody-h2').classList.remove('jackInTheBox', 'faster');
+        animateCSS('.HomeBody-h2', 'rubberBand');
       });
-    }, 800);
+    }, 400);
   });
   return (
     <section className='HomeBody'>
@@ -29,7 +29,7 @@ const HomeBody = () => {
         <Tippy content='Perreito... como en los viejos tiempos, pe perreito pe pe perreito' visible={visible2}>
           <h2 className='text-2xl HomeBody-h2 animated jackInTheBox faster rounded-b' onClick={() => setVisible2(!visible2)}>
             Verano
-            <span role='img' aria-label='Surf'>🏄</span>
+            <span className='surf' role='img' aria-label='Surf'>🏄</span>
           </h2>
         </Tippy>
       </div>

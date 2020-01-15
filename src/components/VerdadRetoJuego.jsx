@@ -44,7 +44,7 @@ class VerdadRetoJuego extends React.Component {
     let { cant } = this.props;
     return (
       <div className='VerdadRetoJuego animated fadeIn mt-16'>
-        <div className='VerdadRetoJuego-body text-lg mx-4'>
+        <div className='VerdadRetoJuego-body text-lg mx-4 mb-16'>
           <p className={verdadReto === 'verdad' ? 'VerdadRetoJuego__mission p-4 border-2 border-green-700 rounded-lg' : 'VerdadRetoJuego__mission p-4 border-2 border-red-700 rounded-lg'} />
         </div>
         <div className='VerdadRetoJuego-footer fixed bottom-0 flex w-full left-0'>

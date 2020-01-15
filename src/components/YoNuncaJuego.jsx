@@ -1,27 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Tippy from '@tippy.js/react';
 import { vibrar } from '../funciones';
 import '../assets/styles/components/YoNuncaJuego.scss';
 
-class YoNuncaJuego extends React.Component {
-  constructor(props) {
-    super(props);
-    this.numMath = 4;
-    this.numeroSwitch = [];
-    for (let i = 0;i < this.numMath;i++) {
-      this.numeroSwitch[i] = i + 1;
-    }
+const YoNuncaJuego = () => {
+  const [visible, setVisible] = useState(false);
+  const numeroSwitch = [];
+  let numMath = 4;
+  for (let i = 0;i < numMath;i++) {
+    numeroSwitch[i] = i + 1;
   }
-
-  componentDidMount() {
-    this.yoNunca();
-  }
-
-  yoNunca = () => {
+  const yoNunca = () => {
     let p = document.querySelector('.YoNuncaBody-p');
     const parentP = document.querySelector('.YoNuncaBody__parent-p');
     let yoNunca;
-    const numAleatorio = Math.floor((Math.random() * this.numMath));
-    switch (this.numeroSwitch[numAleatorio]) {
+    const numAleatorio = Math.floor((Math.random() * numMath));
+    switch (numeroSwitch[numAleatorio]) {
       case 1:
         yoNunca = document.createTextNode('Meti la mano en el agua del inodoro');
         break;
@@ -43,27 +37,29 @@ class YoNuncaJuego extends React.Component {
     p.classList.add('YoNuncaBody-p', 'animated', 'fadeIn', 'faster');
     p.appendChild(yoNunca);
     parentP.appendChild(p);
-    this.numeroSwitch.splice(numAleatorio, 1);
-    this.numMath--;
-  }
+    numeroSwitch.splice(numAleatorio, 1);
+    numMath--;
+  };
 
-  render() {
-    return (
-      <div className='YoNuncaBody mt-2'>
-        <div className='YoNuncaBody-header mx-4'>
-          <h1 className='YoNuncaBody-h1 text-3xl text-center p-1 rounded-lg text-white'>Yo Nunca...</h1>
-        </div>
-        <div className='YoNuncaBody-body mt-12 mx-8'>
-          <div className='YoNuncaBody__parent-p border-pink-500 border-2 p-4 rounded-lg text-lg'>
-            <p className='YoNuncaBody-p' />
-          </div>
-        </div>
-        <div className='YoNuncaBody-footer fixed bottom-0 w-full'>
-          <button className='text-center w-full bg-green-500 py-3 text-white text-lg' type='button' onClick={() => { vibrar(); this.yoNunca(); }}>Siguiente</button>
+  useEffect(() => yoNunca(), []);
+
+  return (
+    <div className='YoNuncaBody mt-2'>
+      <div className='YoNuncaBody-header mx-4'>
+        <Tippy content='Yo nunca hice click a esto... (Ahora toma o te hago la gran Nisman)' visible={visible}>
+          <h1 className='YoNuncaBody-h1 text-3xl text-center p-1 rounded-lg text-white' onClick={() => setVisible(!visible)}>Yo Nunca...</h1>
+        </Tippy>
+      </div>
+      <div className='YoNuncaBody-body mt-12 mx-8'>
+        <div className='YoNuncaBody__parent-p border-pink-500 border-2 p-4 rounded-lg text-lg'>
+          <p className='YoNuncaBody-p' />
         </div>
       </div>
-    );
-  }
-}
+      <div className='YoNuncaBody-footer fixed bottom-0 w-full'>
+        <button className='text-center w-full bg-green-500 py-3 text-white text-lg' type='button' onClick={() => { vibrar(); yoNunca(); }}>Siguiente</button>
+      </div>
+    </div>
+  );
+};
 
 export default YoNuncaJuego;
