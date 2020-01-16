@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import Tippy from '@tippy.js/react';
-import VerdadRetoJuego from './VerdadRetoJuego';
 import '../assets/styles/components/VerdadRetoBodySelect.scss';
 import fort from '../assets/static/fort.gif';
 import fortCielo from '../assets/static/fortCielo.gif';
@@ -9,10 +8,10 @@ import { animateCSS, vibrar } from '../funciones';
 
 const VerdadRetoBodySelect = (props) => {
   const [visible, setVisible] = useState(false);
-  const { juego } = props;
-  const { element } = props;
-  const { cant } = props;
-  const { changeStateVerdadReto } = props;
+  const history = useHistory();
+  const query = new URLSearchParams(useLocation().search);
+  const juego = query.get('juego');
+  const cant = query.get('cant');
 
   useEffect(() => {
     return () => {
@@ -29,9 +28,7 @@ const VerdadRetoBodySelect = (props) => {
           onClick={() => {
             vibrar();
             animateCSS('.VerdadRetoBodySelect', 'fadeOut faster', () => {
-              ReactDOM.render(
-                <VerdadRetoJuego juego={juego} verdadReto='verdad' cant={cant} changeStateVerdadReto={changeStateVerdadReto} />, document.querySelector(element),
-              );
+              history.push(`/verdadReto/juego?juego=${juego}&cant=${cant}&verdadReto=verdad`);
             });
           }}
         >
@@ -43,9 +40,7 @@ const VerdadRetoBodySelect = (props) => {
           onClick={() => {
             vibrar();
             animateCSS('.VerdadRetoBodySelect', 'fadeOut faster', () => {
-              ReactDOM.render(
-                <VerdadRetoJuego juego={juego} verdadReto='reto' cant={cant} changeStateVerdadReto={changeStateVerdadReto} />, document.querySelector(element),
-              );
+              history.push(`/verdadReto/juego?juego=${juego}&cant=${cant}&verdadReto=reto`);
             });
           }}
         >
@@ -54,7 +49,7 @@ const VerdadRetoBodySelect = (props) => {
       </div>
       <div className='w-full h-48 mt-5'>
         { juego === 'Picante' ? (
-          <Tippy content='MIAMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE ahre maradona' visible={visible}>
+          <Tippy content='MIAMEEEEEEEEEEEEEE ahre maradona' visible={visible}>
             <img className='object-contain w-full h-full' src={fort} alt='Fort' onClick={() => setVisible(!visible)} />
           </Tippy>
         ) : (

@@ -11,8 +11,9 @@ import AddGame from '../pages/AddGame';
 import NotFound from '../pages/NotFound';
 import '../assets/styles/tailwind.css';
 import '../assets/styles/App.scss';
+import 'tippy.js/dist/tippy.css';
 
-function App() {
+const App = () => {
   return (
     <section className='App'>
       <div className='appChildren min-h-screen'>
