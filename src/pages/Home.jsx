@@ -10,7 +10,7 @@ import crashBaile from '../assets/static/Baile_de_Crash.gif';
 const Home = () => {
   const [visible, setVisible] = useState(false);
   const [visible2, setVisible2] = useState(false);
-
+  let superString;
   useEffect(() => {
     setTimeout(() => {
       animateCSS('.HomeBody__Booom', 'fadeOut faster', () => {
@@ -20,6 +20,53 @@ const Home = () => {
       });
     }, 400);
   });
+
+  const prueba = () => {
+    const miInit = { method: 'POST',
+      body: JSON.stringify(
+        {
+          sdk: 'putoElQueLee',
+          createdAt: '1998-09-03 03:00:00',
+        },
+      ),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+    };
+    fetch('https://altaprevia.herokuapp.com/register', miInit).then((res) => {
+      superString = res.headers.get('authorization');
+      superString = superString.replace('Bearer', '');
+      return res.json();
+    })
+      .catch((error) => console.error('Error:', error))
+      .then((response) => {
+        console.log('Success:', response);
+      });
+  };
+
+  const prueba2 = () => {
+    const miInit = { method: 'POST',
+      body: JSON.stringify(
+        {
+          type: 'insulto',
+          createdAt: '1998-09-03 03:00:00',
+          body: 'tuMamaMeMima',
+        },
+      ),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': superString,
+      },
+      credentials: 'same-origin',
+    };
+    fetch('https://altaprevia.herokuapp.com/iNever/create', miInit).then((res) => res.json())
+      .catch((error) => console.error('Error:', error))
+      .then((response) => {
+        console.log('Success:', response.body);
+      });
+  };
+
   return (
     <div className='Home animated fadeIn faster'>
       <section className='HomeHeader'>
@@ -55,6 +102,8 @@ const Home = () => {
           <Link to='masProbable' className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
             Más probable a
           </Link>
+          <button type='button' className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center' onClick={() => prueba()}>prueba</button>
+          <button type='button' className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center' onClick={() => prueba2()}>prueba 2.0</button>
         </div>
         <div className='flex justify-center'>
           <Tippy content='Perreito... como en los viejos tiempos, pe perreito pe pe perreito' visible={visible}>
