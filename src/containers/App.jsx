@@ -7,6 +7,7 @@ import VerdadRetoOpcion from '../pages/VerdadRetoOpcion';
 import VerdadReto from '../pages/VerdadReto';
 import YoNunca from '../pages/YoNunca';
 import Botellita from '../pages/Botellita';
+import MasProbable from '../pages/MasProbable';
 import AddGame from '../pages/AddGame';
 import NotFound from '../pages/NotFound';
 import '../assets/styles/tailwind.css';
@@ -39,6 +40,9 @@ const App = () => {
             </Route>
             <Route path='/botellita'>
               <Botellita />
+            </Route>
+            <Route path='/masProbable'>
+              <MasProbable />
             </Route>
             <Route path='/addGame'>
               <AddGame />

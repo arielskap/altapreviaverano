@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Tippy from '@tippy.js/react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
-import { vibrar } from '../funciones';
-import '../assets/styles/components/YoNunca.scss';
+import GameGeneric from '../components/GameGeneric';
 
-const YoNunca = () => {
-  const [visible, setVisible] = useState(false);
+function YoNunca() {
   const numeroSwitch = [];
   let numMath = 4;
   for (let i = 0;i < numMath;i++) {
@@ -46,27 +43,13 @@ const YoNunca = () => {
   useEffect(() => {
     document.querySelector('.App').style.backgroundColor = 'pink';
     yoNunca();
-  });
+  }, []);
 
   return (
-    <section className='YoNunca animated fadeIn faster'>
-      <Header />
-      <div className='YoNuncaBody mt-2'>
-        <div className='YoNuncaBody-header mx-4'>
-          <Tippy content='Yo nunca hice click a esto... (Ahora toma o te hago la gran Nisman)' visible={visible}>
-            <h1 className='YoNuncaBody-h1 text-3xl text-center p-1 rounded-lg text-white' onClick={() => setVisible(!visible)}>Yo Nunca...</h1>
-          </Tippy>
-        </div>
-        <div className='YoNuncaBody-body mt-12 mx-8'>
-          <div className='YoNuncaBody__parent-p border-pink-500 border-2 p-4 rounded-lg text-lg'>
-            <p className='YoNuncaBody-p' />
-          </div>
-        </div>
-        <div className='YoNuncaBody-footer fixed bottom-0 w-full'>
-          <button className='text-center w-full bg-green-500 py-3 text-white text-lg' type='button' onClick={() => { vibrar(); yoNunca(); }}>Siguiente</button>
-        </div>
-      </div>
-    </section>
+    <>
+      <Header title='Yo Nunca' button='Entendi todito'>El juego trata sobre divertirse</Header>
+      <GameGeneric game='YoNunca' tippyText='Yo nunca hice click a esto... (Ahora toma o te hago la gran Nisman)' callback={yoNunca} color='pink'>Yo Nunca...</GameGeneric>
+    </>
   );
 
 };

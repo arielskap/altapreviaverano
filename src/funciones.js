@@ -44,3 +44,12 @@ export const animateCSS = (element, animationName, callback) => {
 export const vibrar = () => {
   window.navigator.vibrate(50);
 };
+
+export const showModal = () => {
+  const modal = document.querySelector('.modal');
+  if (modal.classList.contains('hidden')) {
+    modal.classList.replace('hidden', 'block');
+  } else {
+    modal.classList.replace('block', 'hidden');
+  }
+};

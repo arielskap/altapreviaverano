@@ -14,7 +14,6 @@ const VerdadRetoJuego = (props) => {
   const { changeStateVerdadReto } = props;
 
   const noLoHizo = () => {
-    const { verdadReto } = props;
     const p = document.createElement('p');
     if (verdadReto === 'verdad') {
       p.appendChild(document.createTextNode(reto('Picante')));

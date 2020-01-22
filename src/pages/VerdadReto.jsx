@@ -11,7 +11,6 @@ const VerdadReto = () => {
   let juego = query.get('juego');
   const cant = query.get('cant');
   const [component, setComponent] = useState(<Title juego={juego} cant={cant} />);
-
   const changeStateVerdadReto = (component) => {
     if (typeof component === 'object') {
       const { cant } = component.props;
@@ -48,7 +47,7 @@ const VerdadReto = () => {
         </div>
         <Switch>
           <Route path='/verdadReto/select'>
-            <VerdadRetoBodySelect changeStateVerdadReto={changeStateVerdadReto} />
+            <VerdadRetoBodySelect />
           </Route>
           <Route path='/verdadReto/juego'>
             <VerdadRetoJuego changeStateVerdadReto={changeStateVerdadReto} />

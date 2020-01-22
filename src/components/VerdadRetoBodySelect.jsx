@@ -6,7 +6,7 @@ import fort from '../assets/static/fort.gif';
 import fortCielo from '../assets/static/fortCielo.gif';
 import { animateCSS, vibrar } from '../funciones';
 
-const VerdadRetoBodySelect = (props) => {
+const VerdadRetoBodySelect = () => {
   const [visible, setVisible] = useState(false);
   const history = useHistory();
   const query = new URLSearchParams(useLocation().search);
