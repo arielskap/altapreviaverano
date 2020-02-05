@@ -6,11 +6,14 @@ import { animateCSS } from '../funciones';
 import '../assets/styles/components/Home.scss';
 import information from '../assets/static/information.png';
 import crashBaile from '../assets/static/Baile_de_Crash.gif';
+import skeleton from '../assets/static/skeleton.svg';
 
 const Home = () => {
   const [visible, setVisible] = useState(false);
   const [visible2, setVisible2] = useState(false);
-  let superString;
+  const img = localStorage.getItem('imgData');
+  const alt = localStorage.getItem('altData');
+
   useEffect(() => {
     setTimeout(() => {
       animateCSS('.HomeBody__Booom', 'fadeOut faster', () => {
@@ -21,57 +24,14 @@ const Home = () => {
     }, 400);
   });
 
-  const prueba = () => {
-    const miInit = { method: 'POST',
-      body: JSON.stringify(
-        {
-          sdk: 'putoElQueLee',
-          createdAt: '1998-09-03 03:00:00',
-        },
-      ),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'same-origin',
-    };
-    fetch('https://altaprevia.herokuapp.com/register', miInit).then((res) => {
-      superString = res.headers.get('authorization');
-      superString = superString.replace('Bearer', '');
-      return res.json();
-    })
-      .catch((error) => console.error('Error:', error))
-      .then((response) => {
-        console.log('Success:', response);
-      });
-  };
-
-  const prueba2 = () => {
-    const miInit = { method: 'POST',
-      body: JSON.stringify(
-        {
-          type: 'insulto',
-          createdAt: '1998-09-03 03:00:00',
-          body: 'tuMamaMeMima',
-        },
-      ),
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': superString,
-      },
-      credentials: 'same-origin',
-    };
-    fetch('https://altaprevia.herokuapp.com/iNever/create', miInit).then((res) => res.json())
-      .catch((error) => console.error('Error:', error))
-      .then((response) => {
-        console.log('Success:', response.body);
-      });
-  };
-
   return (
     <div className='Home animated fadeIn faster'>
       <section className='HomeHeader'>
-        <div className='flex justify-end px-4 pt-4'>
-          <Link to='/acercaDe' className='HomeHeader__information-button rounded-full h-12 w-12 bg-aqua-transparent flex justify-center'>
+        <div className='flex justify-between px-4 pt-4'>
+          <Link to='/home/perfil' className='rounded-full h-12 w-12 flex justify-center'>
+            <img src={img ? `data:image/svg+xml;base64,${img}` : skeleton} alt={alt || 'skeleton'} />
+          </Link>
+          <Link to='/home/acercaDe' className='HomeHeader__information-button rounded-full h-12 w-12 bg-aqua-transparent flex justify-center'>
             <img className='fill-current h-full w-full' src={information} alt='Informacion' />
           </Link>
         </div>
@@ -90,20 +50,18 @@ const Home = () => {
           </Tippy>
         </div>
         <div className='flex justify-center flex-col mt-6'>
-          <Link to='/verdadRetoOpcion' className='HomeBody__Verdad-button text-lg text-gray-900 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
+          <Link to='/games/verdadRetoOpcion' className='HomeBody__Verdad-button text-lg text-gray-900 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
             Verdad o Reto
           </Link>
-          <Link to='/yoNunca' className='HomeBody__YoNunca-button text-lg text-pink-500 border-white font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
+          <Link to='/games/yoNunca' className='HomeBody__YoNunca-button text-lg text-pink-500 border-white font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
             Yo nunca
           </Link>
-          <Link to='/botellita' className='HomeBody__Botellita-button text-lg text-gray-800 border-teal-500 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
+          <Link to='/games/botellita' className='HomeBody__Botellita-button text-lg text-gray-800 border-teal-500 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
             La Botellita
           </Link>
-          <Link to='masProbable' className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
+          <Link to='/games/masProbable' className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
             Más probable a
           </Link>
-          <button type='button' className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center' onClick={() => prueba()}>prueba</button>
-          <button type='button' className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center' onClick={() => prueba2()}>prueba 2.0</button>
         </div>
         <div className='flex justify-center'>
           <Tippy content='Perreito... como en los viejos tiempos, pe perreito pe pe perreito' visible={visible}>

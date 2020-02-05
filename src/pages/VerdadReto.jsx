@@ -46,10 +46,10 @@ const VerdadReto = () => {
           )}
         </div>
         <Switch>
-          <Route path='/verdadReto/select'>
+          <Route path='/games/verdadReto/select'>
             <VerdadRetoBodySelect />
           </Route>
-          <Route path='/verdadReto/juego'>
+          <Route path='/games/verdadReto/juego'>
             <VerdadRetoJuego changeStateVerdadReto={changeStateVerdadReto} />
           </Route>
         </Switch>

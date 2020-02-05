@@ -10,7 +10,7 @@ const VerdadRetoOpcion = () => {
   const goVerdadReto = (juego) => {
     const e = document.querySelector('.VerdadRetoOpcionBody-select');
     const cant = e.options[e.selectedIndex].value;
-    history.push(`/verdadReto/select?juego=${juego}&cant=${cant}`);
+    history.push(`/games/verdadReto/select?juego=${juego}&cant=${cant}`);
   };
 
   useEffect(() => {

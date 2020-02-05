@@ -28,7 +28,7 @@ const VerdadRetoBodySelect = () => {
           onClick={() => {
             vibrar();
             animateCSS('.VerdadRetoBodySelect', 'fadeOut faster', () => {
-              history.push(`/verdadReto/juego?juego=${juego}&cant=${cant}&verdadReto=verdad`);
+              history.push(`/games/verdadReto/juego?juego=${juego}&cant=${cant}&verdadReto=verdad`);
             });
           }}
         >
@@ -40,7 +40,7 @@ const VerdadRetoBodySelect = () => {
           onClick={() => {
             vibrar();
             animateCSS('.VerdadRetoBodySelect', 'fadeOut faster', () => {
-              history.push(`/verdadReto/juego?juego=${juego}&cant=${cant}&verdadReto=reto`);
+              history.push(`/games/verdadReto/juego?juego=${juego}&cant=${cant}&verdadReto=reto`);
             });
           }}
         >

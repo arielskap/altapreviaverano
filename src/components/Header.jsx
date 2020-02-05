@@ -19,7 +19,7 @@ const Header = (props) => {
         </button>
       </Tippy>
       <Tippy content='¡Regalamos cerveza!' placement='left' visible={true}>
-        <Link to='/addGame' className='rounded-full h-12 w-12 mr-4'>
+        <Link to='/games/addGame' className='rounded-full h-12 w-12 mr-4'>
           <img className='object-contain w-full h-full' src={beer} alt='beer' />
         </Link>
       </Tippy>

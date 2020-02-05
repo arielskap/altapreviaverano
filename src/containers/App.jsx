@@ -9,6 +9,7 @@ import YoNunca from '../pages/YoNunca';
 import Botellita from '../pages/Botellita';
 import MasProbable from '../pages/MasProbable';
 import AddGame from '../pages/AddGame';
+import Perfil from '../pages/Perfil';
 import NotFound from '../pages/NotFound';
 import '../assets/styles/tailwind.css';
 import '../assets/styles/App.scss';
@@ -24,28 +25,39 @@ const App = () => {
               <Mensaje />
             </Route>
             <Route path='/home'>
-              <Home />
+              <Switch>
+                <Route exact path='/home'>
+                  <Home />
+                </Route>
+                <Route path='/home/acercaDe'>
+                  <AcercaDe />
+                </Route>
+                <Route path='/home/perfil'>
+                  <Perfil />
+                </Route>
+              </Switch>
             </Route>
-            <Route path='/acercaDe'>
-              <AcercaDe />
-            </Route>
-            <Route path='/verdadRetoOpcion'>
-              <VerdadRetoOpcion />
-            </Route>
-            <Route path='/verdadReto'>
-              <VerdadReto />
-            </Route>
-            <Route path='/yoNunca'>
-              <YoNunca />
-            </Route>
-            <Route path='/botellita'>
-              <Botellita />
-            </Route>
-            <Route path='/masProbable'>
-              <MasProbable />
-            </Route>
-            <Route path='/addGame'>
-              <AddGame />
+            <Route path='/games'>
+              <Switch>
+                <Route path='/games/verdadRetoOpcion'>
+                  <VerdadRetoOpcion />
+                </Route>
+                <Route path='/games/verdadReto'>
+                  <VerdadReto />
+                </Route>
+                <Route path='/games/yoNunca'>
+                  <YoNunca />
+                </Route>
+                <Route path='/games/botellita'>
+                  <Botellita />
+                </Route>
+                <Route path='/games/masProbable'>
+                  <MasProbable />
+                </Route>
+                <Route path='/games/addGame'>
+                  <AddGame />
+                </Route>
+              </Switch>
             </Route>
             <Route path='*'>
               <NotFound />

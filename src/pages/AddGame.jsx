@@ -19,7 +19,7 @@ const AddGame = () => {
         </p>
       </div>
       <div className='flex justify-center items-center mt-3'>
-        <Form className='bg-black-transparent' handleSubmit={() => {}} options={options} />
+        <Form className='bg-black-transparent' options={options} hasInstagram={true} link='iNever/create' />
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Tippy from '@tippy.js/react';
 import '../assets/styles/components/GameGeneric.scss';
+import H1 from './H1';
 
 const GameGeneric = (props) => {
   const [visible, setVisible] = useState(false);
@@ -12,8 +13,6 @@ const GameGeneric = (props) => {
   /*className tags*/
   const section = game;
   const body = `${game}Body`;
-  const header = `${game}Body-header`;
-  const h1 = `${game}Body-h1`;
   const wrapper = `${game}Body-wrapper`;
   const parent = `${game}Body__parent-p`;
   const p = `${game}Body-p`;
@@ -21,11 +20,11 @@ const GameGeneric = (props) => {
   return (
     <section className={`${section} animated fadeIn faster`}>
       <div className={`${body} mt-2`}>
-        <div className={`${header} mx-4`}>
-          <Tippy content={tippyText} visible={visible}>
-            <h1 className={`${h1} text-3xl text-center p-1 rounded-lg text-white`} onClick={() => setVisible(!visible)}>{children}</h1>
-          </Tippy>
-        </div>
+        <Tippy content={tippyText} visible={visible}>
+          <div>
+            <H1 className={body} visible={visible} handleClick={setVisible}>{children}</H1>
+          </div>
+        </Tippy>
         <div className={`${wrapper} mt-12 mx-8`}>
           <div className={`${parent} border-${color}-500 border-2 p-4 rounded-lg text-lg bg-white-transparent`}>
             <p className={`${p}`} />

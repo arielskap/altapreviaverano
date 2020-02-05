@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getCookie } from '../funciones';
 
 const Form = (props) => {
   const [count, setCount] = useState(280);
@@ -33,37 +34,38 @@ const Form = (props) => {
     const select = e.options[e.selectedIndex].value;
     const textarea = document.querySelector('.form-textarea');
     const info = document.querySelector('.form-info');
+    let authorization = getCookie('access_token');
     for (let i = 1; i < options.length; i++) {
       const option = options[i];
       if (select === option) {
         if (textarea.value.length > 15) {
-          /*const data = {
-            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoyLCJyb2xlX3VzZXIiOiJST0xFX1JFU0lERU5UIiwiaWF0IjoxNTc4NDg2Njk4LCJleHAiOjE2MDk5MzYyOTh9.YIdvhgWFONf3t1_P4Fb9y2ABKMFhGOpjaYnHu_rAO8A',
-            body: textarea.value,
-            type: select,
-            createdAt: '2019-12-12 12:12:12',
-          };*/
-          /*const miInit = { method: 'POST',
-            body: {
-              'type': 'mejora',
-              'body': 'deberian poner el juego mas tiempo',
-              'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoyLCJyb2xlX3VzZXIiOiJST0xFX1JFU0lERU5UIiwiaWF0IjoxNTc4NDg3MDEyLCJleHAiOjE2MDk5MzY2MTJ9.hCqovyZ9mTraqLq4GvaEjwBKnG2g6azBNSRyxjCOAd4',
-              'createdAt': '2019-12-12 12:12:12',
+          const miInit = { method: 'POST',
+            body: JSON.stringify(
+              {
+                'type': select,
+                'body': textarea.value,
+                'createdAt': Date.now(),
+              },
+            ),
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': authorization,
             },
-            mode: 'no-cors',
-            header: {
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Credentials': true,
-            } };
-          //https://altaprevia.herokuapp.com/review/create/many
-          fetch('https://altaprevia.herokuapp.com/review/create/', miInit)
-            .then((response) => {
-              console.log(response);
-              return response.json();
+            credentials: 'same-origin',
+          };
+          fetch(`https://altaprevia.herokuapp.com/${link}`, miInit)
+            .then((res) => {
+              authorization = res.headers.get('authorization');
+              authorization = authorization.replace('Bearer', '');
+              return res.json();
             })
-            .then((myJson) => {
-              console.log(myJson);
-            });*/
+            .catch((error) => {
+              console.error('Error:', error);
+            })
+            .then((response) => {
+              console.log('Success created:', response);
+              if (!authorization || authorization === 'null') setCookie('access_token', authorization, 365);
+            });
           info.textContent = '¡Gracias por escribirnos!';
           info.style.backgroundColor = '#48bb78';
           break;
@@ -77,7 +79,6 @@ const Form = (props) => {
         info.style.backgroundColor = '#e53e3e';
       }
     }
-    //const misCabeceras = new Headers();
     event.preventDefault();
   };
 

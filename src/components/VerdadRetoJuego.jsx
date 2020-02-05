@@ -73,7 +73,7 @@ const VerdadRetoJuego = (props) => {
                   changeStateVerdadReto(<Title juego={juego} cant={cant} />);
                 }
               }
-              history.push(`/verdadReto/select?juego=${juego}&cant=${cant}`);
+              history.push(`/games/verdadReto/select?juego=${juego}&cant=${cant}`);
             });
           }}
         >
