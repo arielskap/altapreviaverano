@@ -22,7 +22,11 @@ const VerdadRetoOpcion = () => {
 
   return (
     <section className='VerdadRetoOpcion animated fadeIn faster'>
-      <Header />
+      <Header title='Instrucciones' button='bueno, tampoco me cuentes tu vida, BRO'>
+        Si se elige verdad se debera responder la pregunta, en caso de que sea reto debera hacer la prenda. Si elige no hacerla al presionar 'No lo hizo' le aparecera la opcion contraría y encima 'picante'
+        <br />
+        <span role='img' aria-label='Corazon'>❤️️</span>
+      </Header>
       <section className='VerdadRetoOpcionBody'>
         <div className='VerdadRetoOpcionBody-header mb-4'>
           <h1 className='VerdadRetoOpcionBody-h1 text-center text-4xl mt-4 mx-4 rounded'>Verdad O Reto</h1>

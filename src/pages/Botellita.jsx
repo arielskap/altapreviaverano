@@ -5,13 +5,14 @@ import '../assets/styles/components/BotellitaJuego.scss';
 import vodka from '../assets/static/vodka.png';
 
 const Botellita = () => {
+  let flip;
   const randomBottle = () => {
     vibrar();
     const degrees = Math.floor((Math.random() * 4000) + 1);
     document.querySelector('.pSpin').classList.replace('block', 'hidden');
     document.querySelector('.spin').style.transform = `rotate(${degrees}deg)`;
     document.querySelector('.LaBotellita-button').removeEventListener('click', randomBottle);
-    setTimeout(() => {
+    flip = setTimeout(() => {
       document.querySelector('.LaBotellita-button').addEventListener('click', randomBottle);
       document.querySelector('.pSpin').classList.replace('hidden', 'block');
     }, 3000);
@@ -20,11 +21,18 @@ const Botellita = () => {
   useEffect(() => {
     document.querySelector('.App').style.backgroundColor = '#4299e1';
     document.querySelector('.LaBotellita-button').addEventListener('click', randomBottle);
+    return () => {
+      clearTimeout(flip);
+    };
   });
 
   return (
     <div className='Botellita animated fadeIn faster'>
-      <Header />
+      <Header title='Instrucciones' button='eeesaaaaaaa'>
+        Apreta la botella o el boton ( Si si ya se todavía no podes girarla ) y al que le toque sale patererete, na mentira, se besan, en caso de no querer toman un trago
+        <br />
+        <span role='img' aria-label='Corazon'>❤️️</span>
+      </Header>
       <div className='LaBotellita-Body mt-2'>
         <div className='LaBotellita-header mx-4'>
           <h1 className='LaBotellita-h1 text-3xl text-center p-1 rounded-lg text-black'>La Botellita</h1>

@@ -47,7 +47,11 @@ function YoNunca() {
 
   return (
     <>
-      <Header title='Yo Nunca' button='Entendi todito'>El juego trata sobre divertirse</Header>
+      <Header title='Instrucciones' button='Perfectirigillo'>
+        El juego consiste en tomar alcohol, una linea, una seca o dar pasos de fortnite si no hiciste lo que predica el texto.
+        <br />
+        <span role='img' aria-label='Corazon'>❤️️</span>
+      </Header>
       <GameGeneric game='YoNunca' tippyText='Yo nunca hice click a esto... (Ahora toma o te hago la gran Nisman)' callback={yoNunca} color='pink'>Yo Nunca...</GameGeneric>
     </>
   );

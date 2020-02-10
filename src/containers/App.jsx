@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
+import constructor from '../constructor';
 import Mensaje from '../pages/Mensaje';
 import AcercaDe from '../pages/AcercaDe';
 import Home from '../pages/Home';
@@ -14,6 +15,8 @@ import NotFound from '../pages/NotFound';
 import '../assets/styles/tailwind.css';
 import '../assets/styles/App.scss';
 import 'tippy.js/dist/tippy.css';
+
+constructor();
 
 const App = () => {
   return (

@@ -2,18 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Tippy from '@tippy.js/react';
 import Boom from '../components/Boom';
-import { animateCSS } from '../funciones';
+import { animateCSS, getCookie } from '../funciones';
 import '../assets/styles/components/Home.scss';
 import information from '../assets/static/information.png';
 import crashBaile from '../assets/static/Baile_de_Crash.gif';
-import skeleton from '../assets/static/skeleton.svg';
 
 const Home = () => {
   const [visible, setVisible] = useState(false);
   const [visible2, setVisible2] = useState(false);
-  const img = localStorage.getItem('imgData');
-  const alt = localStorage.getItem('altData');
-
+  const perfilImg = getCookie('perfilImg');
+  const perfilAlt = getCookie('perfilAlt');
   useEffect(() => {
     setTimeout(() => {
       animateCSS('.HomeBody__Booom', 'fadeOut faster', () => {
@@ -29,7 +27,7 @@ const Home = () => {
       <section className='HomeHeader'>
         <div className='flex justify-between px-4 pt-4'>
           <Link to='/home/perfil' className='rounded-full h-12 w-12 flex justify-center'>
-            <img src={img ? `data:image/svg+xml;base64,${img}` : skeleton} alt={alt || 'skeleton'} />
+            <img src={perfilImg} alt={perfilAlt} />
           </Link>
           <Link to='/home/acercaDe' className='HomeHeader__information-button rounded-full h-12 w-12 bg-aqua-transparent flex justify-center'>
             <img className='fill-current h-full w-full' src={information} alt='Informacion' />

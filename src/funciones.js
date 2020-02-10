@@ -45,11 +45,71 @@ export const vibrar = () => {
   window.navigator.vibrate(50);
 };
 
-export const showModal = () => {
-  const modal = document.querySelector('.modal');
+export const showModal = (selector) => {
+  const className = `.${selector || 'modal'}`;
+  const modal = document.querySelector(className);
   if (modal.classList.contains('hidden')) {
-    modal.classList.replace('hidden', 'block');
+    modal.classList.replace('hidden', 'flex');
+    document.body.classList.toggle('overflow-hidden');
+    animateCSS(className, 'fadeIn faster');
   } else {
-    modal.classList.replace('block', 'hidden');
+    modal.classList.replace('flex', 'hidden');
+    document.body.classList.toggle('overflow-hidden');
   }
+  if (document.querySelector('.button-modal').hasAttribute('disabled')) {
+    document.querySelector('.button-modal').removeAttribute('disabled');
+  }
+};
+
+export const close = (className) => {
+  let allClosed = getCookie('closed');
+  allClosed = allClosed.split('|');
+  animateCSS(className, 'flipOutX faster', () => {
+    document.querySelector(className).classList.add('hidden');
+  });
+  allClosed.push(className);
+  allClosed = allClosed.join('|');
+  setCookie('closed', allClosed);
+};
+
+export const peticion = (link) => {
+  let authorization = getCookie('access_token');
+  const miInit = { method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': authorization,
+    },
+    credentials: 'same-origin',
+  };
+  fetch(`https://altaprevia.herokuapp.com/${link}`, miInit)
+    .then((res) => {
+      authorization = res.headers.get('authorization');
+      authorization = authorization.replace('Bearer', '');
+      return res.json();
+    })
+    .catch((error) => {
+      console.error(`Error ${link}:`, error);
+    })
+    .then((response) => {
+      console.log(`Success created ${link}:`, response);
+      if (!authorization || authorization === 'null') setCookie('access_token', authorization, 365);
+    });
+};
+
+export const getBase64Image = (img) => {
+  const canvas = document.createElement('canvas');
+  canvas.width = img.width;
+  canvas.height = img.height;
+
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 0);
+
+  const dataURL = canvas.toDataURL('image/png');
+
+  return dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
+};
+
+export const svgBase64 = (img) => {
+  const s = new XMLSerializer().serializeToString(img);
+  return window.btoa(s);
 };

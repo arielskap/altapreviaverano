@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import Title from './Title';
-import { animateCSS, vibrar } from '../funciones';
+import { animateCSS } from '../funciones';
 import { verdad, reto } from '../verdadReto';
 import '../assets/styles/components/VerdadRetoJuego.scss';
 
@@ -26,6 +26,7 @@ const VerdadRetoJuego = (props) => {
     document.querySelector('.VerdadRetoJuego-footer__noLoHizo').classList.add('hidden');
     document.querySelector('.VerdadRetoJuego-footer__realizado').classList.remove('w-4/6', 'rounded-r');
     document.querySelector('.VerdadRetoJuego-footer__realizado').classList.add('w-full', 'rounded');
+    window.scrollTo(0, document.body.scrollHeight);
   };
 
   useEffect(() => {
@@ -52,17 +53,15 @@ const VerdadRetoJuego = (props) => {
           className='VerdadRetoJuego-footer__noLoHizo bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-4 border border-red-700 rounded-l w-2/6'
           type='button'
           onClick={() => {
-            vibrar();
             noLoHizo();
           }}
         >
-            No lo hizo...
+          No lo hizo...
         </button>
         <button
           className='VerdadRetoJuego-footer__realizado bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-4 border border-blue-700 rounded-r w-4/6'
           type='button'
           onClick={() => {
-            vibrar();
             animateCSS('.VerdadRetoJuego', 'fadeOut faster', () => {
               if (cant !== '∞') {
                 cant--;
@@ -73,11 +72,11 @@ const VerdadRetoJuego = (props) => {
                   changeStateVerdadReto(<Title juego={juego} cant={cant} />);
                 }
               }
-              history.push(`/games/verdadReto/select?juego=${juego}&cant=${cant}`);
+              history.replace(`/games/verdadReto/select?juego=${juego}&cant=${cant}`);
             });
           }}
         >
-            ¡Realizado!
+          ¡Realizado!
         </button>
       </div>
     </div>

@@ -23,16 +23,13 @@ const VerdadReto = () => {
     }
   };
 
-  /*useEffect(() => {
-    const juego = query.get('juego');
-    ReactDOM.render(
-      <VerdadRetoBodySelect juego={juego} element='.VerdadRetoBody__change' cant={cant} changeStateVerdadReto={changeStateVerdadReto} />, document.querySelector('.VerdadRetoBody__change'),
-    );
-  }, []);*/
-
   return (
     <section className='VerdadReto animated fadeIn faster'>
-      <Header />
+      <Header title='Instrucciones' button='bueno, tampoco me cuentes tu vida, BRO'>
+        Si se elige verdad se debera responder la pregunta, en caso de que sea reto debera hacer la prenda. Si elige no hacerla al presionar 'No lo hizo' le aparecera la opcion contraría y encima 'picante'
+        <br />
+        <span role='img' aria-label='Corazon'>❤️️</span>
+      </Header>
       <section className='VerdadRetoBody px-4 animated fadeIn'>
         <div className='text-center text-3xl mt-4 shadow-lg'>
           { juego === 'Suave' ? (

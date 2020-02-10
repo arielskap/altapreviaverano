@@ -1,30 +1,70 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import H1 from '../components/H1';
 import ImgPerfil from '../components/ImgPerfil';
+import Modal from '../components/Modal';
+import { getCookie, setCookie, showModal } from '../funciones';
 import '../assets/styles/components/Perfil.scss';
 import avocado from '../assets/static/avocado.svg';
 import palmera from '../assets/static/palmera.png';
-
-import anonymous from '../assets/static/anonymous.svg';
-import archer from '../assets/static/archer.svg';
-import avatars from '../assets/static/avatars.svg';
-import einstein from '../assets/static/einstein.svg';
-import folklore from '../assets/static/folklore.svg';
-import head from '../assets/static/head.svg';
-import job from '../assets/static/job.svg';
-import legend from '../assets/static/legend.svg';
-import monk from '../assets/static/monk.svg';
-import muslim from '../assets/static/muslim.svg';
-import ninja from '../assets/static/ninja.svg';
-import nun from '../assets/static/nun.svg';
-import spooky from '../assets/static/spooky.svg';
-import supervillian from '../assets/static/supervillian.svg';
-import transportation from '../assets/static/transportation.svg';
-import unicorn from '../assets/static/unicorn.svg';
-import woman from '../assets/static/woman.svg';
-import skeleton from '../assets/static/skeleton.svg';
+import perfilJson from '../constantes';
+import Close from '../components/Close';
 
 const Perfil = () => {
+  const perfilImg = getCookie('perfilImg');
+  const perfilAlt = getCookie('perfilAlt');
+  const [img, setImg] = useState(perfilImg);
+  const [alt, setAlt] = useState(perfilAlt);
+  let closedItems = getCookie('closed') || [];
+  if (typeof closedItems === 'string') {
+    closedItems = closedItems.split('|');
+  }
+  let select = 0;
+  const handleSubmitAvatar = (event) => {
+    let jsonSrc;
+    let jsonAlt;
+    if (select !== 0) {
+      perfilJson.forEach((json) => {
+        const { id } = json;
+        if (select === id) {
+          jsonSrc = json.src;
+          jsonAlt = json.alt;
+        }
+      });
+      showModal('Modal-avatar');
+      setImg(jsonSrc);
+      setAlt(jsonAlt);
+      setCookie('perfilImg', jsonSrc, 365);
+      setCookie('perfilAlt', jsonAlt, 365);
+    }
+    event.preventDefault();
+  };
+
+  const handleSubmit = (event) => {
+    showModal();
+    event.preventDefault();
+  };
+
+  const handleChange = () => {
+    const e = document.querySelector('.form-select');
+    const selected = e.options[e.selectedIndex].value;
+    if (selected === 'xx') {
+      document.querySelector('#otro').removeAttribute('disabled');
+      document.querySelector('#otro').setAttribute('required', true);
+      document.querySelector('#otro').classList.toggle('opacity-50');
+      document.querySelector('#otro').classList.toggle('cursor-not-allowed');
+      document.querySelector('.p-otro').classList.toggle('opacity-50');
+      document.querySelector('.p-otro').classList.toggle('cursor-not-allowed');
+    } else {
+      document.querySelector('#otro').value = '';
+      document.querySelector('#otro').setAttribute('disabled', 'disabled');
+      document.querySelector('#otro').setAttribute('required', false);
+      document.querySelector('#otro').classList.add('opacity-50');
+      document.querySelector('#otro').classList.add('cursor-not-allowed');
+      document.querySelector('.p-otro').classList.add('opacity-50');
+      document.querySelector('.p-otro').classList.add('cursor-not-allowed');
+    }
+  };
+
   useEffect(() => {
     document.querySelector('.App').style.backgroundColor = 'coral';
     document.querySelector('.App').style.backgroundImage = `url(${avocado})`;
@@ -32,97 +72,102 @@ const Perfil = () => {
       document.querySelector('.App').style.backgroundImage = `url(${palmera})`;
     };
   });
-  /*Lo que quieres hacer es posible gracias a que puedes guardar la imagen como Base64, te mostrare como, ojo esta respuesta no es originalmente mía pero funciona, esta posteada en StackOverflow en ingles véase el enlace
 
-En primer lugar, tomo mi imagen getElementByIDy guardo la imagen como Base64. Luego guardo la cadena Base64 como mi valor localStorage.
-
-bannerImage = document.getElementById('bannerImg');
-imgData = getBase64Image(bannerImage);
-localStorage.setItem("imgData", imgData);
-Aquí está la función que convierte la imagen en Base64:
-
-function getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-
-    var dataURL = canvas.toDataURL("image/png");
-
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-}
-Luego, en mi próxima página, creé una imagen con un src en blanco:
-
-<img src="" id="tableBanner" />
-Y directamente cuando se carga la página, utilizo estas tres líneas siguientes para obtener la cadena base64 de localstorage y aplicarla a la imagen con el src en blanco que creé:
-
-var dataImage = localStorage.getItem('imgData');
-bannerImg = document.getElementById('tableBanner');
-bannerImg.src = "data:image/png;base64," + dataImage;
-Edito para agregar como verificar si la variable no existe;
-
-if (localStorage.getItem("mi_variable") === null) {
-  //Aqui se ejecuta todo si no existe
-}
-Esto no funciona con gif ya que los gif no son compatibles con canvas
-
-*/
   return (
     <div className=' container mx-auto px-4'>
       <div className='pt-4'>
         <H1 className='perfil'>Perfil</H1>
       </div>
-      <div>
-        <ImgPerfil src='' alt='' />
+      <div className='flex justify-center w-full mt-4'>
+        <div className='w-24 h-24'>
+          <ImgPerfil src={img} alt={alt} />
+        </div>
       </div>
       <div className='mt-4'>
-        <div>
-          <h2 className='text-center text-xl'>¿Que podes hacer en tu perfil?</h2>
-          <p>
-          Basicamente nada... Na mentira...
-            <br />
-          Podes agregar tu instagram, el mismo aparecera si agregas un juego y es elegido por los desarrolladores.
-            <br />
-          Y además podes... Cambiar tu avatar!!!
-          </p>
-        </div>
-        <div className='my-6'>
+        {!closedItems.find((element) => element === '.perfil-info') && (
+          <div className='p-2 rounded bg-transparent-pink-1 text-white perfil-info'>
+            <Close parent='.perfil-info' />
+            <h2 className='text-center text-xl'>¿Que podes hacer en tu perfil?</h2>
+            <p>
+              Basicamente nada... Na mentira...
+              <br />
+              Podes agregar tu instagram, el mismo aparecera si agregas un juego y es elegido por los desarrolladores.
+              <br />
+              Y además podes... Cambiar tu avatar!!!
+            </p>
+          </div>
+        )}
+        <form className='my-6' onSubmit={handleSubmitAvatar}>
           <h3 className='text-center text-lg'>¡Cambiar Avatar!</h3>
           <div className='flex flex-wrap'>
-            <ImgPerfil src={anonymous} alt='anonymous' />
-            <ImgPerfil src={archer} alt='archer' />
-            <ImgPerfil src={avatars} alt='avatars' />
-            <ImgPerfil src={einstein} alt='einstein' />
-            <ImgPerfil src={folklore} alt='folklore' />
-            <ImgPerfil src={head} alt='head' />
-            <ImgPerfil src={job} alt='job' />
-            <ImgPerfil src={legend} alt='legend' />
-            <ImgPerfil src={monk} alt='monk' />
-            <ImgPerfil src={muslim} alt='muslim' />
-            <ImgPerfil src={ninja} alt='ninja' />
-            <ImgPerfil src={nun} alt='nun' />
-            <ImgPerfil src={spooky} alt='spooky' />
-            <ImgPerfil src={supervillian} alt='supervillian' />
-            <ImgPerfil src={transportation} alt='transportation' />
-            <ImgPerfil src={unicorn} alt='unicorn' />
-            <ImgPerfil src={woman} alt='woman' />
-            <ImgPerfil src={skeleton} alt='skeleton' />
+            {perfilJson.map((value) => {
+              const { id } = value;
+              const { alt } = value;
+              const { src } = value;
+              return (
+                <button
+                  className='w-1/5'
+                  type='button'
+                  onClick={() => {
+                    select = id ;
+                  }}
+                  key={id}
+                >
+                  <ImgPerfil src={src} alt={alt} className='border-2 border-transparent hover:border-pink-500' />
+                </button>
+              );
+            })}
           </div>
           <div className='text-right'>
             <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 mb-3'>¡Confirmar!</button>
           </div>
-        </div>
+          <Modal className='Modal-avatar' title='¡Avatar cambiado!' button='Pefeto' color='purple'><span role='img' aria-label='okey'>👍</span></Modal>
+        </form>
         <div className='mx-4'>
-          <form onSubmit={() => {}}>
+          <form onSubmit={handleSubmit}>
             <label htmlFor='nombre'>
-              *Podes poner lo que quieras, no te queremos robar informacion o si...
-              <input id='nombre' type='text' placeholder='tuGatita123' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' />
+              <p className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Nombre: (Opcional)</p>
+              <input id='nombre' type='text' placeholder='tuGatita123' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' maxLength='40' />
+              <p className='text-gray-600 text-xs italic bg-transparent-red-1 rounded p-1 mt-1'>*Podes poner lo que quieras, no te queremos robar informacion o si...</p>
             </label>
             <label htmlFor='instagram'>
-              *Si un juego que recomiendas es elegido para formar parte de la app, se agregara tu instagram, es lo minimo que podemos hacer por trabajar gratis (?
-              <input id='instagram' type='text' placeholder='ecstasy.ring' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' />
+              <p className='block uppercase tracking-wide text-gray-700 text-xs font-bold my-2'>Instagram:</p>
+              <input id='instagram' type='text' placeholder='ecstasy.ring' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' maxLength='30' required />
+              <p className='text-gray-600 text-xs italic bg-transparent-red-1 rounded p-1 mt-1'>*Si un juego que recomiendas es elegido para formar parte de la app, se agregara tu instagram, es lo minimo que podemos hacer por trabajar gratis (?</p>
+            </label>
+            <label htmlFor='email'>
+              <p className='block uppercase tracking-wide text-gray-700 text-xs font-bold my-2'>Email: (Opcional)</p>
+              <input id='email' type='email' placeholder='elMasRati@skere.com' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' maxLength='40' />
+            </label>
+            <label htmlFor='edad'>
+              <p className='block uppercase tracking-wide text-gray-700 text-xs font-bold my-2'>Edad:</p>
+              <input id='edad' type='number' min='18' max='99' placeholder='1.000.000' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' required />
+            </label>
+            <label htmlFor='pais'>
+              <p className='block uppercase tracking-wide text-gray-700 text-xs font-bold my-2'>Pais:</p>
+              <div className='relative'>
+                <select id='pais' className='form-select block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500' required onChange={handleChange}>
+                  <option value=''>~Pais~</option>
+                  <option value='ar'>Argentina</option>
+                  <option value='bo'>Bolivia  </option>
+                  <option value='br'>Brasil </option>
+                  <option value='cl'>Chile</option>
+                  <option value='es'>España</option>
+                  <option value='mx'>Mexico</option>
+                  <option value='py'>Paraguay</option>
+                  <option value='pe'>Peru</option>
+                  <option value='uy'>Uruguay</option>
+                  <option value='ve'>Venezuela</option>
+                  <option value='xx'>Otro/Marte</option>
+                </select>
+                <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
+                  <svg className='fill-current h-4 w-4' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' /></svg>
+                </div>
+              </div>
+            </label>
+            <label htmlFor='otro'>
+              <p className='p-otro block uppercase tracking-wide text-gray-700 text-xs font-bold my-2 opacity-50 cursor-not-allowed'>Otro:</p>
+              <input id='otro' type='text' placeholder='Venus' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal opacity-50 cursor-not-allowed' disabled />
             </label>
             <div className='text-right'>
               <button type='submit' className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded my-4'>¡Agregarme!</button>
@@ -130,6 +175,7 @@ Esto no funciona con gif ya que los gif no son compatibles con canvas
           </form>
         </div>
       </div>
+      <Modal title='¡Muchas gracias!' button='altoke perro' color='green'>Mejor que el club grido</Modal>
     </div>
   );
 };
