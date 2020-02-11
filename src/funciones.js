@@ -119,12 +119,53 @@ export const svgBase64 = (img) => {
 };
 
 export const addInstagram = (text) => {
-  const parent = document.querySelector('div-instagram');
-  let paragraph = document.querySelector('p-instagram');
+  const span = document.createElement('span');
+  const span2 = document.createElement('span');
+  const a = document.querySelector('.a-instagram');
+  const parent = document.querySelector('.div-instagram');
+  let paragraph = document.querySelector('.p-instagram');
   if (text) {
-    paragraph.nextElementSibling.remove();
+    if (parent.classList.contains('hidden')) {
+      parent.classList.toggle('hidden');
+    }
+
+    if (paragraph) {
+      paragraph.remove();
+    }
     paragraph = document.createElement('p');
-    paragraph.appendChild(document.createTextNode(text));
+    paragraph.classList.add('p-instagram');
+    span.setAttribute('role', 'img');
+    span.setAttribute('aria-label', 'Corazon');
+    span.appendChild(document.createTextNode('💕'));
+    span2.setAttribute('role', 'img');
+    span2.setAttribute('aria-label', 'Corazon');
+    span2.appendChild(document.createTextNode('💕'));
+    paragraph.appendChild(span);
+    paragraph.appendChild(document.createTextNode(` ${text} `));
+    paragraph.appendChild(span2);
     parent.appendChild(paragraph);
+    a.setAttribute('href', `https://www.instagram.com/${text}/`);
+  } else {
+    parent.classList.add('hidden');
   }
+};
+
+export const gameGeneric = (classList, json, numMath, numeroSwitch, lastMessage) => {
+  let p = document.querySelector(`.${classList}Body-p`);
+  const parentP = document.querySelector(`.${classList}Body__parent-p`);
+  const numAleatorio = Math.floor((Math.random() * numMath));
+  let text;
+  if (numeroSwitch[numAleatorio] !== undefined) {
+    text = document.createTextNode(json[numeroSwitch[numAleatorio]].text);
+    addInstagram(json[numeroSwitch[numAleatorio]].instagram);
+  } else {
+    text = document.createTextNode(lastMessage);
+    addInstagram();
+  }
+  p.remove();
+  p = document.createElement('p');
+  p.classList.add(`${classList}Body-p`, 'animated', 'fadeIn', 'faster');
+  p.appendChild(text);
+  parentP.appendChild(p);
+  return numAleatorio;
 };

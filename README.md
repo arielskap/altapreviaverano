@@ -6,12 +6,12 @@
 [] sure leave back, verdadReto
 [x] fondo opaco
 [] landscape mejorado
-[] mensaje unico
+[x] mensaje unico
 [x] configuracion
 [x] mejorar info
 [x] agregar instrucciones
 [] flip bottle
-[] instagram
+[~] instagram
 [x] tippy
 
 # cuando termine:

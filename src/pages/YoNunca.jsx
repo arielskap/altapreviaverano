@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import GameGeneric from '../components/GameGeneric';
+import { gameGeneric } from '../funciones';
 
 function YoNunca() {
   const numeroSwitch = [];
@@ -10,16 +11,10 @@ function YoNunca() {
   }
 
   const yoNunca = () => {
-    let p = document.querySelector('.YoNuncaBody-p');
-    const parentP = document.querySelector('.YoNuncaBody__parent-p');
-    let pInstagram = document.querySelector('.p-instagram');
-    const parentInstagram = document.querySelector('.div-instagram');
-    let yoNunca;
-    const numAleatorio = Math.floor((Math.random() * numMath));
     const json = [{
       id: 1,
       text: 'Meti la mano en el agua del inodoro',
-      instagram: 'ecstasy.ring',
+      instagram: 'ecstasy_ring',
     }, {
       id: 2,
       text: 'Tome alcohol',
@@ -31,28 +26,9 @@ function YoNunca() {
       text: 'Bailé Fortnite',
       instagram: 'ni.idea',
     }];
-    if (numeroSwitch[numAleatorio] !== undefined) {
-      yoNunca = document.createTextNode(json[numeroSwitch[numAleatorio]].text);
-      if (json[numeroSwitch[numAleatorio]].instagram) {
-        pInstagram.remove();
-        pInstagram = document.createElement('p');
-        pInstagram.classList.add('p-instagram');
-        pInstagram.appendChild(document.createTextNode(json[numeroSwitch[numAleatorio]].instagram));
-        parentInstagram.appendChild(pInstagram);
-      } else {
-        pInstagram.remove();
-      }
-    } else {
-      yoNunca = document.createTextNode('Ya no hay mas "Yo Nunca". Juga otra cosa o quebra.');
-    }
-    p.remove();
-    p = document.createElement('p');
-    p.classList.add('YoNuncaBody-p', 'animated', 'fadeIn', 'faster');
-    p.appendChild(yoNunca);
-    parentP.appendChild(p);
+    const numAleatorio = gameGeneric('YoNunca', json, numMath, numeroSwitch, 'Ya no hay mas "Yo Nunca". Juga otra cosa o quebra.');
     numeroSwitch.splice(numAleatorio, 1);
     numMath--;
-
   };
 
   useEffect(() => {

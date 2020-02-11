@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import Title from './Title';
 import Instagram from './Instagram';
-import { animateCSS } from '../funciones';
+import { animateCSS, addInstagram } from '../funciones';
 import { verdad, reto } from '../verdadReto';
 import '../assets/styles/components/VerdadRetoJuego.scss';
 
@@ -49,11 +49,13 @@ const VerdadRetoJuego = (props) => {
         parrafoFunction = verdad(juego);
         text = parrafoFunction[0];
         instagram = parrafoFunction[1];
+        addInstagram(instagram);
         text = document.createTextNode(text);
       } else {
         parrafoFunction = reto(juego);
         text = parrafoFunction[0];
         instagram = parrafoFunction[1];
+        addInstagram(instagram);
         text = document.createTextNode(text);
       }
     }
@@ -62,10 +64,12 @@ const VerdadRetoJuego = (props) => {
 
   return (
     <div className='VerdadRetoJuego animated fadeIn mt-16'>
-      <div className='VerdadRetoJuego-body text-lg mx-4 mb-16'>
-        <p className={`VerdadRetoJuego__mission p-4 border-2 border-${verdadReto === 'verdad' ? 'green' : 'red'}-700 rounded-lg`} />
+      <div className='mb-16'>
+        <div className='VerdadRetoJuego-body text-lg mx-8'>
+          <p className={`VerdadRetoJuego__mission p-4 border-2 border-${verdadReto === 'verdad' ? 'green' : 'red'}-700 rounded-lg`} />
+        </div>
+        <Instagram />
       </div>
-      <Instagram />
       <div className='VerdadRetoJuego-footer fixed bottom-0 flex w-full left-0'>
         <button
           className='VerdadRetoJuego-footer__noLoHizo bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-4 border border-red-700 rounded-l w-2/6'

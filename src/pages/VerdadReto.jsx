@@ -30,8 +30,8 @@ const VerdadReto = () => {
         <br />
         <span role='img' aria-label='Corazon'>❤️️</span>
       </Header>
-      <section className='VerdadRetoBody px-4 animated fadeIn'>
-        <div className='text-center text-3xl mt-4 shadow-lg'>
+      <section className='VerdadRetoBody animated fadeIn'>
+        <div className='text-center text-3xl mt-4 shadow-lg px-4'>
           { juego === 'Suave' ? (
             <div className='VerdadRetoBody__suave border-green-400 text-white rounded'>
               {component}

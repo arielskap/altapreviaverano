@@ -48,7 +48,7 @@ const AcercaDe = () => {
             Habilitar info adicional.
           </label>
         </Card>
-        <Card className='AcercaDeBody__porque mt-4'>
+        <Card className='AcercaDeBody__porque mt-4 pb-1'>
           <div className='p-1'>
             <h4 className='text-xl'>¿Por que usas lenguaje inclusivo?</h4>
             <div className='mt-2'>
@@ -63,7 +63,7 @@ const AcercaDe = () => {
           <h4 className='text-xl'>Contacto:</h4>
           <Form className='bg-black-transparent' options={options} />
         </Card>
-        <Card className='footer-redes mt-4'>
+        <Card className='footer-redes mt-4 pb-1'>
           <p className='p-1'>Las redes del archimega super re groso developer in the fucking word: </p>
           <div className='flex justify-center mt-1'>
             <Tippy content='¿Facebook en el 2020? xddd' visible={visible}>
@@ -75,13 +75,13 @@ const AcercaDe = () => {
             </Tippy>
           </div>
         </Card>
-        <Card className='mt-3 AcercaDeBody__cocktel'>
+        <Card className='mt-3 AcercaDeBody__cocktel pb-1'>
           <p className='p-1'>Si queres ser un todo hacker de la coctelería descargate:</p>
           <div className='flex justify-center mt-1'>
             <button className={TAM_IMG} type='button'><img className='object-contain w-full h-full' src={barmat} alt='barmat' /></button>
           </div>
         </Card>
-        <Card className='AcercaDeBody__footer-somos mt-4'>
+        <Card className='AcercaDeBody__footer-somos mt-4 pb-1'>
           <p className='p-1'>
             Ariel Santiago Villarreal Gutierrez y Abbul Rodriguez
             <br />

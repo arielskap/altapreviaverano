@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import GameGeneric from '../components/GameGeneric';
+import { gameGeneric } from '../funciones';
 
 const MasProbable = () => {
 
@@ -11,32 +12,26 @@ const MasProbable = () => {
   }
 
   const masProbableA = () => {
-    let p = document.querySelector('.masProbableBody-p');
-    const parentP = document.querySelector('.masProbableBody__parent-p');
-    let masProbable;
-    const numAleatorio = Math.floor((Math.random() * numMath));
-    switch (numeroSwitch[numAleatorio]) {
-      case 1:
-        masProbable = document.createTextNode('Tomar falopa');
-        break;
-      case 2:
-        masProbable = document.createTextNode('Bailar en pelotas');
-        break;
-      case 3:
-        masProbable = document.createTextNode('Ser fan del polaco');
-        break;
-      case 4:
-        masProbable = document.createTextNode('Ser emo');
-        break;
-      default:
-        masProbable = document.createTextNode('Cagarse en clase');
-        break;
-    }
-    p.remove();
-    p = document.createElement('p');
-    p.classList.add('masProbableBody-p', 'animated', 'fadeIn', 'faster');
-    p.appendChild(masProbable);
-    parentP.appendChild(p);
+    const json = [{
+      id: 1,
+      text: 'Tomar falopa',
+      instagram: 'ecstasy_ring',
+    }, {
+      id: 2,
+      text: 'Bailar en pelotas',
+    }, {
+      id: 3,
+      text: 'Ser fan del polaco',
+      instagram: 'asdasda.fg',
+    }, {
+      id: 4,
+      text: 'Ser emo',
+    }, {
+      id: 5,
+      text: 'Cagarse en clase',
+      instagram: 'jiji.jojo',
+    }];
+    const numAleatorio = gameGeneric('masProbable', json, numMath, numeroSwitch, 'F');
     numeroSwitch.splice(numAleatorio, 1);
     numMath--;
   };
