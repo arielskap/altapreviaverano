@@ -117,3 +117,14 @@ export const svgBase64 = (img) => {
   const s = new XMLSerializer().serializeToString(img);
   return window.btoa(s);
 };
+
+export const addInstagram = (text) => {
+  const parent = document.querySelector('div-instagram');
+  let paragraph = document.querySelector('p-instagram');
+  if (text) {
+    paragraph.nextElementSibling.remove();
+    paragraph = document.createElement('p');
+    paragraph.appendChild(document.createTextNode(text));
+    parent.appendChild(paragraph);
+  }
+};

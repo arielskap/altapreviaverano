@@ -1,10 +1,11 @@
 import React from 'react';
+import Card from './Card';
 
 const Instagram = () => {
   return (
-    <div className='div-instagram'>
+    <Card className='div-instagram bg-white-transparent'>
       <p className='p-instagram' />
-    </div>
+    </Card>
   );
 };
 

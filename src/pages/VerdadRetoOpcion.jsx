@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
-import { animateCSS, vibrar } from '../funciones';
+import { animateCSS } from '../funciones';
 import '../assets/styles/components/VerdadRetoOpcion.scss';
 
 const VerdadRetoOpcion = () => {
@@ -47,7 +47,6 @@ const VerdadRetoOpcion = () => {
               type='button'
               className='VerdadRetoOpcionBody__suave hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded mt-4'
               onClick={() => {
-                vibrar();
                 animateCSS('.VerdadRetoOpcion', 'fadeOut', () => {
                   goVerdadReto('Suave');
                 });
@@ -61,7 +60,6 @@ const VerdadRetoOpcion = () => {
               type='button'
               className='VerdadRetoOpcionBody__picante hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded mt-4 w-full'
               onClick={() => {
-                vibrar();
                 animateCSS('.VerdadRetoOpcion', 'fadeOut', () => {
                   goVerdadReto('Picante');
                 });
