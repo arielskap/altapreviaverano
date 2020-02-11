@@ -49,7 +49,7 @@ const MasProbable = () => {
   return (
     <>
       <Header title='Instrucciones' button='Apa la papaa'>
-        Se debe señalar a la persona que es "más probable a" x cosa, luego la misma bebera o tendra que hacer algun prenda
+        Se debe señalar a la persona que es &quot;más probable a&quot; x cosa, luego la misma bebera o tendra que hacer algun prenda
         <br />
         <span role='img' aria-label='Corazon'>❤️️</span>
       </Header>
