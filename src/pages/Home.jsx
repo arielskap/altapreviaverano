@@ -40,31 +40,33 @@ const Home = () => {
             <Boom />
           </div>
           <h1 className='text-4xl HomeBody-h1 animated jackInTheBox faster rounded-t'>Alta Previa</h1>
-          <Tippy content='Perreito... como en los viejos tiempos, pe perreito pe pe perreito' visible={visible2}>
+          <Tippy content='Casi que ya estamos en otoño...' visible={visible2}>
             <h2 className='text-2xl HomeBody-h2 animated jackInTheBox faster rounded-b' onClick={() => setVisible2(!visible2)}>
-            Verano
+              Verano
               <span className='surf' role='img' aria-label='Surf'>🏄</span>
             </h2>
           </Tippy>
         </div>
-        <div className='flex justify-center flex-col mt-6'>
-          <Link to='/games/verdadRetoOpcion' className='HomeBody__Verdad-button text-lg text-gray-900 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
+        <div className='flex justify-center flex-col mt-6 sm:grid sm:grid-cols-2'>
+          <Link to='/games/verdadRetoOpcion' className='HomeBody__Verdad-button text-lg text-gray-900 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center sm:col-span-1 sm:mx-4'>
             Verdad o Reto
           </Link>
-          <Link to='/games/yoNunca' className='HomeBody__YoNunca-button text-lg text-pink-500 border-white font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
+          <Link to='/games/yoNunca' className='HomeBody__YoNunca-button text-lg text-pink-500 border-white font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center sm:col-span-1 sm:mx-4'>
             Yo nunca
           </Link>
-          <Link to='/games/botellita' className='HomeBody__Botellita-button text-lg text-gray-800 border-teal-500 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
+          <Link to='/games/botellita' className='HomeBody__Botellita-button text-lg text-gray-800 border-teal-500 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center sm:col-span-1 sm:mx-4'>
             La Botellita
           </Link>
-          <Link to='/games/masProbable' className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center'>
+          <Link to='/games/masProbable' className='HomeBody__Trago-button text-lg text-blue-900 border-pink-400 font-bold py-2 px-4 border-2 rounded mx-16 my-3 text-center sm:col-span-1 sm:mx-4'>
             Más probable a
           </Link>
         </div>
-        <div className='flex justify-center'>
-          <Tippy content='Perreito... como en los viejos tiempos, pe perreito pe pe perreito' visible={visible}>
-            <img className='crash object-contain' src={crashBaile} alt='Gif Meme' onClick={() => setVisible(!visible)} />
-          </Tippy>
+        <div className='flex justify-center w-full'>
+          <div className='max-w-sm'>
+            <Tippy content='Perreito... como en los viejos tiempos, pe perreito pe pe perreito' visible={visible}>
+              <img className='crash object-contain' src={crashBaile} alt='Gif Meme' onClick={() => setVisible(!visible)} />
+            </Tippy>
+          </div>
         </div>
       </section>
     </div>

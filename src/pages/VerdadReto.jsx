@@ -24,7 +24,7 @@ const VerdadReto = () => {
   };
 
   return (
-    <section className='VerdadReto animated fadeIn faster'>
+    <section className='VerdadReto animated fadeIn faster min-h-screen h-full'>
       <Header title='Instrucciones' button='bueno, tampoco me cuentes tu vida, BRO'>
         Si se elige verdad se debera responder la pregunta, en caso de que sea reto debera hacer la prenda. Si elige no hacerla al presionar 'No lo hizo' le aparecera la opcion contraría y encima 'picante'
         <br />

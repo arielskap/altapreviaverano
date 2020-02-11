@@ -16,6 +16,7 @@ const constructor = () => {
           {
             sdk: getCookie('sdk'),
             createdAt: Date.now(),
+            country: 'AR',
           },
         ),
         headers: {

@@ -48,7 +48,11 @@ const MasProbable = () => {
 
   return (
     <>
-      <Header title='Mas Probable A' button='Entendi todito'>El juego trata sobre divertirse</Header>
+      <Header title='Instrucciones' button='Apa la papaa'>
+        Se debe señalar a la persona que es "más probable a" x cosa, luego la misma bebera o tendra que hacer algun prenda
+        <br />
+        <span role='img' aria-label='Corazon'>❤️️</span>
+      </Header>
       <GameGeneric game='masProbable' tippyText='¿Quien es más probable a estar leyendo esto?' callback={masProbableA} color='purple'>Quien Es Más Probable A...</GameGeneric>
     </>
   );

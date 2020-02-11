@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Tippy from '@tippy.js/react';
 import '../assets/styles/components/GameGeneric.scss';
 import H1 from './H1';
+import Instagram from './Instagram';
 
 const GameGeneric = (props) => {
   const [visible, setVisible] = useState(false);
@@ -30,8 +31,9 @@ const GameGeneric = (props) => {
             <p className={`${p}`} />
           </div>
         </div>
+        <Instagram />
         <div className={`${footer} fixed bottom-0 w-full`}>
-          <button className='text-center w-full bg-green-500 py-3 text-white text-lg' type='button' onClick={() => { callback(); }}>Siguiente</button>
+          <button className='text-center w-full bg-green-500 py-3 text-white text-lg' type='button' onClick={callback}>Siguiente</button>
         </div>
       </div>
     </section>

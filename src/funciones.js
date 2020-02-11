@@ -21,6 +21,10 @@ export const getCookie = (cname) => {
   return '';
 };
 
+export const deleteCookie = (name) => {
+  document.cookie = `${name}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+};
+
 export const animateCSS = (element, animationName, callback) => {
   const node = document.querySelector(element);
   const animationNames = animationName.split(' ');
@@ -69,7 +73,7 @@ export const close = (className) => {
   });
   allClosed.push(className);
   allClosed = allClosed.join('|');
-  setCookie('closed', allClosed);
+  setCookie('closed', allClosed, 365);
 };
 
 export const peticion = (link) => {

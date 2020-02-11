@@ -1,19 +1,31 @@
-.AcercaDeBody__header-titulo{
+.AcercaDeBody__header-titulo {
     background-color: rgba($color: #D968CF, $alpha: .9);
 }
 
-.AcercaDeBody__porque{
+.AcercaDeBody__porque {
     background-color: rgba($color: #25857B, $alpha: .9);
 }
 
-.AcercaDeBody__presupuesto{
-    background-color: rgba($color: #7AFFF2, $alpha: .9);
+.AcercaDeBody__presupuesto {
+    background-color: rgba($color: #7AFFF2, $alpha: .8);
 }
 
-.AcercaDeBody__cocktel{
+.AcercaDeBody__cocktel {
     background-color: rgba($color: #853A18, $alpha: .9);
 }
 
-.AcercaDeBody__footer-somos{
+.AcercaDeBody__footer-somos {
     background-color: rgba($color: #D1794F, $alpha: .9);
+}
+
+.footer-redes {
+    background-color: rgba($color: #319795, $alpha: .9);
+}
+
+.card-configuracion {
+    background-color: rgba($color: #314997, $alpha: .9);
+}
+
+#checkbox{
+  vertical-align: middle;
 }

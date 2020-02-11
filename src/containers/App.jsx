@@ -15,6 +15,7 @@ import NotFound from '../pages/NotFound';
 import '../assets/styles/tailwind.css';
 import '../assets/styles/App.scss';
 import 'tippy.js/dist/tippy.css';
+import ScrollToTop from '../components/ScrollToTop';
 
 constructor();
 
@@ -30,12 +31,14 @@ const App = () => {
             <Route path='/home'>
               <Switch>
                 <Route exact path='/home'>
+                  <ScrollToTop />
                   <Home />
                 </Route>
                 <Route path='/home/acercaDe'>
                   <AcercaDe />
                 </Route>
                 <Route path='/home/perfil'>
+                  <ScrollToTop />
                   <Perfil />
                 </Route>
               </Switch>

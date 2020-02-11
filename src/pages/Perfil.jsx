@@ -74,7 +74,7 @@ const Perfil = () => {
   });
 
   return (
-    <div className=' container mx-auto px-4'>
+    <div className=' container mx-auto px-4 animated fadeIn faster'>
       <div className='pt-4'>
         <H1 className='perfil'>Perfil</H1>
       </div>
@@ -106,7 +106,7 @@ const Perfil = () => {
               const { src } = value;
               return (
                 <button
-                  className='w-1/5'
+                  className='w-1/5 sm:w-1/6'
                   type='button'
                   onClick={() => {
                     select = id ;

@@ -9,7 +9,7 @@ const H1 = (props) => {
     <div
       className={`${className}-header mx-4`}
       onClick={() => {
-        if (visible) {
+        if (handleClick) {
           handleClick(!visible);
         }
       }}
