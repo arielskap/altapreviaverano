@@ -1,3 +1,5 @@
+import instagram from './assets/static/instagram.svg';
+
 export const setCookie = (cname, cvalue, exdays) => {
   const d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -119,8 +121,8 @@ export const svgBase64 = (img) => {
 };
 
 export const addInstagram = (text) => {
-  const span = document.createElement('span');
-  const span2 = document.createElement('span');
+  const img = document.createElement('img');
+  const imgExist = document.querySelector('.img-instagram');
   const a = document.querySelector('.a-instagram');
   const parent = document.querySelector('.div-instagram');
   let paragraph = document.querySelector('.p-instagram');
@@ -131,18 +133,24 @@ export const addInstagram = (text) => {
 
     if (paragraph) {
       paragraph.remove();
+      if (imgExist) {
+        imgExist.remove();
+      }
     }
+    /*
+      const span = document.createElement('span');
+      span.setAttribute('role', 'img');
+      span.setAttribute('aria-label', 'Corazon');
+      span.appendChild(document.createTextNode('💕'));
+      paragraph.appendChild(span);
+    */
+    img.src = instagram;
+    img.alt = 'instagram';
+    img.classList.add('img-instagram', 'object-contain', 'h-5', 'w-5', 'mr-2');
     paragraph = document.createElement('p');
     paragraph.classList.add('p-instagram');
-    span.setAttribute('role', 'img');
-    span.setAttribute('aria-label', 'Corazon');
-    span.appendChild(document.createTextNode('💕'));
-    span2.setAttribute('role', 'img');
-    span2.setAttribute('aria-label', 'Corazon');
-    span2.appendChild(document.createTextNode('💕'));
-    paragraph.appendChild(span);
+    parent.appendChild(img);
     paragraph.appendChild(document.createTextNode(` ${text} `));
-    paragraph.appendChild(span2);
     parent.appendChild(paragraph);
     a.setAttribute('href', `https://www.instagram.com/${text}/`);
   } else {
@@ -151,9 +159,10 @@ export const addInstagram = (text) => {
 };
 
 export const gameGeneric = (classList, json, numMath, numeroSwitch, lastMessage) => {
-  let p = document.querySelector(`.${classList}Body-p`);
+  const instagram = document.querySelector('.a-instagram');
   const parentP = document.querySelector(`.${classList}Body__parent-p`);
   const numAleatorio = Math.floor((Math.random() * numMath));
+  let p = document.querySelector(`.${classList}Body-p`);
   let text;
   if (numeroSwitch[numAleatorio] !== undefined) {
     text = document.createTextNode(json[numeroSwitch[numAleatorio]].text);
@@ -166,6 +175,6 @@ export const gameGeneric = (classList, json, numMath, numeroSwitch, lastMessage)
   p = document.createElement('p');
   p.classList.add(`${classList}Body-p`, 'animated', 'fadeIn', 'faster');
   p.appendChild(text);
-  parentP.appendChild(p);
+  parentP.insertBefore(p, instagram);
   return numAleatorio;
 };
