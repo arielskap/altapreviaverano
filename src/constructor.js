@@ -2,9 +2,20 @@ import { getCookie, setCookie, peticion } from './funciones';
 import skeleton from './assets/static/skeleton.svg';
 
 const constructor = () => {
-  let petVerdadOReto;
-  let petYoNunca;
-  let petMasPropenso;
+  const juegos = [{
+    id: 1,
+    name: 'verdadOReto',
+    request: 'truthOrDare/read/all',
+  }, {
+    id: 2,
+    name: 'yoNunca',
+    request: 'iNever/read/all',
+  }, {
+    id: 3,
+    name: 'masPropenso',
+    request: 'moreProne/read/all',
+  }];
+  const respuesta = [];
   let authorization = getCookie('access_token');
   setCookie('sdk', 'abbulHaceAlgoGil', 365);
   if (!authorization || authorization === 'null') {
@@ -40,14 +51,26 @@ const constructor = () => {
           resolve(1);
         });
     }).then((res) => {
-      petVerdadOReto = peticion('truthOrDare/read/all');
-      petYoNunca = peticion('iNever/read/all');
-      petMasPropenso = peticion('moreProne/read/all');
+      for (let i = 0; i < juegos.length; i++) {
+        const element = juegos[i];
+        respuesta[i] = new Promise((resolve, reject) => {
+          resolve(peticion(element.request));
+        }).then((res) => {
+          setCookie(element.name, res.body);
+          return res;
+        });
+      }
     });
   } else {
-    petVerdadOReto = peticion('truthOrDare/read/all');
-    petYoNunca = peticion('iNever/read/all');
-    petMasPropenso = peticion('moreProne/read/all');
+    for (let i = 0; i < juegos.length; i++) {
+      const element = juegos[i];
+      respuesta[i] = new Promise((resolve, reject) => {
+        resolve(peticion(element.request));
+      }).then((res) => {
+        setCookie(element.name, res.body);
+        return res;
+      });
+    }
   }
 };
 

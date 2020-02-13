@@ -10,9 +10,9 @@ const Header = (props) => {
   const { title } = props;
   const { button } = props;
   const { children } = props;
-
+  const { className } = props;
   return (
-    <div className='VerdadRetoOpcionHeader pt-4 w-full flex justify-between'>
+    <div className={`VerdadRetoOpcionHeader pt-4 w-full flex justify-between ${className}`}>
       <Tippy content='¡Instrucciones!' placement='right'>
         <button type='button' className='rounded-full h-12 w-12 ml-4' onClick={() => showModal()}>
           <img className='object-contain w-full h-full' src={informacion} alt='info' />

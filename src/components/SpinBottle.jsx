@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Victor from 'victor';
 import { TweenLite } from 'gsap';
+import vodka from '../assets/static/vodka.png';
 import '../assets/styles/components/SpinBottle.scss';
 
 const SpinBottle = ({ className }) => {
@@ -225,7 +226,7 @@ const SpinBottle = ({ className }) => {
 
   return (
     <div className={`SpinBottle ${className}`}>
-      <img id='bottle' src='https://static.websguru.com.ar/var/m_a/ae/ae1/149406/2146316-catalago_sin_precios_y_prmos-21-e4da3.png' alt='fernandito' />
+      <img id='bottle' src={vodka} alt='Vodka' />
     </div>
   );
 };

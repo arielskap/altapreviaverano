@@ -6,9 +6,10 @@ const Form = (props) => {
   const { className } = props;
   const { options } = props;
   const { link } = props;
+  const { optionsLinks } = props;
   const optionList = options.map((option, index) => {
     const id = index;
-    return <option value={option} key={id}>{option}</option>;
+    return <option value={optionsLinks ? optionsLinks[id] : option} key={id}>{option}</option>;
   });
 
   const handleKeyUp = () => {
@@ -37,8 +38,10 @@ const Form = (props) => {
     let authorization = getCookie('access_token');
     for (let i = 1; i < options.length; i++) {
       const option = options[i];
-      if (select === option) {
+      const optionLink = optionsLinks ? optionsLinks[i] : null;
+      if (select === (optionLink || option)) {
         if (textarea.value.length > 15) {
+          //debugger;
           const miInit = { method: 'POST',
             body: JSON.stringify(
               {
@@ -53,7 +56,7 @@ const Form = (props) => {
             },
             credentials: 'same-origin',
           };
-          fetch(`https://altaprevia.herokuapp.com/${link}`, miInit)
+          fetch(`https://altaprevia.herokuapp.com/${optionLink || link}`, miInit)
             .then((res) => {
               authorization = res.headers.get('authorization');
               authorization = authorization.replace('Bearer', '');

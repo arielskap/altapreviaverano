@@ -9,7 +9,30 @@ import Close from '../components/Close';
 const AddGame = () => {
   const [visible, setVisible] = useState(false);
   const history = useHistory();
-  const options = ['~Juego~', 'Verdad o Reto', 'Yo Nunca', 'La Botellita', 'Más Propenso a'];
+  const data = [{
+    id: 1,
+    juego: '~Juego~',
+    request: '',
+  }, {
+    id: 2,
+    juego: 'Verdad o Reto',
+    request: 'truthOrDare/create',
+  }, {
+    id: 3,
+    juego: 'Yo Nunca',
+    request: 'iNever/create',
+  }, {
+    id: 4,
+    juego: 'Más Propenso a',
+    request: 'moreProne/create',
+  }];
+  const options = [];
+  const requests = [];
+  for (let i = 0; i < data.length; i++) {
+    const element = data[i];
+    options[i] = element.juego;
+    requests[i] = element.request;
+  }
   let closedItems = getCookie('closed') || [];
   if (typeof closedItems === 'string') {
     closedItems = closedItems.split('|');
@@ -30,7 +53,7 @@ const AddGame = () => {
         </div>
       )}
       <div className='flex justify-center items-center mt-3'>
-        <Form className='bg-black-transparent' options={options} hasInstagram={true} link='iNever/create' />
+        <Form className='bg-black-transparent' options={options} optionsLinks={requests} hasInstagram={true} />
       </div>
       <div className='bg-black-transparent mt-4 rounded-lg text-white p-3 border-2 border-green-500 shadow-md'>
         <div className='text-center'>

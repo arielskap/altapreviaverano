@@ -15,6 +15,12 @@ const VerdadRetoJuego = (props) => {
   let cant = query.get('cant');
   const { changeStateVerdadReto } = props;
   let instagram;
+  const backListener = history.listen((location) => {
+    console.log(location.pathname)
+    if (location.pathname === 'POP') {
+      alert('asda');
+    }
+  });
   const noLoHizo = () => {
     const p = document.createElement('p');
     let parrafoFunction;
@@ -60,6 +66,14 @@ const VerdadRetoJuego = (props) => {
       }
     }
     document.querySelector('.VerdadRetoJuego__mission').appendChild(text);
+
+    /*window.onpopstate = (e) => {
+      console.log(history.location.pathname);
+      //if (history.location.pathname) {}
+    };*/
+    return () => {
+      backListener();
+    };
   });
 
   return (

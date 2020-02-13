@@ -61,39 +61,43 @@ const AcercaDe = () => {
         </Card>
         <Card className='AcercaDeBody__presupuesto mt-4 p-3'>
           <h4 className='text-xl'>Contacto:</h4>
-          <Form className='bg-black-transparent' options={options} />
+          <Form className='bg-black-transparent' options={options} link='review/create' />
         </Card>
-        <Card className='footer-redes mt-4 pb-1'>
-          <p className='p-1'>Las redes del archimega super re groso developer in the fucking word: </p>
-          <div className='flex justify-center mt-1'>
-            <Tippy content='¿Facebook en el 2020? xddd' visible={visible}>
-              <button className={TAM_IMG} type='button' onClick={() => setVisible(!visible)}><img className='object-contain w-full h-full' src={facebook} alt='facebook' /></button>
-            </Tippy>
-            <a className={TAM_IMG} href='https://www.instagram.com/ecstasy_ring/'><img className='object-contain w-full h-full' src={instagram} alt='instagram' /></a>
-            <Tippy content='Para perder la dignidad tengo el LoL, bro.' visible={visible2}>
-              <button className={TAM_IMG} type='button' onClick={() => setVisible2(!visible2)}><img className='object-contain w-full h-full' src={tiktok} alt='tiktok' /></button>
-            </Tippy>
-          </div>
-        </Card>
-        <Card className='mt-3 AcercaDeBody__cocktel pb-1'>
-          <p className='p-1'>Si queres ser un todo hacker de la coctelería descargate:</p>
-          <div className='flex justify-center mt-1'>
-            <button className={TAM_IMG} type='button'><img className='object-contain w-full h-full' src={barmat} alt='barmat' /></button>
-          </div>
-        </Card>
-        <Card className='AcercaDeBody__footer-somos mt-4 pb-1'>
-          <p className='p-1'>
-            Ariel Santiago Villarreal Gutierrez y Abbul Rodriguez
-            <br />
-            Copyright © 2020 Todos los Derechos Reservados
-            <br />
-          </p>
-          <div className='flex justify-center mt-1'>
-            <div className='h-24 w-24'>
-              <img className='object-contain w-full h-full' src={logo} alt='Logo' />
+        <div className='sm:grid sm:grid-cols-2 sm:gap-2'>
+          <Card className='footer-redes mt-4 pb-1'>
+            <p className='p-1'>Las redes del archimega super re groso developer in the fucking word: </p>
+            <div className='flex justify-center mt-1'>
+              <Tippy content='¿Facebook en el 2020? xddd' visible={visible}>
+                <button className={TAM_IMG} type='button' onClick={() => setVisible(!visible)}><img className='object-contain w-full h-full' src={facebook} alt='facebook' /></button>
+              </Tippy>
+              <a className={TAM_IMG} href='https://www.instagram.com/ecstasy_ring/'><img className='object-contain w-full h-full' src={instagram} alt='instagram' /></a>
+              <Tippy content='Para perder la dignidad tengo el LoL, bro.' visible={visible2}>
+                <button className={TAM_IMG} type='button' onClick={() => setVisible2(!visible2)}><img className='object-contain w-full h-full' src={tiktok} alt='tiktok' /></button>
+              </Tippy>
             </div>
-          </div>
-        </Card>
+          </Card>
+          <Card className='mt-3 AcercaDeBody__cocktel pb-1'>
+            <p className='p-1'>Si queres ser un todo hacker de la coctelería descargate:</p>
+            <div className='flex justify-center mt-1'>
+              <button className={TAM_IMG} type='button'><img className='object-contain w-full h-full' src={barmat} alt='barmat' /></button>
+            </div>
+          </Card>
+        </div>
+        <div className='sm:grid sm:grid-cols-12 sm:gap-2'>
+          <Card className='AcercaDeBody__footer-somos mt-4 pb-1 sm:col-start-2 sm:col-span-10'>
+            <p className='p-1'>
+              Ariel Santiago Villarreal Gutierrez y Abbul Rodriguez
+              <br />
+              Copyright © 2020 Todos los Derechos Reservados
+              <br />
+            </p>
+            <div className='flex justify-center mt-1'>
+              <div className='h-24 w-24'>
+                <img className='object-contain w-full h-full' src={logo} alt='Logo' />
+              </div>
+            </div>
+          </Card>
+        </div>
       </div>
     </section>
   );

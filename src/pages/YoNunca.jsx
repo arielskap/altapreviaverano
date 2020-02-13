@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import GameGeneric from '../components/GameGeneric';
-import { gameGeneric } from '../funciones';
+import { gameGeneric, getCookie } from '../funciones';
 
 function YoNunca() {
   const numeroSwitch = [];
@@ -11,6 +11,7 @@ function YoNunca() {
   }
 
   const yoNunca = () => {
+    const response = getCookie('yoNunca');
     const json = [{
       id: 1,
       text: 'Meti la mano en el agua del inodoro',

@@ -10,9 +10,15 @@
 [x] agregar instrucciones
 [x] instagram
 [x] tippy
-[] flip bottle
-[] landscape mejorado
-[] sure leave back, verdadReto
+[x] Spin bottle
+[x] landscape mejorado
+[] Petitions (Agragar juegos, Cargar juegos, Peticion del perfil, Peticion de acercaDe)
+[] Switch background-color
 
 # cuando termine:
 [] ortografia
+
+# En el futuro:
+[] Desactivated freeMode to the bottle
+[] Notification
+[] sure leave back, verdadReto

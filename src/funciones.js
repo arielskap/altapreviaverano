@@ -87,7 +87,7 @@ export const peticion = (link) => {
     },
     credentials: 'same-origin',
   };
-  fetch(`https://altaprevia.herokuapp.com/${link}`, miInit)
+  return fetch(`https://altaprevia.herokuapp.com/${link}`, miInit)
     .then((res) => {
       authorization = res.headers.get('authorization');
       authorization = authorization.replace('Bearer', '');
@@ -95,10 +95,12 @@ export const peticion = (link) => {
     })
     .catch((error) => {
       console.error(`Error ${link}:`, error);
+      return 0;
     })
     .then((response) => {
       console.log(`Success created ${link}:`, response);
       if (!authorization || authorization === 'null') setCookie('access_token', authorization, 365);
+      return response;
     });
 };
 
