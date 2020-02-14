@@ -17,6 +17,7 @@ const AddGame = () => {
     id: 2,
     juego: 'Verdad o Reto',
     request: 'truthOrDare/create',
+    extraOptions: true,
   }, {
     id: 3,
     juego: 'Yo Nunca',
@@ -25,6 +26,32 @@ const AddGame = () => {
     id: 4,
     juego: 'Más Propenso a',
     request: 'moreProne/create',
+  }];
+  const optionChoise = 'truthOrDare/create';
+  const extraOptions = [{
+    id: 0,
+    options: [{
+      id: 0,
+      value: 'truth',
+      children: 'Verdad',
+    },
+    {
+      id: 1,
+      value: 'dare',
+      children: 'Reto',
+    }],
+  }, {
+    id: 1,
+    options: [{
+      id: 0,
+      value: false,
+      children: 'Suave',
+    },
+    {
+      id: 1,
+      value: true,
+      children: 'Picante',
+    }],
   }];
   const options = [];
   const requests = [];
@@ -53,7 +80,7 @@ const AddGame = () => {
         </div>
       )}
       <div className='flex justify-center items-center mt-3'>
-        <Form className='bg-black-transparent' options={options} optionsLinks={requests} hasInstagram={true} />
+        <Form className='bg-black-transparent' options={options} optionChoise={optionChoise} extraOptions={extraOptions} optionsLinks={requests} hasInstagram={true} />
       </div>
       <div className='bg-black-transparent mt-4 rounded-lg text-white p-3 border-2 border-green-500 shadow-md'>
         <div className='text-center'>

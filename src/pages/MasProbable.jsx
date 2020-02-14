@@ -1,36 +1,18 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import GameGeneric from '../components/GameGeneric';
-import { gameGeneric } from '../funciones';
+import { gameGeneric, getCookieJson } from '../funciones';
 
 const MasProbable = () => {
 
   const numeroSwitch = [];
-  let numMath = 4;
+  let numMath = getCookieJson('masProbable').length;
   for (let i = 0;i < numMath;i++) {
-    numeroSwitch[i] = i + 1;
+    numeroSwitch[i] = i ;
   }
 
   const masProbableA = () => {
-    const json = [{
-      id: 1,
-      text: 'Tomar falopa',
-      instagram: 'ecstasy_ring',
-    }, {
-      id: 2,
-      text: 'Bailar en pelotas',
-    }, {
-      id: 3,
-      text: 'Ser fan del polaco',
-      instagram: 'asdasda.fg',
-    }, {
-      id: 4,
-      text: 'Ser emo',
-    }, {
-      id: 5,
-      text: 'Cagarse en clase',
-      instagram: 'jiji.jojo',
-    }];
+    const json = getCookieJson('masProbable');
     const numAleatorio = gameGeneric('masProbable', json, numMath, numeroSwitch, 'F');
     numeroSwitch.splice(numAleatorio, 1);
     numMath--;

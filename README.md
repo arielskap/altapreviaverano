@@ -22,3 +22,4 @@
 [] Desactivated freeMode to the bottle
 [] Notification
 [] sure leave back, verdadReto
+[] Arreglar form, poco escalable

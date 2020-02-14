@@ -7,6 +7,8 @@ const Form = (props) => {
   const { options } = props;
   const { link } = props;
   const { optionsLinks } = props;
+  const { extraOptions } = props;
+  const { optionChoise } = props;
   const optionList = options.map((option, index) => {
     const id = index;
     return <option value={optionsLinks ? optionsLinks[id] : option} key={id}>{option}</option>;
@@ -36,19 +38,34 @@ const Form = (props) => {
     const textarea = document.querySelector('.form-textarea');
     const info = document.querySelector('.form-info');
     let authorization = getCookie('access_token');
+    const mode = document.querySelector('.form-select0').options[document.querySelector('.form-select0').selectedIndex].value;
+    let isPiquiant = document.querySelector('.form-select1').options[document.querySelector('.form-select1').selectedIndex].value;
+    isPiquiant = isPiquiant === 'true';
+    let body;
     for (let i = 1; i < options.length; i++) {
       const option = options[i];
       const optionLink = optionsLinks ? optionsLinks[i] : null;
       if (select === (optionLink || option)) {
-        if (textarea.value.length > 15) {
-          //debugger;
+        if (textarea.value.length > 6) {
+          if (select === optionChoise) {
+            body = {
+              'type': 'change',
+              'body': textarea.value,
+              'createdAt': Date.now(),
+              'mode': mode,
+              'piquant': isPiquiant,
+            };
+          } else {
+            body = {
+              'type': 'change',
+              'body': textarea.value,
+              'createdAt': Date.now(),
+            };
+          }
+          console.log(body);
           const miInit = { method: 'POST',
             body: JSON.stringify(
-              {
-                'type': select,
-                'body': textarea.value,
-                'createdAt': Date.now(),
-              },
+              body,
             ),
             headers: {
               'Content-Type': 'application/json',
@@ -85,17 +102,55 @@ const Form = (props) => {
     event.preventDefault();
   };
 
+  const handleOnChange = () => {
+    const e = document.querySelector('.form-select');
+    const selected = e.options[e.selectedIndex].value;
+    console.log(selected);
+    if (selected === optionChoise) {
+      if (document.querySelector('.extraOptions').classList.contains('hidden')) {
+        document.querySelector('.extraOptions').classList.toggle('hidden');
+      }
+    } else {
+      document.querySelector('.extraOptions').classList.add('hidden');
+    }
+  };
   return (
     <form className={`form my-2 w-full border-2 border-teal-700 p-2 rounded-lg ${className}`} onSubmit={handleSubmit}>
-      <div className='flex justify-start'>
+      <div className='flex flex-col justify-start'>
         <div className='inline-block relative'>
-          <select className='form-select block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline' required>
+          <select className='form-select block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline' required onChange={optionChoise ? handleOnChange : null}>
             {optionList}
           </select>
           <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
             <svg className='fill-current h-4 w-4' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' /></svg>
           </div>
         </div>
+        {extraOptions &&
+        (
+          <div className='extraOptions grid grid-cols-2 gap-2 mt-2 hidden'>
+            {extraOptions.map((select) => {
+              const { id } = select;
+              const options = select.options.map((options) => {
+                const { id } = options;
+                const { value } = options;
+                const { children } = options;
+                return (
+                  <option value={value} key={id}>{children}</option>
+                );
+              });
+              return (
+                <div className='inline-block relative' key={id}>
+                  <select className={`form-select${id} block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline`} required>
+                    {options}
+                  </select>
+                  <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
+                    <svg className='fill-current h-4 w-4' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' /></svg>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
       <div className='mt-2'>
         <div className='flex justify-end mb-1'>

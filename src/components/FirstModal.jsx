@@ -7,7 +7,7 @@ const FirstModal = () => {
     if (!getCookie('ModalFirst')) {
       showModal('Modal-first');
     }
-    setCookie('ModalFirst', true);
+    setCookie('ModalFirst', true, 365);
   });
   return (
     <>

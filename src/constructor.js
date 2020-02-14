@@ -1,5 +1,33 @@
-import { getCookie, setCookie, peticion } from './funciones';
+import { getCookie, setCookie, peticion, showModal, setCookieJson } from './funciones';
 import skeleton from './assets/static/skeleton.svg';
+
+const verifySet = (juegos, register = true) => {
+  const respuesta = [];
+  if (register) {
+    for (let i = 0; i < juegos.length; i++) {
+      const element = juegos[i];
+      respuesta[i] = new Promise((resolve, reject) => {
+        resolve(peticion(element.request));
+      }).then((res) => {
+        if (res === 0) {
+          setCookie(element.name, 0, 365);
+          if (getCookie('internet') !== '1') {
+            showModal('Modal-internet');
+          }
+          setCookie('internet', 1, 365);
+        } else {
+          setCookieJson(element.name, res.body, 365);
+        }
+        return res;
+      });
+    }
+  } else {
+    if (getCookie('internet') !== '1') {
+      showModal('Modal-internet');
+    }
+    setCookie('internet', 1, 365);
+  }
+};
 
 const constructor = () => {
   const juegos = [{
@@ -12,10 +40,9 @@ const constructor = () => {
     request: 'iNever/read/all',
   }, {
     id: 3,
-    name: 'masPropenso',
+    name: 'masProbable',
     request: 'moreProne/read/all',
   }];
-  const respuesta = [];
   let authorization = getCookie('access_token');
   setCookie('sdk', 'abbulHaceAlgoGil', 365);
   if (!authorization || authorization === 'null') {
@@ -43,34 +70,18 @@ const constructor = () => {
         })
         .catch((error) => {
           console.error('Error:', error);
-          reject(error);
+          return 0;
         })
         .then((response) => {
           console.log('Success register:', response);
           setCookie('access_token', authorization, 365);
-          resolve(1);
+          resolve(response);
         });
     }).then((res) => {
-      for (let i = 0; i < juegos.length; i++) {
-        const element = juegos[i];
-        respuesta[i] = new Promise((resolve, reject) => {
-          resolve(peticion(element.request));
-        }).then((res) => {
-          setCookie(element.name, res.body);
-          return res;
-        });
-      }
+      verifySet(juegos, res);
     });
   } else {
-    for (let i = 0; i < juegos.length; i++) {
-      const element = juegos[i];
-      respuesta[i] = new Promise((resolve, reject) => {
-        resolve(peticion(element.request));
-      }).then((res) => {
-        setCookie(element.name, res.body);
-        return res;
-      });
-    }
+    verifySet(juegos);
   }
 };
 

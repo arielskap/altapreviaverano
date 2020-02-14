@@ -17,12 +17,14 @@ import '../assets/styles/App.scss';
 import 'tippy.js/dist/tippy.css';
 import ScrollToTop from '../components/ScrollToTop';
 import FirstModal from '../components/FirstModal';
+import Modal from '../components/Modal';
 
 constructor();
 
 const App = () => {
   return (
     <section className='App'>
+      <Modal color='red' className='Modal-internet' title='Sin Internet bro' button='Ya estoy habilitando los 20G'>Mira krak sin internet tus posibilidades en esta aplicacion son escasas, así que dale gastate todos los datos</Modal>
       <div className='appChildren min-h-screen'>
         <HashRouter>
           <Switch>

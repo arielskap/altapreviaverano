@@ -15,14 +15,9 @@ const VerdadRetoJuego = (props) => {
   let cant = query.get('cant');
   const { changeStateVerdadReto } = props;
   let instagram;
-  const backListener = history.listen((location) => {
-    console.log(location.pathname)
-    if (location.pathname === 'POP') {
-      alert('asda');
-    }
-  });
   const noLoHizo = () => {
     const p = document.createElement('p');
+    const div = document.createElement('div');
     let parrafoFunction;
     let text;
     if (verdadReto === 'verdad') {
@@ -30,15 +25,17 @@ const VerdadRetoJuego = (props) => {
       text = parrafoFunction[0];
       instagram = parrafoFunction[1];
       p.appendChild(document.createTextNode(text));
-      p.classList.add('animated', 'fadeIn', 'VerdadRetoJuego__mission', 'p-4', 'border-2', 'border-red-700', 'mt-6', 'rounded-lg');
+      div.classList.add('animated', 'fadeIn', 'VerdadRetoJuego__mission', 'p-4', 'border-2', 'border-red-700', 'mt-6', 'rounded-lg');
+      div.appendChild(p);
     } else {
       parrafoFunction = verdad('Picante');
       text = parrafoFunction[0];
       instagram = parrafoFunction[1];
       p.appendChild(document.createTextNode(text));
-      p.classList.add('animated', 'fadeIn', 'VerdadRetoJuego__mission', 'p-4', 'border-2', 'border-blue-700', 'mt-6', 'rounded-lg');
+      div.classList.add('animated', 'fadeIn', 'VerdadRetoJuego__mission', 'p-4', 'border-2', 'border-blue-700', 'mt-6', 'rounded-lg');
+      div.appendChild(p);
     }
-    document.querySelector('.VerdadRetoJuego-body').appendChild(p);
+    document.querySelector('.VerdadRetoJuego-body').appendChild(div);
     document.querySelector('.VerdadRetoJuego-footer__noLoHizo').classList.add('hidden');
     document.querySelector('.VerdadRetoJuego-footer__realizado').classList.remove('w-4/6', 'rounded-r');
     document.querySelector('.VerdadRetoJuego-footer__realizado').classList.add('w-full', 'rounded');
@@ -50,6 +47,8 @@ const VerdadRetoJuego = (props) => {
     const verdadReto = query.get('cant');
     let parrafoFunction;
     let text;
+    const p = document.createElement('p');
+    p.classList.add('p-VerdadRetoJuego');
     if (juego === 'Suave' || juego === 'Picante') {
       if (verdadReto === 'verdad') {
         parrafoFunction = verdad(juego);
@@ -65,24 +64,19 @@ const VerdadRetoJuego = (props) => {
         text = document.createTextNode(text);
       }
     }
-    document.querySelector('.VerdadRetoJuego__mission').appendChild(text);
-
-    /*window.onpopstate = (e) => {
-      console.log(history.location.pathname);
-      //if (history.location.pathname) {}
-    };*/
-    return () => {
-      backListener();
-    };
+    document.querySelector('.VerdadRetoJuego__mission').appendChild(p);
+    p.appendChild(text);
   });
 
   return (
     <div className='VerdadRetoJuego animated fadeIn mt-16'>
       <div className='mb-16'>
         <div className='VerdadRetoJuego-body text-lg mx-8'>
-          <p className={`VerdadRetoJuego__mission p-4 border-2 border-${verdadReto === 'verdad' ? 'green' : 'red'}-700 rounded-lg`} />
+          <div className={`VerdadRetoJuego__mission p-4 border-2 border-${verdadReto === 'verdad' ? 'green' : 'red'}-700 rounded-lg`}>
+            <p />
+            <Instagram />
+          </div>
         </div>
-        <Instagram />
       </div>
       <div className='VerdadRetoJuego-footer fixed bottom-0 flex w-full left-0'>
         <button
