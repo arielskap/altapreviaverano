@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Tippy from '@tippy.js/react';
 import '../assets/styles/components/VerdadRetoBodySelect.scss';
 import fort from '../assets/static/fort.gif';
 import fortCielo from '../assets/static/fortCielo.gif';
-import { animateCSS } from '../funciones';
+import { animateCSS, getCookie, setCookie } from '../funciones';
 
 const VerdadRetoBodySelect = () => {
   const [visible, setVisible] = useState(false);
   const history = useHistory();
-  const query = new URLSearchParams(useLocation().search);
-  const juego = query.get('juego');
-  const cant = query.get('cant');
+  const juego = getCookie('verdadOretoJuego');
+  const cant = getCookie('verdadOretoCantidad');
 
   useEffect(() => {
     return () => {
@@ -27,7 +26,9 @@ const VerdadRetoBodySelect = () => {
           className='VerdadRetoBody__suave-button text-lg bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded w-full my-2'
           onClick={() => {
             animateCSS('.VerdadRetoBodySelect', 'fadeOut faster', () => {
-              history.replace(`/games/verdadReto/juego?juego=${juego}&cant=${cant}&verdadReto=verdad`);
+              setCookie('verdadOretoJuego', juego);
+              setCookie('verdadOretoCantidad', cant);
+              history.replace('/games/verdadReto/juego?verdadReto=verdad');
             });
           }}
         >
@@ -38,7 +39,9 @@ const VerdadRetoBodySelect = () => {
           className='VerdadRetoBody__picante-button text-lg bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 border border-red-700 rounded w-full my-2'
           onClick={() => {
             animateCSS('.VerdadRetoBodySelect', 'fadeOut faster', () => {
-              history.replace(`/games/verdadReto/juego?juego=${juego}&cant=${cant}&verdadReto=reto`);
+              setCookie('verdadOretoJuego', juego);
+              setCookie('verdadOretoCantidad', cant);
+              history.replace('/games/verdadReto/juego?verdadReto=reto');
             });
           }}
         >

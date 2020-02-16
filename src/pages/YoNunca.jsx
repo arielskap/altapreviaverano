@@ -2,16 +2,17 @@ import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import GameGeneric from '../components/GameGeneric';
 import { gameGeneric, getCookieJson } from '../funciones';
+import yoNuncaJson from '../json/yoNunca.json';
 
 function YoNunca() {
   const numeroSwitch = [];
-  let numMath = getCookieJson('yoNunca').length;
+  let numMath = getCookieJson('yoNunca').length || yoNuncaJson.length;
   for (let i = 0;i < numMath;i++) {
     numeroSwitch[i] = i ;
   }
 
   const yoNunca = () => {
-    const json = getCookieJson('yoNunca');
+    const json = getCookieJson('yoNunca') || yoNuncaJson;
     const numAleatorio = gameGeneric('YoNunca', json, numMath, numeroSwitch, 'Ya no hay mas "Yo Nunca". Juga otra cosa o quebra.');
     numeroSwitch.splice(numAleatorio, 1);
     numMath--;

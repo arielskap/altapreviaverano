@@ -1,4 +1,4 @@
-import { getCookie, setCookie, peticion, showModal, setCookieJson } from './funciones';
+import { getCookie, setCookie, peticion, showModal, setCookieJson, setLocalStorageJson } from './funciones';
 import skeleton from './assets/static/skeleton.svg';
 
 const verifySet = (juegos, register = true) => {
@@ -16,7 +16,14 @@ const verifySet = (juegos, register = true) => {
           }
           setCookie('internet', 1, 365);
         } else {
-          setCookieJson(element.name, res.body, 365);
+          if (element.name === 'verdadOReto') {
+            setLocalStorageJson('verdadPicante', res.body.verdad_picante, 365);
+            setLocalStorageJson('verdadSuave', res.body.verdad_suave, 365);
+            setLocalStorageJson('retoPicante', res.body.reto_picante, 365);
+            setLocalStorageJson('retoSuave', res.body.reto_suave, 365);
+          } else {
+            setCookieJson(element.name, res.body, 365);
+          }
         }
         return res;
       });
