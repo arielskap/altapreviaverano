@@ -1,6 +1,4 @@
 import instagram from './assets/static/instagram.svg';
-import masProbableJson from './json/masProbable.json';
-import yoNuncaJson from './json/yoNunca.json';
 
 export const setCookie = (cname, cvalue, exdays) => {
   const d = new Date();
@@ -33,6 +31,16 @@ export const getCookieJson = (className) => {
 export const setCookieJson = (className, value) => {
   const json = JSON.stringify(value);
   setCookie(className, json, 365);
+};
+
+export const setLocalStorageJson = (className, value) => {
+  const json = JSON.stringify(value);
+  localStorage.setItem(className, json);
+};
+
+export const getLocalStorageJson = (className) => {
+  const json = JSON.parse(localStorage.getItem(className));
+  return json;
 };
 
 export const deleteCookie = (name) => {
@@ -151,13 +159,6 @@ export const addInstagram = (text) => {
         imgExist.remove();
       }
     }
-    /*
-      const span = document.createElement('span');
-      span.setAttribute('role', 'img');
-      span.setAttribute('aria-label', 'Corazon');
-      span.appendChild(document.createTextNode('💕'));
-      paragraph.appendChild(span);
-    */
     img.src = instagram;
     img.alt = 'instagram';
     img.classList.add('img-instagram', 'object-contain', 'h-5', 'w-5', 'mr-2');
@@ -178,7 +179,6 @@ export const gameGeneric = (classList, json, numMath, numeroSwitch, lastMessage)
   const numAleatorio = Math.floor((Math.random() * numMath));
   let p = document.querySelector(`.${classList}Body-p`);
   let text;
-  console.log(numeroSwitch[numAleatorio])
   if (numeroSwitch[numAleatorio] !== undefined) {
     text = document.createTextNode(json[numeroSwitch[numAleatorio]].body);
     addInstagram(json[numeroSwitch[numAleatorio]].user.instagram);

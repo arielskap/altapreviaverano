@@ -1,4 +1,8 @@
-import { getCookieJson } from './funciones';
+import { getLocalStorageJson } from './funciones';
+import retoPicanteJson from './json/retoPicante.json';
+import retoSuaveJson from './json/retoSuave.json';
+import verdadPicanteJson from './json/verdadPicante.json';
+import verdadSuaveJson from './json/verdadSuave.json';
 
 const lugar = () => {
   let palabra;
@@ -18,29 +22,43 @@ const lugar = () => {
 };
 
 export const verdad = (juego) => {
-  const num = Math.floor((Math.random() * 8));
   let retorno;
-  const json = getCookieJson('verdadOReto');
-  const verdadSuave = json.verdad_suave;
-  const verdadPicante = json.verdad_picante;
-  if (juego === 'Suave') {
-    retorno = [verdadSuave[num].body, verdadSuave[num].user.instagram || null];
+  const verdadSuave = getLocalStorageJson('verdadSuave');
+  const verdadPicante = getLocalStorageJson('verdadPicante');
+  let lengthSuave;
+  let lengthPicante;
+  if (verdadSuave.length) {
+    lengthSuave = verdadSuave.length;
   } else {
-    retorno = [verdadPicante[num].body, verdadPicante[num].user.instagram || null];
+    lengthSuave = verdadSuaveJson.length;
+  }
+  if (verdadPicante.length) {
+    lengthPicante = verdadPicante.length;
+  } else {
+    lengthPicante = verdadPicanteJson.length;
+  }
+  const numSuave = Math.floor((Math.random() * lengthSuave));
+  const numPicante = Math.floor((Math.random() * lengthPicante));
+  if (juego === 'Suave') {
+    retorno = verdadSuave.length > 0 ? [verdadSuave[numSuave].body, verdadSuave[numSuave].user.instagram] : [verdadSuaveJson[numSuave].body, verdadSuaveJson[numSuave].user.instagram];
+  } else {
+    retorno = verdadPicante.length > 0 ? [verdadPicante[numPicante].body, verdadPicante[numPicante].user.instagram] : [verdadPicanteJson[numPicante].body, verdadPicanteJson[numPicante].user.instagram];
   }
   return retorno;
 };
 
 export const reto = (juego) => {
-  const num = Math.floor((Math.random() * 8));
+  const retoSuave = getLocalStorageJson('retoSuave');
+  const retoPicante = getLocalStorageJson('retoPicante');
+  const lengthSuave = retoSuave.length || retoSuaveJson.length;
+  const lengthPicante = retoPicante.length || retoPicanteJson.length;
+  const numSuave = Math.floor((Math.random() * lengthSuave));
+  const numPicante = Math.floor((Math.random() * lengthPicante));
   let retorno;
-  const json = getCookieJson('verdadOReto');
-  const retoSuave = json.reto_suave;
-  const retoPicante = json.reto_picante;
   if (juego === 'Suave') {
-    retorno = [retoSuave[num].body, retoSuave[num].user.instagram || null];
+    retorno = retoSuave.length ? [retoSuave[numSuave].body, retoSuave[numSuave].user.instagram] : [retoSuaveJson[numSuave].body, retoSuaveJson[numSuave].user.instagram];
   } else {
-    retorno = [retoPicante[num].body, retoPicante[num].user.instagram || null];
+    retorno = retoPicante.length ? [retoPicante[numPicante].body, retoPicante[numPicante].user.instagram] : [retoPicanteJson[numPicante].body, retoPicanteJson[numPicante].user.instagram];
   }
   return retorno;
 };
