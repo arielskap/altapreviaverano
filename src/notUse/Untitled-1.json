@@ -1,0 +1,252 @@
+{
+    "verdad_suave":[{
+        "body": "¿Con cuantos de esta ronda chapaste?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cual es tu categoria de porno favorita?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Te chapaste a algun familiar?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cuantas veces quebraste?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Si no conocieras a nadie de la ronda, a quien le darias?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Te calienta algun familiar?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cuanta plata crees haberte gastado en drogas y/o alcohol?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Que es lo que más te atrae en otra persona?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Quien crees que coge mejor?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Con quien de la ronda harías un trio?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Tenes depilada tu zona intima?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Con quien del grupo saldrías a una cita?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Con que famoso/a tendrías sexo?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Que crees que piensan de vos y es falso?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Dejarías a una pareja para siempre por un millón de dolares?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cómo fue tu primer beso?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Alguna vez metiste los cuernos?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "Si te perdieras en una isla desierta, ¿A quien del grupo te llevarías?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿En el cuerpo de quien del grupo te gustaría estar un día?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Sentiste atracción por un amigue de tu ex/pareja?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cuál es el sitio más extraño en que has conocido a una persona con la que terminaste saliendo?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cogiste en tu trabajo?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Lugar más raro en donde has tenido sexo?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Qué parte del cuerpo prefieres en personas del mismo sexo que tú?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cuanto duro tu relación más ${cuerpo}?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Seco, húmedo o mojado?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cuál es la parte que ${cuerpo} te gusta de tu cuerpo?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "Conta algo 'malo' que hayas hecho de chique.",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "id":21,
+        "body": "¿Cómo aprendiste a besar?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Que te gusta que te acaricien?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Que es lo peor que hiciste por celos?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "Nombra actores y actrices porno que conozcas",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "Describi la sensación de orgasmo en una palabra",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Viste o ves porno en stream?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Te descubrieron masturbandote?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cual es tu orden de prioridad: tener sexo, comer o dormir?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Perdonarias una infidelidad?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Qué es lo más extraño que has buscado en internet?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cuándo ha sido el momento más inapropiado de tu vida en que te has tirado un pedo?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿Cuál es el hábito más repugnante que tienes?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "¿A quién salvarías del grupo si viene un meteorito y solo puedes salvar a una persona?",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    },{
+        "body": "",
+        "mode": "verdad",
+        "isPiquant": false
+    }]
+}
