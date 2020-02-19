@@ -1,6 +1,10 @@
 [{
     "id": 1,
-    "body": "Meti la mano en el agua del inodoro"
+    "body": "Meti la mano en el agua del inodoro",
+    "user": {
+        "instagram": ""
+    },
+    "createdAt": "1998-09-03 01:01:01"
 },{
     "id": 2,
     "body": "Tome alcohol"

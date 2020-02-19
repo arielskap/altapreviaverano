@@ -1,19 +1,273 @@
-[{
-    "id":1,
-    "body": "Beso copado a la persona que te parezca más linda",
-    "user": {
-        "instagram": "ecstasy.ring"
-    }
-},{
-    "id":2,
-    "body": "¡Sacate tres prendas!",
-    "user": {
-        "instagram": "ecstasy.ring"
-    }
-},{
-    "id":3,
-    "body": "Elige dos jugadores que deberán besarse.",
-    "user": {
-        "instagram": "ecstasy.ring"
-    }
-}]
+{
+    "reto_picante": [{
+        "id":1,
+        "body": "Beso copado al que tengas ${palabra}",
+        "user": {
+            "instagram": "ecstasy_ring"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":2,
+        "body": "Beso copado a la persona que te parezca más linda",
+        "user": {
+            "instagram": "psycho_cruz"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":3,
+        "body": "Hace un chupon (No marques!!!) al que tengas ${palabra}",
+        "user": {
+            "instagram": "matiascibils"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":4,
+        "body": "Toma ${palabra}",
+        "user": {
+            "instagram": "esepibeee"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":5,
+        "body": "Encerrate por 5 min con el que este ${palabra}. (El juego seguira y se salteara a les que esten encerrades)",
+        "user": {
+            "instagram": "lalu_vaccarella"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":6,
+        "body": "Dejar el celu por 30 segundos (sin contraseña) al que esta ${palabra}",
+        "user": {
+            "instagram": "tiago.duarte_"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":7,
+        "body": "Tapate los ojos. Los demas jugadores deberan decir un numero del 1 al 10. El que acierte el numero debera besar a la persona con los ojos tapados (En caso de que mas de uno acierte, aun así deberan besarla). Luego debera adivinar quien fue.",
+        "user": {
+            "instagram": "brunocicciotti"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":8,
+        "body": "Manda una 'nude' a alguien de este grupo",
+        "user": {
+            "instagram": "alan.ndc"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":9,
+        "body": "El grupo publicara algo a tu feed de Instagram",
+        "user": {
+            "instagram": "_violeta_julieta_"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":10,
+        "body": "Toma un chupito desde el cuerpo de otra persona",
+        "user": {
+            "instagram": "_juanmanuelramirez"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":11,
+        "body": "La persona ${palabra} te tocara una de estas tres zonas: Pechos, cola o parte intima",
+        "user": {
+            "instagram": "sofiramirez.x"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":12,
+        "body": "Susurrar una actividad sexual a la persona ${palabra}",
+        "user": {
+            "instagram": "aquiles.valbuena"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":13,
+        "body": "Chupar el dedo de forma sexual a la persona ${palabra}",
+        "user": {
+            "instagram": "maibel_romero"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":14,
+        "body": "Hacer un chupon en una parte del cuerpo que no se vea a la persona ${palabra}",
+        "user": {
+            "instagram": "emilianorago"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":15,
+        "body": "¡Sacate tres prendas!",
+        "user": {
+            "instagram": "nai_feinsilber"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":16,
+        "body": "Elige dos jugadores que deberán besarse.",
+        "user": {
+            "instagram": "danivignone"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":17,
+        "body": "Dale una buena nalgada a la persona ${palabra}",
+        "user": {
+            "instagram": "zoe.maiten"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":18,
+        "body": "Sacale dos prendas de ropa a la persona ${palabra}",
+        "user": {
+            "instagram": "some_edgy_bitch"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":19,
+        "body": "¡Una ronda en donde se pasaran un hielo de boca en boca! Empezas vos con la persona ${palabra}",
+        "user": {
+            "instagram": "cristiansielach"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":20,
+        "body": "Mostra un poco de tu ropa interior.",
+        "user": {
+            "instagram": "luca_leyes"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":21,
+        "body": "Balotagge: Cristina Kirchner vs Mauricio, el gato, Macri. ¿A quien votas?",
+        "user": {
+            "instagram": "abbulrodriguez"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":22,
+        "body": "Deci una parafilia que tengas",
+        "user": {
+            "instagram": "emikonaroa"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":23,
+        "body": "¿Del uno al diez... que tan peludo tenes el culo?",
+        "user": {
+            "instagram": "jaci120_"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":24,
+        "body": "Tendras que contar un spoiler de alguna pelicula/serie.",
+        "user": {
+            "instagram": "cata.gar03"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":25,
+        "body": "Le daras el celular con alguna aplicación de citas (en caso de no tener instalaras una) a la persona a tu${palabra}por una ronda",
+        "user": {
+            "instagram": "luciaasalatino"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":26,
+        "body": "Deberas besar a la persona con ${palabra} edad del grupo (Ojoo si sos mayor de 18 y le mas chique es menor, el equipo de 'alta previa' ya esta llamando al FBI",
+        "user": {
+            "instagram": "matii.ldp"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":27,
+        "body": "Si nunca tu viste relaciones sexuales la persona a tu ${palabra} debera regalarte un condon. En caso de si haber tenido relaciones vos se lo tendras que regalar",
+        "user": {
+            "instagram": "t_rexxuwu"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":28,
+        "body": "Para seguir jugando deberas ingresar tu tarjeta de cred... ah les re afanaba. Safaste no tenes que hacer nada.",
+        "user": {
+            "instagram": "franco.milone"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":29,
+        "body": "Dar el celu a la persona a tu ${palabra} con el chat de una persona con la que estes saliendo. La otra persona podra escribirle lo que quiera por dos rondas",
+        "user": {
+            "instagram": "acronica"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    },{
+        "id":30,
+        "body": "Deberas jugar una pulseada con la persona que consideres como la más 'fuerte'. Si perdes, le ganadore debera nalgearte. Si ganas vos le nalgearas.",
+        "user": {
+            "instagram": "nachetogarcia"
+        },
+        "mode": "reto",
+        "isPiquant": true,
+        "createdAt": "1998-09-03 01:01:01"
+    }]
+}
