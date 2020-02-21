@@ -24,7 +24,13 @@ export const getCookie = (cname) => {
 };
 
 export const getCookieJson = (className) => {
-  const json = JSON.parse(getCookie(className));
+  const cookie = getCookie(className);
+  let json;
+  if (cookie) {
+    json = JSON.parse(cookie);
+  } else {
+    json = null;
+  }
   return json;
 };
 
@@ -192,4 +198,25 @@ export const gameGeneric = (classList, json, numMath, numeroSwitch, lastMessage)
   p.appendChild(text);
   parentP.insertBefore(p, instagram);
   return numAleatorio;
+};
+
+export const mostrarInstruc = (juego) => {
+  let instrucciones = getCookieJson('instrucciones');
+  let flag = false;
+  if (instrucciones) {
+    for (let i = 0; i < instrucciones.length; i++) {
+      const element = instrucciones[i];
+      if (element === juego) {
+        flag = true;
+        break;
+      }
+    }
+  } else {
+    instrucciones = [];
+  }
+  if (!flag) {
+    showModal();
+    instrucciones.push(juego);
+    setCookieJson('instrucciones', instrucciones);
+  }
 };

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
-import { animateCSS, setCookie } from '../funciones';
+import { animateCSS, setCookie, mostrarInstruc } from '../funciones';
 import '../assets/styles/components/VerdadRetoOpcion.scss';
 
 const VerdadRetoOpcion = () => {
@@ -21,6 +21,7 @@ const VerdadRetoOpcion = () => {
     if (document.querySelector('.tippy-popper')) {
       document.querySelector('.tippy-popper').remove();
     }
+    mostrarInstruc('verdadOReto');
   });
 
   return (

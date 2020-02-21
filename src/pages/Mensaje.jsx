@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getCookie } from '../funciones';
 import '../assets/styles/components/Modal.scss';
+import palmera from '../assets/static/palmera.png';
 
 const Mensaje = () => {
+  useEffect(() => {
+    const isBeautify = getCookie('background');
+    if (isBeautify !== 'lindo') {
+      document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) cornsilk`;
+    }
+  });
   return (
     <section className='Mensaje bg-transparent-black-1 h-screen w-full flex items-center justify-center'>
       <div className='mx-4 bg-transparent-white-1 rounded-lg p-2 animated fadeIn faster border-2 border-purple-600'>

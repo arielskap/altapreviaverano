@@ -12,8 +12,12 @@
 [x] tippy
 [x] Spin bottle
 [x] landscape mejorado
+[x] Switch background-color
+[x] Arreglar form, poco escalable
+[x] Que inicie con el cookie del background-color
+[x] Aparece la 2da vez que entras lo de la birra y aparecen las instrucciones la 1era
 [] Petitions (Agragar juegos, Cargar juegos, Peticion del perfil, Peticion de acercaDe)
-[] Switch background-color
+[] Probar borrar cookies y el json de verdad o reto
 
 # cuando termine:
 [] ortografia
@@ -22,4 +26,3 @@
 [] Desactivated freeMode to the bottle
 [] Notification
 [] sure leave back, verdadReto
-[] Arreglar form, poco escalable

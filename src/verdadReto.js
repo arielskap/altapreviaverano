@@ -50,8 +50,8 @@ export const verdad = (juego) => {
 export const reto = (juego) => {
   const retoSuave = getLocalStorageJson('retoSuave');
   const retoPicante = getLocalStorageJson('retoPicante');
-  const lengthSuave = retoSuave.length || retoSuaveJson.length;
-  const lengthPicante = retoPicante.length || retoPicanteJson.length;
+  const lengthSuave = retoSuave ? retoSuave.length : retoSuaveJson.length;
+  const lengthPicante = retoPicante ? retoPicante.length : retoPicanteJson.length;
   const numSuave = Math.floor((Math.random() * lengthSuave));
   const numPicante = Math.floor((Math.random() * lengthPicante));
   let retorno;

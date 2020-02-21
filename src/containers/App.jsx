@@ -16,7 +16,7 @@ import '../assets/styles/tailwind.css';
 import '../assets/styles/App.scss';
 import 'tippy.js/dist/tippy.css';
 import ScrollToTop from '../components/ScrollToTop';
-import FirstModal from '../components/FirstModal';
+import SecondModal from '../components/SecondModal';
 import Modal from '../components/Modal';
 
 constructor();
@@ -49,22 +49,22 @@ const App = () => {
             <Route path='/games'>
               <Switch>
                 <Route path='/games/verdadRetoOpcion'>
-                  <FirstModal />
+                  <SecondModal juegoActual='verdadOReto' />
                   <VerdadRetoOpcion />
                 </Route>
                 <Route path='/games/verdadReto'>
                   <VerdadReto />
                 </Route>
                 <Route path='/games/yoNunca'>
-                  <FirstModal />
+                  <SecondModal juegoActual='yoNunca' />
                   <YoNunca />
                 </Route>
                 <Route path='/games/botellita'>
-                  <FirstModal />
+                  <SecondModal juegoActual='botellita' />
                   <Botellita />
                 </Route>
                 <Route path='/games/masProbable'>
-                  <FirstModal />
+                  <SecondModal juegoActual='masProbable' />
                   <MasProbable />
                 </Route>
                 <Route path='/games/addGame'>

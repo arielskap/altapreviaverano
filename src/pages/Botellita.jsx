@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import '../assets/styles/components/Botellita.scss';
 import SpinBottle from '../components/SpinBottle';
+import { mostrarInstruc } from '../funciones';
 
 const Botellita = () => {
 
   useEffect(() => {
     document.querySelector('.App').style.backgroundColor = '#4299e1';
+    mostrarInstruc('botellita');
   });
 
   return (

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import GameGeneric from '../components/GameGeneric';
-import { gameGeneric, getLocalStorageJson } from '../funciones';
+import { gameGeneric, getLocalStorageJson, getCookieJson, showModal, setCookieJson, mostrarInstruc } from '../funciones';
 import yoNuncaJson from '../json/yoNunca.json';
 
 function YoNunca() {
   const numeroSwitch = [];
-  let numMath = getLocalStorageJson('yoNunca').length || yoNuncaJson.length;
+  let numMath = getLocalStorageJson('yoNunca') ? getLocalStorageJson('yoNunca').length : yoNuncaJson.length;
   for (let i = 0;i < numMath;i++) {
     numeroSwitch[i] = i ;
   }
@@ -21,6 +21,7 @@ function YoNunca() {
   useEffect(() => {
     document.querySelector('.App').style.backgroundColor = 'pink';
     yoNunca();
+    mostrarInstruc('yoNunca');
   }, []);
 
   return (
