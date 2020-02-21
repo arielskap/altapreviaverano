@@ -1,0 +1,65 @@
+[{
+    "Tiempo":[{
+        "body":"larga"
+    },
+    {
+        "body":"corta"
+    }],
+    "Cantidad":[{
+        "body":"menos"
+    },
+    {
+        "body":"mas"
+    }],
+    "Cuerpo":[{
+        "body":"fisico"
+    },{
+        "body":"boca"
+    },{
+        "body":"piel"
+    },{
+        "body":"culo"
+    }],
+    "Calidad":[{
+        "body":"mejor"
+    },
+    {
+        "body":"peor"
+    }],
+    "Direccion":[{
+        "body":"a la izquierda"
+    },
+    {
+        "body":"a la derecha"
+    },
+    {
+        "body":"enfrente tuyo"
+    }],
+    "Lamer":[{
+        "body":"el pie"
+    },
+    {
+        "body":"el cuello"
+    },
+    {
+        "body":"la pierna"
+    }],
+    "Trago":[{
+        "body":"1 trago"
+    },
+    {
+        "body":"2 tragos"
+    },
+    {
+        "body":"3 tragos"
+    },
+    {
+        "body":"4 tragos"
+    }],
+    "Mandado":[{
+        "body":"recibí"
+    },
+    {
+        "body":"envia"
+    }]
+}]

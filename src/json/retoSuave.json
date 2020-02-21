@@ -1,255 +1,265 @@
-{
-    "reto_suave": [{
-        "id":1,
-        "body": "¡Sacate una prenda!",
-        "user": {
-            "instagram": "ecstasy_ring"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id":2,
-        "body": "Dale un pico al que tengas ${palabra}",
-        "user": {
-            "instagram": "psycho_cruz"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id":3,
-        "body": "Quitale una prenda al que tengas ${palabra}",
-        "user": {
-            "instagram": "matiascibils"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 4,
-        "body": "Dale un pico a la persona que te parezca mas linda",
-        "user": {
-            "instagram": "esepibeee"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 5,
-        "body": "Dejar el celu por 15 segundos (sin contraseña) al que esta ${palabra}",
-        "user": {
-            "instagram": "lalu_vaccarella"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 6,
-        "body": "Los de la ronda haran una bebida y la tomaras",
-        "user": {
-            "instagram": "tiago.duarte_"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 7,
-        "body": "Lame ${cuerpo} al que tengas ${palabra}",
-        "user": {
-            "instagram": "brunocicciotti"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 8,
-        "body": "Toma ${palabra}",
-        "user": {
-            "instagram": "alan.ndc"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 9,
-        "body": "El grupo publicara una historia en tu Instagram",
-        "user": {
-            "instagram": "_violeta_julieta_"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 10,
-        "body": "Estas acargo de la musica! Pone los temas que vos quieras hasta que le toque a otro.",
-        "user": {
-            "instagram": "_juanmanuelramirez"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 11,
-        "body": "Intercambia prendas con una persona de difrente sexo.",
-        "user": {
-            "instagram": "sofiramirez.x"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 12,
-        "body": "Tenes que decir que persona de la ronda quiere darle a otra persona (Si no sabes ninguna, inventa).",
-        "user": {
-            "instagram": "aquiles.valbuena"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 13,
-        "body": "Deberas mantenerte en un chat aleatorio hasta que te toque de nuevo (Ej: Omegle, Chatroulette, etc)",
-        "user": {
-            "instagram": "maibel_romero"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 14,
-        "body": "Tirar un freestyle (Que dure minimo 20 segundos)",
-        "user": {
-            "instagram": "emilianorago"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 15,
-        "body": "Vos y la persona que tengas ${palabra} deberan reposicionarse, taparse los ojos e intentar besar al otro",
-        "user": {
-            "instagram": "nai_feinsilber"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 16,
-        "body": "Hacer Strip Dance a la persona que tengas ${palabra}",
-        "user": {
-            "instagram": "danivignone"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 17,
-        "body": "Vos y la persona que tengas ${palabra} deberan gemir como si tuvieran sexo",
-        "user": {
-            "instagram": "zoe.maiten"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 18,
-        "body": "Dale un masaje hasta que te toque de nuevo a la persona ${palabra}",
-        "user": {
-            "instagram": "some_edgy_bitch"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 19,
-        "body": "Sacale una prenda de ropa a la persona ${palabra}",
-        "user": {
-            "instagram": "cristiansielach"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 20,
-        "body": "Pasale un hielo a la persona ${palabra} con la boca",
-        "user": {
-            "instagram": "luca_leyes"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 21,
-        "body": "Habla con acento extranjero hasta que te toque de nuevo",
-        "user": {
-            "instagram": "abbulrodriguez"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 22,
-        "body": "Baila por 20 segundos la cancion que ponga la persona ${palabra}",
-        "user": {
-            "instagram": "emikonaroa"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 23,
-        "body": "Mostra algun talento tuyo.",
-        "user": {
-            "instagram": "jaci120_"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 24,
-        "body": "¿A quien votaste como presidente?",
-        "user": {
-            "instagram": "cata.gar03"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 25,
-        "body": "Todas las personas de la 'capital' toman",
-        "user": {
-            "instagram": "luciaasalatino"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 26,
-        "body": "Escudo de virginidad ACTIVADO. Por una ronda no participas, ahora poder mirar anime tranquile",
-        "user": {
-            "instagram": "matii.ldp"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 27,
-        "body": "Si usas anteojos te los deberas quitar por dos rondas. En caso de no tener, se lo quitaras a alguien de la ronda.",
-        "user": {
-            "instagram": "t_rexxuwu"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    },{
-        "id": 28,
-        "body": "Deberas likear las primeras 6 fotos que te aparecen en Instagram",
-        "user": {
-            "instagram": "franco.milone"
-        },
-        "mode": "reto",
-        "isPiquant": false,
-        "createdAt": "1998-09-03 01:01:01"
-    }]
-}
+[{
+    "id": 1,
+    "body": "¡Sacate una prenda!",
+    "user": {
+        "instagram": "ecstasy_ring"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 2,
+    "type": "Direccion",
+    "body": "Dale un pico al que tengas [...]",
+    "user": {
+        "instagram": "psycho_cruz"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 3,
+    "type": "Direccion",
+    "body": "Quitale una prenda al que tengas [...]",
+    "user": {
+        "instagram": "matiascibils"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 4,
+    "body": "Dale un pico a la persona que te parezca mas linda",
+    "user": {
+        "instagram": "esepibeee"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 5,
+    "type": "Direccion",
+    "body": "Dejar el celu por 15 segundos (sin contraseña) al que esta [...]",
+    "user": {
+        "instagram": "lalu_vaccarella"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 6,
+    "body": "Los de la ronda haran una bebida y la tomaras",
+    "user": {
+        "instagram": "tiago.duarte_"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 7,
+    "type": "Lamer, Direccion",
+    "body": "Lame [...] al que tengas [...]",
+    "user": {
+        "instagram": "brunocicciotti"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 8,
+    "type": "Tomar",
+    "body": "Toma [...]",
+    "user": {
+        "instagram": "alan.ndc"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 9,
+    "body": "El grupo publicara una historia en tu Instagram",
+    "user": {
+        "instagram": "_violeta_julieta_"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 10,
+    "body": "Estas acargo de la musica! Pone los temas que vos quieras hasta que le toque a otro.",
+    "user": {
+        "instagram": "_juanmanuelramirez"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 11,
+    "body": "Intercambia prendas con una persona de difrente sexo.",
+    "user": {
+        "instagram": "sofiramirez.x"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 12,
+    "body": "Tenes que decir que persona de la ronda quiere darle a otra persona (Si no sabes ninguna, inventa).",
+    "user": {
+        "instagram": "aquiles.valbuena"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 13,
+    "body": "Deberas mantenerte en un chat aleatorio hasta que te toque de nuevo (Ej: Omegle, Chatroulette, etc)",
+    "user": {
+        "instagram": "maibel_romero"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 14,
+    "body": "Tirar un freestyle (Que dure minimo 20 segundos)",
+    "user": {
+        "instagram": "emilianorago"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 15,
+    "type": "Direccion",
+    "body": "Vos y la persona que tengas [...] deberan reposicionarse, taparse los ojos e intentar besar al otro",
+    "user": {
+        "instagram": "nai_feinsilber"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 16,
+    "type": "Direccion",
+    "body": "Hacer Strip Dance a la persona que tengas [...]",
+    "user": {
+        "instagram": "danivignone"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 17,
+    "type": "Direccion",
+    "body": "Vos y la persona que tengas [...] deberan gemir como si tuvieran sexo",
+    "user": {
+        "instagram": "zoe.maiten"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 18,
+    "type": "Direccion",
+    "body": "Dale un masaje hasta que te toque de nuevo a la persona [...]",
+    "user": {
+        "instagram": "some_edgy_bitch"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 19,
+    "type": "Direccion",
+    "body": "Sacale una prenda de ropa a la persona [...]",
+    "user": {
+        "instagram": "cristiansielach"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 20,
+    "type": "Direccion",
+    "body": "Pasale un hielo a la persona [...] con la boca",
+    "user": {
+        "instagram": "luca_leyes"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 21,
+    "body": "Habla con acento extranjero hasta que te toque de nuevo",
+    "user": {
+        "instagram": "abbulrodriguez"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 22,
+    "type": "Direccion",
+    "body": "Baila por 20 segundos la cancion que ponga la persona [...]",
+    "user": {
+        "instagram": "emikonaroa"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 23,
+    "body": "Mostra algun talento tuyo.",
+    "user": {
+        "instagram": "jaci120_"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 24,
+    "body": "¿A quien votaste como presidente?",
+    "user": {
+        "instagram": "cata.gar03"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 25,
+    "body": "Todas las personas de la 'capital' toman",
+    "user": {
+        "instagram": "luciaasalatino"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 26,
+    "body": "Escudo de virginidad ACTIVADO. Por una ronda no participas, ahora poder mirar anime tranquile",
+    "user": {
+        "instagram": "matii.ldp"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 27,
+    "body": "Si usas anteojos te los deberas quitar por dos rondas. En caso de no tener, se lo quitaras a alguien de la ronda.",
+    "user": {
+        "instagram": "t_rexxuwu"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}, {
+    "id": 28,
+    "body": "Deberas likear las primeras 6 fotos que te aparecen en Instagram",
+    "user": {
+        "instagram": "franco.milone"
+    },
+    "mode": "reto",
+    "isPiquant": false,
+    "createdAt": "1998-09-03 01:01:01"
+}]

@@ -66,10 +66,19 @@ const Perfil = () => {
   };
 
   useEffect(() => {
-    document.querySelector('.App').style.backgroundColor = 'coral';
-    document.querySelector('.App').style.backgroundImage = `url(${avocado})`;
+    const background = getCookie('background');
+    if (background === 'lindo') {
+      document.querySelector('.App').style.backgroundColor = 'coral';
+      document.querySelector('.App').style.backgroundImage = `url(${avocado})`;
+    } else {
+      document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${avocado}) coral`;
+    }
     return () => {
-      document.querySelector('.App').style.backgroundImage = `url(${palmera})`;
+      if (background === 'lindo') {
+        document.querySelector('.App').style.backgroundImage = `url(${palmera})`;
+      } else {
+        document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) coral`;
+      }
     };
   });
 

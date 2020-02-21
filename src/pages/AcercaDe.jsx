@@ -9,6 +9,8 @@ import logo from '../assets/static/logo.png';
 import barmat from '../assets/static/barmat.png';
 import Form from '../components/Form';
 import Card from '../components/Card';
+import Switch from '../components/Switch';
+import palmera from '../assets/static/palmera.png';
 
 const AcercaDe = () => {
   const [visible, setVisible] = useState(false);
@@ -23,13 +25,32 @@ const AcercaDe = () => {
     }
   };
 
+  const handleSwitch = () => {
+    const switchButton = document.querySelector('#switch');
+    if (switchButton.checked) {
+      document.querySelector('.App').style.background = '';
+      document.querySelector('.App').style.backgroundColor = '#4FD1C4';
+      setCookie('background', 'lindo', 365);
+    } else {
+      document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) #4FD1C4`;
+      setCookie('background', 'feo', 365);
+    }
+  };
+
   useEffect(() => {
     const checkBox = document.querySelector('#checkbox');
     const closedItems = getCookie('closed');
+    const switchButton = document.querySelector('#switch');
+    const isBeautify = getCookie('background');
     if (!closedItems) {
       checkBox.checked = true;
     }
-    document.querySelector('.App').style.backgroundColor = '#4FD1C4';
+    if (isBeautify === 'lindo') {
+      switchButton.checked = true;
+      document.querySelector('.App').style.backgroundColor = '#4FD1C4';
+    } else {
+      document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) #4FD1C4`;
+    }
   });
 
   const TAM_IMG = 'h-16 w-16';
@@ -47,6 +68,10 @@ const AcercaDe = () => {
             {' '}
             Habilitar info adicional.
           </label>
+          <div className='flex my-3'>
+            <Switch className='ml-2 w-12 h-6' onClick={handleSwitch}>Cambiar estilo de fondo</Switch>
+            <p className='ml-2'>Cambiar Estilo</p>
+          </div>
         </Card>
         <Card className='AcercaDeBody__porque mt-4 pb-1'>
           <div className='p-1'>

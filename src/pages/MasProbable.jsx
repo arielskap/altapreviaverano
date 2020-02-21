@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import GameGeneric from '../components/GameGeneric';
-import { gameGeneric, getCookieJson } from '../funciones';
+import { gameGeneric, getLocalStorageJson } from '../funciones';
 import masProbableJson from '../json/masProbable.json';
 
 const MasProbable = () => {
 
   const numeroSwitch = [];
-  let numMath = getCookieJson('masProbable').length || masProbableJson.length;
+  let numMath = getLocalStorageJson('masProbable').length || masProbableJson.length;
   for (let i = 0;i < numMath;i++) {
     numeroSwitch[i] = i ;
   }
 
   const masProbableA = () => {
-    const json = getCookieJson('masProbable') || masProbableJson;
+    const json = getLocalStorageJson('masProbable') || masProbableJson;
     const numAleatorio = gameGeneric('masProbable', json, numMath, numeroSwitch, 'F');
     numeroSwitch.splice(numAleatorio, 1);
     numMath--;

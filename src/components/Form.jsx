@@ -53,7 +53,7 @@ const Form = (props) => {
               'body': textarea.value,
               'createdAt': Date.now(),
               'mode': mode,
-              'piquant': isPiquiant,
+              'isPiquant': isPiquiant,
             };
           } else {
             body = {
