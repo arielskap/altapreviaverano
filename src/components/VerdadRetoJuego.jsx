@@ -24,7 +24,7 @@ const VerdadRetoJuego = (props) => {
     div.classList.add('animated', 'fadeIn', 'VerdadRetoJuego__mission', 'p-4', 'border-2', `border-${verdadReto === 'verdad' ? 'red' : 'blue'}-700`, 'mt-6', 'rounded-lg');
     div.appendChild(p);
     if (parrafoFunction[1]) {
-      div.insertAdjacentHTML('beforeend', `<a href="https://www.instagram.com/ecstasy_ring/" class=a-instagram><div class="div-instagram px-2 pt-2 pb-1 text-right italic fadeIn animated faster inline-flex items-center justify-end w-full"><img src=${instagram} alt="instagram" class="img-instagram object-contain h-5 w-5 mr-2"><p class="p-instagram" />${parrafoFunction[1]}</div></a>`);
+      div.insertAdjacentHTML('beforeend', `<a href="https://www.instagram.com/${parrafoFunction[1]}/" class=a-instagram><div class="div-instagram px-2 pt-2 pb-1 text-right italic fadeIn animated faster inline-flex items-center justify-end w-full"><img src=${instagram} alt="instagram" class="img-instagram object-contain h-5 w-5 mr-2"><p class="p-instagram" />${parrafoFunction[1]}</div></a>`);
     }
     document.querySelector('.VerdadRetoJuego-body').appendChild(div);
     document.querySelector('.VerdadRetoJuego-footer__noLoHizo').classList.add('hidden');
@@ -57,7 +57,7 @@ const VerdadRetoJuego = (props) => {
   });
   return (
     <div className='VerdadRetoJuego animated fadeIn mt-16'>
-      <div className='mb-16'>
+      <div className='pb-16'>
         <div className='VerdadRetoJuego-body text-lg mx-8'>
           <div className={`VerdadRetoJuego__mission p-4 border-2 border-${verdadReto === 'verdad' ? 'green' : 'red'}-700 rounded-lg`}>
             <Instagram />

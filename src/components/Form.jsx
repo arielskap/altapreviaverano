@@ -51,7 +51,6 @@ const Form = (props) => {
             body = {
               'type': 'change',
               'body': textarea.value,
-              'createdAt': Date.now(),
               'mode': mode,
               'isPiquant': isPiquiant,
             };
@@ -59,10 +58,8 @@ const Form = (props) => {
             body = {
               'type': 'change',
               'body': textarea.value,
-              'createdAt': Date.now(),
             };
           }
-          console.log(body);
           const miInit = { method: 'POST',
             body: JSON.stringify(
               body,

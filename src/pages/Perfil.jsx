@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import H1 from '../components/H1';
 import ImgPerfil from '../components/ImgPerfil';
 import Modal from '../components/Modal';
-import { getCookie, setCookie, showModal } from '../funciones';
+import { getCookie, setCookie, showModal, setCookieJson, getCookieJson } from '../funciones';
 import '../assets/styles/components/Perfil.scss';
 import avocado from '../assets/static/avocado.svg';
 import palmera from '../assets/static/palmera.png';
@@ -40,8 +40,54 @@ const Perfil = () => {
   };
 
   const handleSubmit = (event) => {
-    showModal();
+    let authorization = getCookie('access_token');
     event.preventDefault();
+    showModal();
+    const dataUser = {
+      nombre: document.querySelector('#nombre').value,
+      apellido: document.querySelector('#apellido').value,
+      instagram: document.querySelector('#instagram').value,
+      instaVisible: document.querySelector('#instaVisible').checked,
+      email: document.querySelector('#email').value,
+      edad: document.querySelector('#edad').value,
+      pais: document.querySelector('#pais').value,
+      otro: document.querySelector('#otro').value,
+    };
+    setCookieJson('dataUser', dataUser);
+    const miInit = { method: 'PUT',
+      body: JSON.stringify(
+        {
+          'firstName': dataUser.nombre,
+          'lastName': dataUser.apellido,
+          'instagram': dataUser.instagram,
+          'isPublic': dataUser.instaVisible,
+          'email': dataUser.email,
+          'age': dataUser.edad,
+          'country': dataUser.pais,
+          'otherCountry': dataUser.otro,
+        },
+      ),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': authorization,
+      },
+      credentials: 'same-origin',
+    };
+    return fetch('https://altaprevia.herokuapp.com/user/update', miInit)
+      .then((res) => {
+        authorization = res.headers.get('authorization');
+        authorization = authorization.replace('Bearer', '');
+        return res.json();
+      })
+      .catch((error) => {
+        console.error('Error https://altaprevia.herokuapp.com/user/update:', error);
+        return 0;
+      })
+      .then((response) => {
+        console.log('Success update https://altaprevia.herokuapp.com/user/update:', response);
+        if (!authorization || authorization === 'null') setCookie('access_token', authorization, 365);
+        return response;
+      });
   };
 
   const handleChange = () => {
@@ -67,12 +113,41 @@ const Perfil = () => {
 
   useEffect(() => {
     const background = getCookie('background');
+    const dataUser = getCookieJson('dataUser');
+    document.querySelector('#instaVisible').checked = true;
+    if (dataUser) {
+      if (dataUser.nombre) {
+        document.querySelector('#nombre').value = dataUser.nombre;
+      }
+      if (dataUser.apellido) {
+        document.querySelector('#apellido').value = dataUser.apellido;
+      }
+      if (dataUser.instagram) {
+        document.querySelector('#instagram').value = dataUser.instagram;
+      }
+      if (!dataUser.instaVisible) {
+        document.querySelector('#instaVisible').checked = false;
+      }
+      if (dataUser.email) {
+        document.querySelector('#email').value = dataUser.email;
+      }
+      if (dataUser.edad) {
+        document.querySelector('#edad').value = dataUser.edad;
+      }
+      if (dataUser.pais) {
+        document.querySelector('#pais').value = dataUser.pais;
+      }
+      if (dataUser.otro) {
+        document.querySelector('#otro').value = dataUser.otro;
+      }
+    }
     if (background === 'lindo') {
       document.querySelector('.App').style.backgroundColor = 'coral';
       document.querySelector('.App').style.backgroundImage = `url(${avocado})`;
     } else {
       document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${avocado}) coral`;
     }
+
     return () => {
       if (background === 'lindo') {
         document.querySelector('.App').style.backgroundImage = `url(${palmera})`;
@@ -133,15 +208,25 @@ const Perfil = () => {
         </form>
         <div className='mx-4'>
           <form onSubmit={handleSubmit}>
-            <label htmlFor='nombre'>
-              <p className='block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2'>Nombre: (Opcional)</p>
-              <input id='nombre' type='text' placeholder='tuGatita123' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' maxLength='40' />
-              <p className='text-gray-600 text-xs italic bg-transparent-red-1 rounded p-1 mt-1'>*Podes poner lo que quieras, no te queremos robar informacion o si...</p>
-            </label>
+            <div className='sm:grid sm:grid-cols-2 sm:gap-2'>
+              <label htmlFor='nombre'>
+                <p className='block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2'>Nombre/s: (Opcional)</p>
+                <input id='nombre' type='text' placeholder='tuGatita123' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' maxLength='40' />
+                <p className='text-gray-600 text-xs italic bg-transparent-red-1 rounded p-1 mt-1'>*Podes poner lo que quieras, no te queremos robar informacion o si...</p>
+              </label>
+              <label htmlFor='apellido'>
+                <p className='block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2'>Apellido/s: (Opcional)</p>
+                <input id='apellido' type='text' placeholder='Uzumaki' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' maxLength='40' />
+              </label>
+            </div>
             <div className='sm:grid sm:grid-cols-2 sm:gap-2'>
               <label htmlFor='instagram'>
                 <p className='block uppercase tracking-wide text-gray-800 text-xs font-bold my-2'>Instagram:</p>
                 <input id='instagram' type='text' placeholder='ecstasy.ring' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' maxLength='30' required />
+                <label htmlFor='instaVisible' className='flex justify-end items-center mt-2 text-sm'>
+                  <input id='instaVisible' type='checkbox' />
+                  <p className='ml-1'>Instagram visible</p>
+                </label>
                 <p className='text-gray-600 text-xs italic bg-transparent-red-1 rounded p-1 mt-1'>*Si un juego que recomiendas es elegido para formar parte de la app, se agregara tu instagram, es lo minimo que podemos hacer por trabajar gratis (?</p>
               </label>
               <label htmlFor='email'>

@@ -26,3 +26,4 @@
 [] Desactivated freeMode to the bottle
 [] Notification
 [] sure leave back, verdadReto
+[] ver juegos agregados

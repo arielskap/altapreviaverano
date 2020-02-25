@@ -60,7 +60,6 @@ const constructor = () => {
         body: JSON.stringify(
           {
             sdk: getCookie('sdk'),
-            createdAt: Date.now(),
             country: 'AR',
           },
         ),
