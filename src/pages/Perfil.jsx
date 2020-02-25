@@ -88,8 +88,8 @@ const Perfil = () => {
         <H1 className='perfil'>Perfil</H1>
       </div>
       <div className='flex justify-center w-full mt-4'>
-        <div className='w-24 h-24'>
-          <ImgPerfil src={img} alt={alt} />
+        <div className='rounded-full w-24 h-24 div__imgPerfil'>
+          <ImgPerfil classNameImg='object-contain rounded-full' src={img} alt={alt} />
         </div>
       </div>
       <div className='mt-4'>
@@ -134,28 +134,28 @@ const Perfil = () => {
         <div className='mx-4'>
           <form onSubmit={handleSubmit}>
             <label htmlFor='nombre'>
-              <p className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Nombre: (Opcional)</p>
+              <p className='block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2'>Nombre: (Opcional)</p>
               <input id='nombre' type='text' placeholder='tuGatita123' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' maxLength='40' />
               <p className='text-gray-600 text-xs italic bg-transparent-red-1 rounded p-1 mt-1'>*Podes poner lo que quieras, no te queremos robar informacion o si...</p>
             </label>
             <div className='sm:grid sm:grid-cols-2 sm:gap-2'>
               <label htmlFor='instagram'>
-                <p className='block uppercase tracking-wide text-gray-700 text-xs font-bold my-2'>Instagram:</p>
+                <p className='block uppercase tracking-wide text-gray-800 text-xs font-bold my-2'>Instagram:</p>
                 <input id='instagram' type='text' placeholder='ecstasy.ring' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' maxLength='30' required />
                 <p className='text-gray-600 text-xs italic bg-transparent-red-1 rounded p-1 mt-1'>*Si un juego que recomiendas es elegido para formar parte de la app, se agregara tu instagram, es lo minimo que podemos hacer por trabajar gratis (?</p>
               </label>
               <label htmlFor='email'>
-                <p className='block uppercase tracking-wide text-gray-700 text-xs font-bold my-2'>Email: (Opcional)</p>
+                <p className='block uppercase tracking-wide text-gray-800 text-xs font-bold my-2'>Email: (Opcional)</p>
                 <input id='email' type='email' placeholder='elMasRati@skere.com' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' maxLength='40' />
               </label>
             </div>
             <div className='sm:grid sm:grid-cols-2 sm:gap-2'>
               <label htmlFor='edad'>
-                <p className='block uppercase tracking-wide text-gray-700 text-xs font-bold my-2'>Edad:</p>
+                <p className='block uppercase tracking-wide text-gray-800 text-xs font-bold my-2'>Edad:</p>
                 <input id='edad' type='number' min='18' max='99' placeholder='1.000.000' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal' required />
               </label>
               <label htmlFor='pais'>
-                <p className='block uppercase tracking-wide text-gray-700 text-xs font-bold my-2'>Pais:</p>
+                <p className='block uppercase tracking-wide text-gray-800 text-xs font-bold my-2'>Pais:</p>
                 <div className='relative'>
                   <select id='pais' className='form-select block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500' required onChange={handleChange}>
                     <option value=''>~Pais~</option>
@@ -177,7 +177,7 @@ const Perfil = () => {
                 </div>
               </label>
               <label className='sm:col-start-2' htmlFor='otro'>
-                <p className='p-otro block uppercase tracking-wide text-gray-700 text-xs font-bold my-2 opacity-50 cursor-not-allowed'>Otro:</p>
+                <p className='p-otro block uppercase tracking-wide text-gray-800 text-xs font-bold my-2 opacity-50 cursor-not-allowed'>Otro:</p>
                 <input id='otro' type='text' placeholder='Venus' className='bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal opacity-50 cursor-not-allowed' disabled />
               </label>
             </div>

@@ -17,7 +17,7 @@ const AcercaDe = () => {
   const [visible2, setVisible2] = useState(false);
 
   const handleCheck = () => {
-    const checkBox = document.querySelector('#checkbox');
+    const checkBox = document.querySelector('#Switch__info');
     if (checkBox.checked) {
       deleteCookie('closed');
     } else {
@@ -26,7 +26,7 @@ const AcercaDe = () => {
   };
 
   const handleSwitch = () => {
-    const switchButton = document.querySelector('#switch');
+    const switchButton = document.querySelector('#Switch__style');
     if (switchButton.checked) {
       document.querySelector('.App').style.background = '';
       document.querySelector('.App').style.backgroundColor = '#4FD1C4';
@@ -38,15 +38,17 @@ const AcercaDe = () => {
   };
 
   useEffect(() => {
-    const checkBox = document.querySelector('#checkbox');
+    const checkBox = document.querySelector('#Switch__info');
     const closedItems = getCookie('closed');
-    const switchButton = document.querySelector('#switch');
+    const switchButton = document.querySelector('#Switch__style');
     const isBeautify = getCookie('background');
     if (!closedItems) {
       checkBox.checked = true;
+      document.querySelector('.Switch__info').style.backgroundColor = 'hotpink';
     }
     if (isBeautify === 'lindo') {
       switchButton.checked = true;
+      document.querySelector('.Switch__style').style.backgroundColor = 'khaki';
       document.querySelector('.App').style.backgroundColor = '#4FD1C4';
     } else {
       document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) #4FD1C4`;
@@ -63,13 +65,12 @@ const AcercaDe = () => {
       <div className='AcercaDeBody__body mt-4'>
         <Card className='card-configuracion p-1'>
           <h4 className='text-xl'>Configuracion:</h4>
-          <label className='pl-4' htmlFor='checkbox'>
-            <input type='checkbox' id='checkbox' onClick={handleCheck} />
-            {' '}
-            Habilitar info adicional.
-          </label>
           <div className='flex my-3'>
-            <Switch className='ml-2 w-12 h-6' onClick={handleSwitch}>Cambiar estilo de fondo</Switch>
+            <Switch className='ml-2 w-12 h-6' onClick={handleCheck} id='Switch__info' color='hotpink' />
+            <p className='ml-2'>Habilitar info adicional.</p>
+          </div>
+          <div className='flex my-3'>
+            <Switch className='ml-2 w-12 h-6' onClick={handleSwitch} id='Switch__style' color='khaki' />
             <p className='ml-2'>Cambiar Estilo</p>
           </div>
         </Card>
@@ -96,7 +97,7 @@ const AcercaDe = () => {
                 <button className={TAM_IMG} type='button' onClick={() => setVisible(!visible)}><img className='object-contain w-full h-full' src={facebook} alt='facebook' /></button>
               </Tippy>
               <a className={TAM_IMG} href='https://www.instagram.com/ecstasy_ring/'><img className='object-contain w-full h-full' src={instagram} alt='instagram' /></a>
-              <Tippy content='Para perder la dignidad tengo el LoL, bro.' visible={visible2}>
+              <Tippy content='Para perder la dignidad tengo el LoL, bro.' visible={visible2} placement='bottom'>
                 <button className={TAM_IMG} type='button' onClick={() => setVisible2(!visible2)}><img className='object-contain w-full h-full' src={tiktok} alt='tiktok' /></button>
               </Tippy>
             </div>

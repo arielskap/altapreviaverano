@@ -26,8 +26,8 @@ const Home = () => {
     <div className='Home animated fadeIn faster'>
       <section className='HomeHeader'>
         <div className='flex justify-between px-4 pt-4'>
-          <Link to='/home/perfil' className='rounded-full h-12 w-12 flex justify-center'>
-            <img src={perfilImg} alt={perfilAlt} />
+          <Link to='/home/perfil' className='rounded-full h-12 w-12 flex justify-center Link__perfil p-1'>
+            <img className='rounded-full object-contain' src={perfilImg} alt={perfilAlt} />
           </Link>
           <Link to='/home/acercaDe' className='HomeHeader__information-button rounded-full h-12 w-12 bg-aqua-transparent flex justify-center'>
             <img className='fill-current h-full w-full' src={information} alt='Informacion' />

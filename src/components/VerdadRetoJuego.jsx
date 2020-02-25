@@ -43,17 +43,10 @@ const VerdadRetoJuego = (props) => {
     const p = document.createElement('p');
     p.classList.add('p-VerdadRetoJuego');
     if (juego === 'Suave' || juego === 'Picante') {
-      if (verdadReto === 'verdad') {
-        parrafoFunction = verdad(juego);
-        text = parrafoFunction[0];
-        addInstagram(parrafoFunction[1]);
-        text = document.createTextNode(text);
-      } else {
-        parrafoFunction = reto(juego);
-        text = parrafoFunction[0];
-        addInstagram(parrafoFunction[1]);
-        text = document.createTextNode(text);
-      }
+      parrafoFunction = verdadReto === 'verdad' ? verdad(juego) : reto(juego);
+      text = parrafoFunction[0];
+      addInstagram(parrafoFunction[1]);
+      text = document.createTextNode(text);
     }
     if (document.querySelector('p-VerdadRetoJuego')) {
       document.querySelector('p-VerdadRetoJuego').remove();

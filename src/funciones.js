@@ -179,27 +179,6 @@ export const addInstagram = (text) => {
   }
 };
 
-export const gameGeneric = (classList, json, numMath, numeroSwitch, lastMessage) => {
-  const instagram = document.querySelector('.a-instagram');
-  const parentP = document.querySelector(`.${classList}Body__parent-p`);
-  const numAleatorio = Math.floor((Math.random() * numMath));
-  let p = document.querySelector(`.${classList}Body-p`);
-  let text;
-  if (numeroSwitch[numAleatorio] !== undefined) {
-    text = document.createTextNode(json[numeroSwitch[numAleatorio]].body);
-    addInstagram(json[numeroSwitch[numAleatorio]].user.instagram);
-  } else {
-    text = document.createTextNode(lastMessage);
-    addInstagram();
-  }
-  p.remove();
-  p = document.createElement('p');
-  p.classList.add(`${classList}Body-p`, 'animated', 'fadeIn', 'faster');
-  p.appendChild(text);
-  parentP.insertBefore(p, instagram);
-  return numAleatorio;
-};
-
 export const mostrarInstruc = (juego) => {
   let instrucciones = getCookieJson('instrucciones');
   let flag = false;
@@ -219,4 +198,64 @@ export const mostrarInstruc = (juego) => {
     instrucciones.push(juego);
     setCookieJson('instrucciones', instrucciones);
   }
+};
+
+export const hasRandom = ({ body, type }) => {
+  let array;
+  let randomElement;
+  let newText = body;
+  if (body.includes('[...]') && type) {
+    switch (type.toLowerCase()) {
+      case 'tiempo':
+        array = ['larga', 'corta'];
+        break;
+      case 'cantidad':
+        array = ['menos', 'más'];
+        break;
+      case 'cuerpo':
+        array = ['fisico', 'boca', 'piel', 'culo'];
+        break;
+      case 'calidad':
+        array = ['mejor', 'peor'];
+        break;
+      case 'direccion':
+        array = ['a la izquierda', 'a la derecha', 'enfrente tuyo'];
+        break;
+      case 'lamer':
+        array = ['el pie', 'el cuello', 'la pierna'];
+        break;
+      case 'trago':
+        array = ['1 trago', '2 tragos', '3 tragos', '4 tragos'];
+        break;
+      case 'mandado':
+        array = ['recibí', 'envia'];
+        break;
+    }
+    randomElement = array[Math.floor(Math.random() * array.length)];
+    newText = body.replace('[...]', randomElement);
+  }
+  return newText;
+};
+
+export const gameGeneric = (classList, json, numMath, numeroSwitch, lastMessage) => {
+  const instagram = document.querySelector('.a-instagram');
+  const parentP = document.querySelector(`.${classList}Body__parent-p`);
+  const numAleatorio = Math.floor((Math.random() * numMath));
+  let p = document.querySelector(`.${classList}Body-p`);
+  let text;
+  if (numeroSwitch[numAleatorio] !== undefined) {
+    let { body } = json[numeroSwitch[numAleatorio]];
+    body = hasRandom(json[numeroSwitch[numAleatorio]]);
+    text = document.createTextNode(body);
+    addInstagram(json[numeroSwitch[numAleatorio]].user.instagram);
+  } else {
+    text = document.createTextNode(lastMessage);
+    addInstagram();
+  }
+  p.remove();
+  p = document.createElement('p');
+  p.classList.add(`${classList}Body-p`, 'animated', 'fadeIn', 'faster');
+  p.appendChild(text);
+  parentP.insertBefore(p, instagram);
+  return numAleatorio;
 };
