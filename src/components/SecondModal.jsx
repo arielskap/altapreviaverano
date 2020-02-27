@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Modal from './Modal';
-import { showModal, setCookie, getCookie, getCookieJson } from '../funciones';
+import { showModal, getLocalStorageJson } from '../funciones';
 
 const SecondModal = ({ juegoActual }) => {
   useEffect(() => {
-    const instrucciones = getCookieJson('instrucciones');
+    const instrucciones = getLocalStorageJson('instrucciones');
     let flag = false;
     if (instrucciones) {
       for (let i = 0; i < instrucciones.length; i++) {
@@ -16,10 +16,10 @@ const SecondModal = ({ juegoActual }) => {
       }
     }
     if (flag) {
-      if (!getCookie('ModalSecondary')) {
+      if (!localStorage.getItem('ModalSecondary')) {
         showModal('Modal-secondary');
       }
-      setCookie('ModalSecondary', true, 365);
+      localStorage.setItem('ModalSecondary', true, 365);
     }
   });
   return (

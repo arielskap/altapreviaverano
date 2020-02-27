@@ -36,10 +36,16 @@ const Form = (props) => {
     const select = e.options[e.selectedIndex].value;
     const textarea = document.querySelector('.form-textarea');
     const info = document.querySelector('.form-info');
+    let mode;
+    let isPiquiant;
     let authorization = localStorage.getItem('access_token');
-    const mode = document.querySelector('.form-select0').options[document.querySelector('.form-select0').selectedIndex].value;
-    let isPiquiant = document.querySelector('.form-select1').options[document.querySelector('.form-select1').selectedIndex].value;
-    isPiquiant = isPiquiant === 'true';
+    if (document.querySelector('.form-select0')) {
+      mode = document.querySelector('.form-select0').options[document.querySelector('.form-select0').selectedIndex].value;
+    }
+    if (document.querySelector('.form-select1')) {
+      isPiquiant = document.querySelector('.form-select1').options[document.querySelector('.form-select1').selectedIndex].value;
+      isPiquiant = isPiquiant === 'true';
+    }
     let body;
     for (let i = 1; i < options.length; i++) {
       const option = options[i];

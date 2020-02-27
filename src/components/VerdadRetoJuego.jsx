@@ -4,7 +4,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 import Title from './Title';
 import Instagram from './Instagram';
 import instagram from '../assets/static/instagram.svg';
-import { animateCSS, addInstagram, getCookie, setCookie } from '../funciones';
+import { animateCSS, addInstagram } from '../funciones';
 import { verdad, reto } from '../verdadReto';
 import '../assets/styles/components/VerdadRetoJuego.scss';
 
@@ -12,8 +12,8 @@ const VerdadRetoJuego = (props) => {
   const history = useHistory();
   const query = new URLSearchParams(useLocation().search);
   const verdadReto = query.get('verdadReto');
-  let juego = getCookie('verdadOretoJuego');
-  let cant = getCookie('verdadOretoCantidad');
+  let juego = localStorage.getItem('verdadOretoJuego');
+  let cant = localStorage.getItem('verdadOretoCantidad');
   const { changeStateVerdadReto } = props;
   const noLoHizo = () => {
     const p = document.createElement('p');
@@ -36,7 +36,7 @@ const VerdadRetoJuego = (props) => {
   useEffect(() => {
     const instagram = document.querySelector('.a-instagram');
     const parentP = document.querySelector('.VerdadRetoJuego__mission');
-    const juego = getCookie('verdadOretoJuego');
+    const juego = localStorage.getItem('verdadOretoJuego');
     const verdadReto = query.get('verdadReto');
     let parrafoFunction;
     let text;
@@ -88,8 +88,8 @@ const VerdadRetoJuego = (props) => {
                   changeStateVerdadReto(<Title juego={juego} cant={cant} />);
                 }
               }
-              setCookie('verdadOretoJuego', juego);
-              setCookie('verdadOretoCantidad', cant);
+              localStorage.setItem('verdadOretoJuego', juego);
+              localStorage.setItem('verdadOretoCantidad', cant);
               history.replace('/games/verdadReto/select');
             });
           }}

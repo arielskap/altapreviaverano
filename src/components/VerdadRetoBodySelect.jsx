@@ -4,13 +4,13 @@ import Tippy from '@tippy.js/react';
 import '../assets/styles/components/VerdadRetoBodySelect.scss';
 import fort from '../assets/static/fort.gif';
 import fortCielo from '../assets/static/fortCielo.gif';
-import { animateCSS, getCookie, setCookie } from '../funciones';
+import { animateCSS } from '../funciones';
 
 const VerdadRetoBodySelect = () => {
   const [visible, setVisible] = useState(false);
   const history = useHistory();
-  const juego = getCookie('verdadOretoJuego');
-  const cant = getCookie('verdadOretoCantidad');
+  const juego = localStorage.getItem('verdadOretoJuego');
+  const cant = localStorage.getItem('verdadOretoCantidad');
 
   useEffect(() => {
     return () => {
@@ -26,8 +26,8 @@ const VerdadRetoBodySelect = () => {
           className='VerdadRetoBody__suave-button text-lg bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded w-full my-2'
           onClick={() => {
             animateCSS('.VerdadRetoBodySelect', 'fadeOut faster', () => {
-              setCookie('verdadOretoJuego', juego);
-              setCookie('verdadOretoCantidad', cant);
+              localStorage.setItem('verdadOretoJuego', juego);
+              localStorage.setItem('verdadOretoCantidad', cant);
               history.replace('/games/verdadReto/juego?verdadReto=verdad');
             });
           }}
@@ -39,8 +39,8 @@ const VerdadRetoBodySelect = () => {
           className='VerdadRetoBody__picante-button text-lg bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 border border-red-700 rounded w-full my-2'
           onClick={() => {
             animateCSS('.VerdadRetoBodySelect', 'fadeOut faster', () => {
-              setCookie('verdadOretoJuego', juego);
-              setCookie('verdadOretoCantidad', cant);
+              localStorage.setItem('verdadOretoJuego', juego);
+              localStorage.setItem('verdadOretoCantidad', cant);
               history.replace('/games/verdadReto/juego?verdadReto=reto');
             });
           }}
