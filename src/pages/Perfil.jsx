@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import H1 from '../components/H1';
 import ImgPerfil from '../components/ImgPerfil';
 import Modal from '../components/Modal';
-import { getCookie, setCookie, showModal, setCookieJson, getCookieJson } from '../funciones';
+import { showModal, getLocalStorageJson, setLocalStorageJson } from '../funciones';
 import '../assets/styles/components/Perfil.scss';
 import avocado from '../assets/static/avocado.svg';
 import palmera from '../assets/static/palmera.png';
@@ -10,11 +10,11 @@ import perfilJson from '../constantes';
 import Close from '../components/Close';
 
 const Perfil = () => {
-  const perfilImg = getCookie('perfilImg');
-  const perfilAlt = getCookie('perfilAlt');
+  const perfilImg = localStorage.getItem('perfilImg');
+  const perfilAlt = localStorage.getItem('perfilAlt');
   const [img, setImg] = useState(perfilImg);
   const [alt, setAlt] = useState(perfilAlt);
-  let closedItems = getCookie('closed') || [];
+  let closedItems = localStorage.getItem('closed') || [];
   if (typeof closedItems === 'string') {
     closedItems = closedItems.split('|');
   }
@@ -33,14 +33,14 @@ const Perfil = () => {
       showModal('Modal-avatar');
       setImg(jsonSrc);
       setAlt(jsonAlt);
-      setCookie('perfilImg', jsonSrc, 365);
-      setCookie('perfilAlt', jsonAlt, 365);
+      localStorage.setItem('perfilImg', jsonSrc, 365);
+      localStorage.setItem('perfilAlt', jsonAlt, 365);
     }
     event.preventDefault();
   };
 
   const handleSubmit = (event) => {
-    let authorization = getCookie('access_token');
+    let authorization = localStorage.getItem('access_token');
     event.preventDefault();
     showModal();
     const dataUser = {
@@ -53,7 +53,7 @@ const Perfil = () => {
       pais: document.querySelector('#pais').value,
       otro: document.querySelector('#otro').value,
     };
-    setCookieJson('dataUser', dataUser);
+    setLocalStorageJson('dataUser', dataUser);
     const miInit = { method: 'PUT',
       body: JSON.stringify(
         {
@@ -85,7 +85,7 @@ const Perfil = () => {
       })
       .then((response) => {
         console.log('Success update https://altaprevia.herokuapp.com/user/update:', response);
-        if (!authorization || authorization === 'null') setCookie('access_token', authorization, 365);
+        if (!authorization || authorization === 'null') localStorage.setItem('access_token', authorization, 365);
         return response;
       });
   };
@@ -112,8 +112,8 @@ const Perfil = () => {
   };
 
   useEffect(() => {
-    const background = getCookie('background');
-    const dataUser = getCookieJson('dataUser');
+    const background = localStorage.getItem('background');
+    const dataUser = getLocalStorageJson('dataUser');
     document.querySelector('#instaVisible').checked = true;
     if (dataUser) {
       if (dataUser.nombre) {

@@ -1,18 +1,29 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import GameGeneric from '../components/GameGeneric';
-import { gameGeneric, getLocalStorageJson, getCookieJson, showModal, setCookieJson, mostrarInstruc } from '../funciones';
+import { gameGeneric, getLocalStorageJson, mostrarInstruc } from '../funciones';
 import yoNuncaJson from '../json/yoNunca.json';
 
 function YoNunca() {
   const numeroSwitch = [];
-  let numMath = getLocalStorageJson('yoNunca') ? getLocalStorageJson('yoNunca').length : yoNuncaJson.length;
+  let numMath;
+  let isLocal = true;
+  if (getLocalStorageJson('yoNunca')) {
+    if (getLocalStorageJson('yoNunca').length > 0) {
+      numMath = getLocalStorageJson('yoNunca').length;
+      isLocal = false;
+    } else {
+      numMath = yoNuncaJson.length;
+    }
+  } else {
+    numMath = yoNuncaJson.length;
+  }
   for (let i = 0;i < numMath;i++) {
     numeroSwitch[i] = i ;
   }
 
   const yoNunca = () => {
-    const json = getLocalStorageJson('yoNunca') || yoNuncaJson;
+    const json = isLocal ? yoNuncaJson : getLocalStorageJson('yoNunca');
     const numAleatorio = gameGeneric('YoNunca', json, numMath, numeroSwitch, 'Ya no hay mas "Yo Nunca". Juga otra cosa o quebra.');
     numeroSwitch.splice(numAleatorio, 1);
     numMath--;

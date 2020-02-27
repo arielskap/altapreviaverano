@@ -7,13 +7,24 @@ import masProbableJson from '../json/masProbable.json';
 const MasProbable = () => {
 
   const numeroSwitch = [];
-  let numMath = getLocalStorageJson('masProbable') ? getLocalStorageJson('masProbable').length : masProbableJson.length;
+  let numMath;
+  let isLocal = true;
+  if (getLocalStorageJson('masProbable')) {
+    if (getLocalStorageJson('masProbable').length > 0) {
+      numMath = getLocalStorageJson('masProbable').length;
+      isLocal = false;
+    } else {
+      numMath = masProbableJson.length;
+    }
+  } else {
+    numMath = masProbableJson.length;
+  }
   for (let i = 0;i < numMath;i++) {
     numeroSwitch[i] = i ;
   }
 
   const masProbableA = () => {
-    const json = getLocalStorageJson('masProbable') || masProbableJson;
+    const json = isLocal ? masProbableJson : getLocalStorageJson('masProbable');
     const numAleatorio = gameGeneric('masProbable', json, numMath, numeroSwitch, 'F');
     numeroSwitch.splice(numAleatorio, 1);
     numMath--;

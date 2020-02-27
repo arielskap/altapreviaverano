@@ -1,4 +1,4 @@
-import { getCookie, setCookie, peticion, showModal, setLocalStorageJson } from './funciones';
+import { peticion, showModal, setLocalStorageJson } from './funciones';
 import skeleton from './assets/static/skeleton.svg';
 
 const verifySet = (juegos, register = true) => {
@@ -10,11 +10,11 @@ const verifySet = (juegos, register = true) => {
         resolve(peticion(element.request));
       }).then((res) => {
         if (res === 0) {
-          setCookie(element.name, 0, 365);
-          if (getCookie('internet') !== '1') {
+          localStorage.setItem(element.name, 0);
+          if (localStorage.getItem('internet') !== '1') {
             showModal('Modal-internet');
           }
-          setCookie('internet', 1, 365);
+          localStorage.setItem('internet', 1);
         } else {
           if (element.name === 'verdadOReto') {
             setLocalStorageJson('verdadPicante', res.body.verdad_picante, 365);
@@ -29,10 +29,10 @@ const verifySet = (juegos, register = true) => {
       });
     }
   } else {
-    if (getCookie('internet') !== '1') {
+    if (localStorage.getItem('internet') !== '1') {
       showModal('Modal-internet');
     }
-    setCookie('internet', 1, 365);
+    localStorage.setItem('internet', 1);
   }
 };
 
@@ -50,16 +50,16 @@ const constructor = () => {
     name: 'masProbable',
     request: 'moreProne/read/all',
   }];
-  let authorization = getCookie('access_token');
-  setCookie('sdk', 'abbulHaceAlgoGil', 365);
+  let authorization = localStorage.getItem('access_token');
+  localStorage.setItem('sdk', 'abbulHaceAlgoGil');
   if (!authorization || authorization === 'null') {
-    setCookie('perfilImg', skeleton, 365);
-    setCookie('perfilAlt', 'skeleton', 365);
+    localStorage.setItem('perfilImg', skeleton);
+    localStorage.setItem('perfilAlt', 'skeleton');
     new Promise((resolve, reject) => {
       const miInit = { method: 'POST',
         body: JSON.stringify(
           {
-            sdk: getCookie('sdk'),
+            sdk: localStorage.getItem('sdk'),
             country: 'AR',
           },
         ),
@@ -80,7 +80,7 @@ const constructor = () => {
         })
         .then((response) => {
           console.log('Success register:', response);
-          setCookie('access_token', authorization, 365);
+          localStorage.setItem('access_token', authorization);
           resolve(response);
         });
     }).then((res) => {

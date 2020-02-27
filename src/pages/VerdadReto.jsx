@@ -5,14 +5,13 @@ import Title from '../components/Title';
 import VerdadRetoBodySelect from '../components/VerdadRetoBodySelect';
 import VerdadRetoJuego from '../components/VerdadRetoJuego';
 import '../assets/styles/components/VerdadReto.scss';
-import { getCookie } from '../funciones';
 
 class VerdadReto extends React.Component {
 
   constructor(props) {
     super(props);
-    const juego = getCookie('verdadOretoJuego');
-    const cant = getCookie('verdadOretoCantidad');
+    const juego = localStorage.getItem('verdadOretoJuego');
+    const cant = localStorage.getItem('verdadOretoCantidad');
     this.state = {
       component: <Title juego={juego} cant={cant} />,
     };
@@ -35,7 +34,7 @@ class VerdadReto extends React.Component {
 
   render() {
     const { component } = this.state;
-    const juego = getCookie('verdadOretoJuego');
+    const juego = localStorage.getItem('verdadOretoJuego');
     return (
       <section className='VerdadReto animated fadeIn faster min-h-screen h-full'>
         <Header title='Instrucciones' button='bueno, tampoco me cuentes tu vida, BRO'>

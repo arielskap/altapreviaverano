@@ -16,8 +16,9 @@
 [x] Arreglar form, poco escalable
 [x] Que inicie con el cookie del background-color
 [x] Aparece la 2da vez que entras lo de la birra y aparecen las instrucciones la 1era
+[x] Probar borrar cookies y el json de verdad o reto
 [] Petitions (Agragar juegos, Cargar juegos, Peticion del perfil, Peticion de acercaDe)
-[] Probar borrar cookies y el json de verdad o reto
+[] Más personalizados los mensajes
 
 # cuando termine:
 [] ortografia

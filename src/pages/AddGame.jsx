@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Tippy from '@tippy.js/react';
 import 'tippy.js/dist/tippy.css';
 import Form from '../components/Form';
-import { animateCSS, getCookie } from '../funciones';
+import { animateCSS } from '../funciones';
 import Close from '../components/Close';
 
 const AddGame = () => {
@@ -60,7 +60,7 @@ const AddGame = () => {
     options[i] = element.juego;
     requests[i] = element.request;
   }
-  let closedItems = getCookie('closed') || [];
+  let closedItems = localStorage.getItem('closed') || [];
   if (typeof closedItems === 'string') {
     closedItems = closedItems.split('|');
   }
@@ -71,7 +71,7 @@ const AddGame = () => {
           <h1 id='titulo' onClick={() => setVisible(!visible)} className=' text-center text-white bg-black-transparent py-1 px-3 text-xl rounded'>¡Add Games!</h1>
         </Tippy>
       </div>
-      { !closedItems.find((element) => element === 'addGame-info') && (
+      { !closedItems.find((element) => element === '.addGame-info') && (
         <div className='addGame-info bg-black-transparent mt-4 rounded-lg text-white p-3 border-2 border-green-500 shadow-md'>
           <Close parent='.addGame-info' />
           <p>

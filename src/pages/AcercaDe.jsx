@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Tippy from '@tippy.js/react';
-import { deleteCookie, setCookie, getCookie } from '../funciones';
 import '../assets/styles/components/AcercaDe.scss';
 import facebook from '../assets/static/facebook.png';
 import instagram from '../assets/static/instagram.png';
@@ -19,9 +18,9 @@ const AcercaDe = () => {
   const handleCheck = () => {
     const checkBox = document.querySelector('#Switch__info');
     if (checkBox.checked) {
-      deleteCookie('closed');
+      localStorage.removeItem('closed');
     } else {
-      setCookie('closed', '.perfil-info|.addGame-info', 365);
+      localStorage.setItem('closed', '.perfil-info|.addGame-info');
     }
   };
 
@@ -30,18 +29,18 @@ const AcercaDe = () => {
     if (switchButton.checked) {
       document.querySelector('.App').style.background = '';
       document.querySelector('.App').style.backgroundColor = '#4FD1C4';
-      setCookie('background', 'lindo', 365);
+      localStorage.setItem('background', 'lindo');
     } else {
       document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) #4FD1C4`;
-      setCookie('background', 'feo', 365);
+      localStorage.setItem('background', 'feo');
     }
   };
 
   useEffect(() => {
     const checkBox = document.querySelector('#Switch__info');
-    const closedItems = getCookie('closed');
+    const closedItems = localStorage.getItem('closed');
     const switchButton = document.querySelector('#Switch__style');
-    const isBeautify = getCookie('background');
+    const isBeautify = localStorage.getItem('background');
     if (!closedItems) {
       checkBox.checked = true;
       document.querySelector('.Switch__info').style.backgroundColor = 'hotpink';

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
-import { animateCSS, setCookie, mostrarInstruc } from '../funciones';
+import { animateCSS, mostrarInstruc } from '../funciones';
 import '../assets/styles/components/VerdadRetoOpcion.scss';
 
 const VerdadRetoOpcion = () => {
@@ -11,8 +11,8 @@ const VerdadRetoOpcion = () => {
   const goVerdadReto = (juego) => {
     const e = document.querySelector('.VerdadRetoOpcionBody-select');
     const cant = e.options[e.selectedIndex].value;
-    setCookie('verdadOretoJuego', juego);
-    setCookie('verdadOretoCantidad', cant);
+    localStorage.setItem('verdadOretoJuego', juego);
+    localStorage.setItem('verdadOretoCantidad', cant);
     history.push('/games/verdadReto/select');
   };
 

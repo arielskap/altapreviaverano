@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { getCookie } from '../funciones';
 
 const Form = (props) => {
   const [count, setCount] = useState(280);
@@ -37,7 +36,7 @@ const Form = (props) => {
     const select = e.options[e.selectedIndex].value;
     const textarea = document.querySelector('.form-textarea');
     const info = document.querySelector('.form-info');
-    let authorization = getCookie('access_token');
+    let authorization = localStorage.getItem('access_token');
     const mode = document.querySelector('.form-select0').options[document.querySelector('.form-select0').selectedIndex].value;
     let isPiquiant = document.querySelector('.form-select1').options[document.querySelector('.form-select1').selectedIndex].value;
     isPiquiant = isPiquiant === 'true';
@@ -81,7 +80,7 @@ const Form = (props) => {
             })
             .then((response) => {
               console.log('Success created:', response);
-              if (!authorization || authorization === 'null') setCookie('access_token', authorization, 365);
+              if (!authorization || authorization === 'null') localStorage.setItem('access_token', authorization, 365);
             });
           info.textContent = '¡Gracias por escribirnos!';
           info.style.backgroundColor = '#48bb78';
@@ -102,7 +101,6 @@ const Form = (props) => {
   const handleOnChange = () => {
     const e = document.querySelector('.form-select');
     const selected = e.options[e.selectedIndex].value;
-    console.log(selected);
     if (selected === optionChoise) {
       if (document.querySelector('.extraOptions').classList.contains('hidden')) {
         document.querySelector('.extraOptions').classList.toggle('hidden');

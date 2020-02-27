@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getCookie } from '../funciones';
 import '../assets/styles/components/Modal.scss';
 import palmera from '../assets/static/palmera.png';
 
 const Mensaje = () => {
   useEffect(() => {
-    const isBeautify = getCookie('background');
+    const isBeautify = localStorage.getItem('background');
     if (isBeautify !== 'lindo') {
       document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) cornsilk`;
     }

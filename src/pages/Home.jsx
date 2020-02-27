@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Tippy from '@tippy.js/react';
 import Boom from '../components/Boom';
-import { animateCSS, getCookie } from '../funciones';
+import { animateCSS } from '../funciones';
 import '../assets/styles/components/Home.scss';
 import information from '../assets/static/information.png';
 import crashBaile from '../assets/static/Baile_de_Crash.gif';
@@ -10,8 +10,8 @@ import crashBaile from '../assets/static/Baile_de_Crash.gif';
 const Home = () => {
   const [visible, setVisible] = useState(false);
   const [visible2, setVisible2] = useState(false);
-  const perfilImg = getCookie('perfilImg');
-  const perfilAlt = getCookie('perfilAlt');
+  const perfilImg = localStorage.getItem('perfilImg');
+  const perfilAlt = localStorage.getItem('perfilAlt');
   useEffect(() => {
     setTimeout(() => {
       animateCSS('.HomeBody__Booom', 'fadeOut faster', () => {

@@ -94,18 +94,22 @@ export const showModal = (selector) => {
 };
 
 export const close = (className) => {
-  let allClosed = getCookie('closed');
-  allClosed = allClosed.split('|');
+  let allClosed = localStorage.getItem('closed');
+  if (typeof allClosed === 'string') {
+    allClosed = allClosed.split('|');
+  } else {
+    allClosed = [];
+  }
   animateCSS(className, 'flipOutX faster', () => {
     document.querySelector(className).classList.add('hidden');
   });
   allClosed.push(className);
   allClosed = allClosed.join('|');
-  setCookie('closed', allClosed, 365);
+  localStorage.setItem('closed', allClosed);
 };
 
 export const peticion = (link) => {
-  let authorization = getCookie('access_token');
+  let authorization = localStorage.getItem('access_token');
   const miInit = { method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -125,7 +129,7 @@ export const peticion = (link) => {
     })
     .then((response) => {
       console.log(`Success created ${link}:`, response);
-      if (!authorization || authorization === 'null') setCookie('access_token', authorization, 365);
+      if (!authorization || authorization === 'null') localStorage.setItem('access_token', authorization, 365);
       return response;
     });
 };
@@ -180,7 +184,7 @@ export const addInstagram = (text) => {
 };
 
 export const mostrarInstruc = (juego) => {
-  let instrucciones = getCookieJson('instrucciones');
+  let instrucciones = getLocalStorageJson('instrucciones');
   let flag = false;
   if (instrucciones) {
     for (let i = 0; i < instrucciones.length; i++) {
@@ -196,7 +200,7 @@ export const mostrarInstruc = (juego) => {
   if (!flag) {
     showModal();
     instrucciones.push(juego);
-    setCookieJson('instrucciones', instrucciones);
+    setLocalStorageJson('instrucciones', instrucciones);
   }
 };
 
