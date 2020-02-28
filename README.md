@@ -19,6 +19,8 @@
 [x] Probar borrar cookies y el json de verdad o reto
 [] Petitions (Agragar juegos, Cargar juegos, Peticion del perfil, Peticion de acercaDe)
 [] Más personalizados los mensajes
+[] Cambiar codigo peticiones
+[] Agregar github
 
 # cuando termine:
 [] ortografia

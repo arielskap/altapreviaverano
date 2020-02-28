@@ -93,7 +93,7 @@ const Perfil = () => {
   const handleChange = () => {
     const e = document.querySelector('.form-select');
     const selected = e.options[e.selectedIndex].value;
-    if (selected === 'xx') {
+    if (selected === 'xxx') {
       document.querySelector('#otro').removeAttribute('disabled');
       document.querySelector('#otro').setAttribute('required', true);
       document.querySelector('#otro').classList.toggle('opacity-50');
@@ -139,6 +139,7 @@ const Perfil = () => {
       }
       if (dataUser.otro) {
         document.querySelector('#otro').value = dataUser.otro;
+        document.querySelector('#otro').removeAttribute('disabled');
       }
     }
     if (background === 'lindo') {
@@ -254,7 +255,7 @@ const Perfil = () => {
                     <option value='pe'>Peru</option>
                     <option value='uy'>Uruguay</option>
                     <option value='ve'>Venezuela</option>
-                    <option value='xx'>Otro/Marte</option>
+                    <option value='xxx'>Otro/Marte</option>
                   </select>
                   <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
                     <svg className='fill-current h-4 w-4' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' /></svg>

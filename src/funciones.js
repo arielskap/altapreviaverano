@@ -251,7 +251,11 @@ export const gameGeneric = (classList, json, numMath, numeroSwitch, lastMessage)
     let { body } = json[numeroSwitch[numAleatorio]];
     body = hasRandom(json[numeroSwitch[numAleatorio]]);
     text = document.createTextNode(body);
-    addInstagram(json[numeroSwitch[numAleatorio]].user.instagram);
+    if (json[numeroSwitch[numAleatorio]].user) {
+      addInstagram(json[numeroSwitch[numAleatorio]].user.instagram);
+    } else {
+      addInstagram();
+    }
   } else {
     text = document.createTextNode(lastMessage);
     addInstagram();

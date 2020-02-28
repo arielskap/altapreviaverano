@@ -54,14 +54,14 @@ const Form = (props) => {
         if (textarea.value.length > 6) {
           if (select === optionChoise) {
             body = {
-              'type': 'change',
+              'type': select,
               'body': textarea.value,
               'mode': mode,
               'isPiquant': isPiquiant,
             };
           } else {
             body = {
-              'type': 'change',
+              'type': select,
               'body': textarea.value,
             };
           }
