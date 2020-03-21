@@ -9,7 +9,7 @@ const Botellita = () => {
   useEffect(() => {
     document.querySelector('.App').style.backgroundColor = '#4299e1';
     mostrarInstruc('botellita');
-  });
+  }, []);
 
   return (
     <div className='Botellita animated fadeIn faster min-h-screen'>

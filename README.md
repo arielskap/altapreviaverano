@@ -17,9 +17,11 @@
 [x] Que inicie con el cookie del background-color
 [x] Aparece la 2da vez que entras lo de la birra y aparecen las instrucciones la 1era
 [x] Probar borrar cookies y el json de verdad o reto
-[] Petitions (Agragar juegos, Cargar juegos, Peticion del perfil, Peticion de acercaDe)
-[] Más personalizados los mensajes
-[] Cambiar codigo peticiones
+[x] Petitions (Agragar juegos, Cargar juegos, Peticion del perfil, Peticion de acercaDe)
+[x] Más personalizados los mensajes
+[x] Cambiar codigo peticiones
+[] pais al inicio
+[] Seguimiento
 [] Agregar github
 
 # cuando termine:

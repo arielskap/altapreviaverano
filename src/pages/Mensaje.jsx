@@ -9,7 +9,7 @@ const Mensaje = () => {
     if (isBeautify !== 'lindo') {
       document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) cornsilk`;
     }
-  });
+  }, []);
   return (
     <section className='Mensaje bg-transparent-black-1 h-screen w-full flex items-center justify-center'>
       <div className='mx-4 bg-transparent-white-1 rounded-lg p-2 animated fadeIn faster border-2 border-purple-600'>

@@ -52,7 +52,7 @@ const AcercaDe = () => {
     } else {
       document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) #4FD1C4`;
     }
-  });
+  }, []);
 
   const TAM_IMG = 'h-16 w-16';
   const options = ['~Causa~', 'Alabarnos', 'Sugerencia', 'Error'];

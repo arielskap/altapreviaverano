@@ -1,41 +1,34 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import Title from '../components/Title';
 import VerdadRetoBodySelect from '../components/VerdadRetoBodySelect';
 import VerdadRetoJuego from '../components/VerdadRetoJuego';
+import ModalV2 from '../components/ModalV2';
 import '../assets/styles/components/VerdadReto.scss';
 
-class VerdadReto extends React.Component {
+const VerdadReto = () => {
+  const cant = useRef(localStorage.getItem('verdadOretoCantidad'));
 
-  constructor(props) {
-    super(props);
-    const juego = localStorage.getItem('verdadOretoJuego');
-    const cant = localStorage.getItem('verdadOretoCantidad');
-    this.state = {
-      component: <Title juego={juego} cant={cant} />,
-    };
-  }
+  const [juego, setJuego] = useState(localStorage.getItem('verdadOretoJuego'));
+  const [component, setComponent] = useState(<Title juego={juego} cant={cant.current} />);
 
-  changeStateVerdadReto = (component) => {
+  const changeStateVerdadReto = (component) => {
     let { juego } = component.props;
     if (typeof component === 'object') {
       const { cant } = component.props;
       if (cant <= 0) {
         juego = 'Picante';
       }
-      this.setState({
-        component: <Title juego={juego} cant={cant} />,
-      });
+      setJuego(juego);
+      setComponent(<Title juego={juego} cant={cant} />);
     } else {
       console.log('Component is not a object');
     }
   };
 
-  render() {
-    const { component } = this.state;
-    const juego = localStorage.getItem('verdadOretoJuego');
-    return (
+  return (
+    <>
       <section className='VerdadReto animated fadeIn faster min-h-screen h-full'>
         <Header title='Instrucciones' button='bueno, tampoco me cuentes tu vida, BRO'>
           Si se elige verdad se debera responder la pregunta, en caso de que sea reto debera hacer la prenda. Si elige no hacerla al presionar &apos;No lo hizo&apos; le aparecera la opcion contraría y encima &apos;picante&apos;
@@ -59,14 +52,45 @@ class VerdadReto extends React.Component {
               <VerdadRetoBodySelect />
             </Route>
             <Route path='/games/verdadReto/juego'>
-              <VerdadRetoJuego changeStateVerdadReto={this.changeStateVerdadReto} />
+              <VerdadRetoJuego changeStateVerdadReto={changeStateVerdadReto} />
             </Route>
           </Switch>
           <div className='VerdadRetoBody__change' />
         </section>
       </section>
-    );
-  }
+    </>
+  );
 };
 
 export default VerdadReto;
+/*
+{modalIsOpen === true && (
+        <ModalV2
+          isOpen={modalIsOpen}
+          title='¿Otra Vida? ❤️'
+          button='Kenai'
+          buttonRefused='Ni ahí'
+          color='blue'
+          handleAcept={handleContinuarModalAcept}
+          handleRefused={handleContinuarModalRefused}
+        >
+          ¿Queres continuar con la ultima partida?
+        </ModalV2>
+      )}
+      {modalErrorIsOpen &&
+      (
+        <ModalV2
+          isOpen={modalErrorIsOpen}
+          title='Error 💥'
+          button='lpm'
+          color='red'
+          handleAcept={() => {
+            animateCSS('.ModalV2', 'fadeOut faster', () => {
+              tudoBomTudoLegal();
+              setModalErrorIsOpen(false);
+            });
+          }}
+        >
+          Tu partida era online y como decirtelo... ya no estas más online, así que chau partida, volve a empezar.
+        </ModalV2>
+      )}*/

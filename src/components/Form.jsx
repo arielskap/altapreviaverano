@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
+import ModalV2 from './ModalV2';
+import { animateCSS } from '../funciones';
+//import Loader from './Loader';
+import BlackBackground from './BlackBackground';
+import LoaderColors from './LoaderColors';
 
-const Form = (props) => {
+const Form = ({ className, options, link, optionsLinks, extraOptions, optionChoise }) => {
   const [count, setCount] = useState(280);
-  const { className } = props;
-  const { options } = props;
-  const { link } = props;
-  const { optionsLinks } = props;
-  const { extraOptions } = props;
-  const { optionChoise } = props;
+  const [infoText, setInfoText] = useState('');
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalDesign, setModalDesign] = useState({
+    chidlren: null,
+    title: null,
+    button: null,
+    color: null,
+  });
+  const [stateFetch, setStateFetch] = useState({
+    loading: false,
+    error: null,
+    data: undefined,
+  });
   const optionList = options.map((option, index) => {
     const id = index;
     return <option value={optionsLinks ? optionsLinks[id] : option} key={id}>{option}</option>;
@@ -29,6 +41,17 @@ const Form = (props) => {
       }
       setCount(resto);
     }
+    if (infoText === '¡Gracias por escribirnos!') {
+      const info = document.querySelector('.form-info');
+      setInfoText('');
+      info.style.backgroundColor = '';
+    }
+  };
+
+  const handleCloseModal = () => {
+    animateCSS('.ModalV2', 'fadeOut faster', () => {
+      setModalIsOpen(false);
+    });
   };
 
   const handleSubmit = (event) => {
@@ -39,6 +62,11 @@ const Form = (props) => {
     let mode;
     let isPiquiant;
     let authorization = localStorage.getItem('access_token');
+    event.preventDefault();
+    setStateFetch({
+      loading: true,
+      error: null,
+    });
     if (document.querySelector('.form-select0')) {
       mode = document.querySelector('.form-select0').options[document.querySelector('.form-select0').selectedIndex].value;
     }
@@ -52,6 +80,7 @@ const Form = (props) => {
       const optionLink = optionsLinks ? optionsLinks[i] : null;
       if (select === (optionLink || option)) {
         if (textarea.value.length > 6) {
+          setInfoText('');
           if (select === optionChoise) {
             body = {
               'type': select,
@@ -83,25 +112,50 @@ const Form = (props) => {
             })
             .catch((error) => {
               console.error('Error:', error);
+              setStateFetch({
+                loading: false,
+                error,
+              });
+              setModalIsOpen(true);
+              setModalDesign({
+                chidlren: error,
+                title: 'Error',
+                button: 'Super F',
+                color: 'red',
+              });
+              setInfoText('Error al envíar');
+              info.style.backgroundColor = '#e53e3e';
             })
             .then((response) => {
-              console.log('Success created:', response);
-              if (!authorization || authorization === 'null') localStorage.setItem('access_token', authorization, 365);
+              if (!stateFetch.error) {
+                if (!authorization || authorization === 'null') localStorage.setItem('access_token', authorization, 365);
+                setStateFetch({
+                  loading: false,
+                  data: response,
+                });
+                setModalIsOpen(true);
+                setModalDesign({
+                  chidlren: 'Lo enviaste como todo un cartero',
+                  title: '¡Recibido bro!',
+                  button: 'Continuar...',
+                  color: 'green',
+                });
+                setInfoText('¡Gracias por escribirnos!');
+                info.style.backgroundColor = '#48bb78';
+                console.log('Success created:', response);
+              }
             });
-          info.textContent = '¡Gracias por escribirnos!';
-          info.style.backgroundColor = '#48bb78';
           break;
         } else {
-          info.textContent = 'Escribí maaaas no tengas miedo';
+          setInfoText('Escribí maaaas no tengas miedo');
           info.style.backgroundColor = '#e53e3e';
           break;
         }
       } else {
-        info.textContent = 'No seleccionaste nada de la lista, kraken';
+        setInfoText('No seleccionaste nada de la lista, kraken');
         info.style.backgroundColor = '#e53e3e';
       }
     }
-    event.preventDefault();
   };
 
   const handleOnChange = () => {
@@ -116,17 +170,18 @@ const Form = (props) => {
     }
   };
   return (
-    <form className={`form my-2 w-full border-2 border-teal-700 p-2 rounded-lg ${className}`} onSubmit={handleSubmit}>
-      <div className='flex flex-col justify-start'>
-        <div className='inline-block relative'>
-          <select className='form-select block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline' required onChange={optionChoise ? handleOnChange : null}>
-            {optionList}
-          </select>
-          <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
-            <svg className='fill-current h-4 w-4' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' /></svg>
+    <>
+      <form className={`form my-2 w-full border-2 border-teal-700 p-2 rounded-lg ${className}`} onSubmit={handleSubmit}>
+        <div className='flex flex-col justify-start'>
+          <div className='inline-block relative'>
+            <select className='form-select block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline' required onChange={optionChoise ? handleOnChange : null}>
+              {optionList}
+            </select>
+            <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
+              <svg className='fill-current h-4 w-4' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' /></svg>
+            </div>
           </div>
-        </div>
-        {extraOptions &&
+          {extraOptions &&
         (
           <div className='extraOptions grid grid-cols-2 gap-2 mt-2 hidden'>
             {extraOptions.map((select) => {
@@ -152,22 +207,29 @@ const Form = (props) => {
             })}
           </div>
         )}
-      </div>
-      <div className='mt-2'>
-        <div className='flex justify-end mb-1'>
-          <p className='form-count bg-red-500 rounded-full py-1 px-2'>{count}</p>
         </div>
-        <div className='flex justify-center'>
-          <textarea onKeyUp={() => handleKeyUp()} className='form-textarea p-1 rounded w-full' maxLength='280' rows='4' placeholder='Dale envia algo, daaaale daaaaale #toxico' required />
+        <div className='mt-2'>
+          <div className='flex justify-end mb-1'>
+            <p className='form-count bg-red-500 rounded-full py-1 px-2'>{count}</p>
+          </div>
+          <div className='flex justify-center'>
+            <textarea onKeyUp={() => handleKeyUp()} className='form-textarea p-1 rounded w-full' maxLength='280' rows='4' placeholder='Dale envia algo, daaaale daaaaale #toxico' required />
+          </div>
         </div>
-      </div>
-      <div>
-        <p className='form-info p-1 rounded mt-1 text-center' />
-      </div>
-      <div className='flex justify-end mt-2'>
-        <button className='bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 border border-green-700 rounded' type='submit'>¡Enviar!</button>
-      </div>
-    </form>
+        <div>
+          <p className='form-info p-1 rounded mt-1 text-center'>{infoText}</p>
+        </div>
+        <div className='flex justify-end mt-2'>
+          <button className='bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 border border-green-700 rounded' type='submit'>¡Enviar!</button>
+        </div>
+      </form>
+      <ModalV2 isOpen={modalIsOpen} title={modalDesign.title} button={modalDesign.button} color={modalDesign.color} handleAcept={handleCloseModal}>{modalDesign.chidlren}</ModalV2>
+      {stateFetch.loading && (
+        <BlackBackground>
+          <LoaderColors />
+        </BlackBackground>
+      )}
+    </>
   );
 };
 

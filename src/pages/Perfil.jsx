@@ -156,7 +156,7 @@ const Perfil = () => {
         document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) coral`;
       }
     };
-  });
+  }, []);
 
   return (
     <div className=' container mx-auto px-4 animated fadeIn faster'>

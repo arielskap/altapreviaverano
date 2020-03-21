@@ -20,7 +20,7 @@ const Home = () => {
         animateCSS('.HomeBody-h2', 'rubberBand');
       });
     }, 400);
-  });
+  }, []);
 
   return (
     <div className='Home animated fadeIn faster'>

@@ -22,12 +22,12 @@ const VerdadRetoOpcion = () => {
       document.querySelector('.tippy-popper').remove();
     }
     mostrarInstruc('verdadOReto');
-  });
+  }, []);
 
   return (
     <section className='VerdadRetoOpcion animated fadeIn faster pb-4'>
       <Header title='Instrucciones' button='bueno, tampoco me cuentes tu vida, BRO'>
-        Si se elige verdad se debera responder la pregunta, en caso de que sea reto debera hacer la prenda. Si elige no hacerla al presionar 'No lo hizo' le aparecera la opcion contraría y encima 'picante'
+        Si se elige verdad se debera responder la pregunta, en caso de que sea reto debera hacer la prenda. Si elige no hacerla al presionar &quot;No lo hizo&quot; le aparecera la opcion contraría y encima &quot;picante&quot;
         <br />
         <span role='img' aria-label='Corazon'>❤️️</span>
       </Header>
