@@ -9,7 +9,7 @@ import barmat from '../assets/static/barmat.png';
 import Form from '../components/Form';
 import Card from '../components/Card';
 import Switch from '../components/Switch';
-import palmera from '../assets/static/palmera.png';
+import { backgroundColor } from '../funciones';
 
 const AcercaDe = () => {
   const [visible, setVisible] = useState(false);
@@ -27,11 +27,11 @@ const AcercaDe = () => {
   const handleSwitch = () => {
     const switchButton = document.querySelector('#Switch__style');
     if (switchButton.checked) {
-      document.querySelector('.App').style.background = '';
       document.querySelector('.App').style.backgroundColor = '#4FD1C4';
       localStorage.setItem('background', 'lindo');
     } else {
-      document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) #4FD1C4`;
+      document.querySelector('#app').style.background = 'linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), #4FD1C4';
+      document.querySelector('.App').style.backgroundColor = 'transparent';
       localStorage.setItem('background', 'feo');
     }
   };
@@ -48,10 +48,8 @@ const AcercaDe = () => {
     if (isBeautify === 'lindo') {
       switchButton.checked = true;
       document.querySelector('.Switch__style').style.backgroundColor = 'khaki';
-      document.querySelector('.App').style.backgroundColor = '#4FD1C4';
-    } else {
-      document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) #4FD1C4`;
     }
+    backgroundColor('#4FD1C4');
   }, []);
 
   const TAM_IMG = 'h-16 w-16';

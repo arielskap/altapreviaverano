@@ -1,31 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import H1 from '../components/H1';
 import ImgPerfil from '../components/ImgPerfil';
 import Modal from '../components/Modal';
-import { showModal, getLocalStorageJson, setLocalStorageJson } from '../funciones';
+import { showModal, getLocalStorageJson, setLocalStorageJson, backgroundColor } from '../funciones';
 import '../assets/styles/components/Perfil.scss';
-import avocado from '../assets/static/avocado.svg';
-import palmera from '../assets/static/palmera.png';
+import virus from '../assets/static/virus.svg';
 import perfilJson from '../constantes';
 import Close from '../components/Close';
 
 const Perfil = () => {
-  const perfilImg = localStorage.getItem('perfilImg');
-  const perfilAlt = localStorage.getItem('perfilAlt');
-  const [img, setImg] = useState(perfilImg);
-  const [alt, setAlt] = useState(perfilAlt);
-  let closedItems = localStorage.getItem('closed') || [];
-  if (typeof closedItems === 'string') {
-    closedItems = closedItems.split('|');
+  const perfilImg = useRef(localStorage.getItem('perfilImg'));
+  const perfilAlt = useRef(localStorage.getItem('perfilAlt'));
+  const [img, setImg] = useState(perfilImg.current);
+  const [alt, setAlt] = useState(perfilAlt.current);
+  const closedItems = useRef(localStorage.getItem('closed') || []);
+  if (typeof closedItems.current === 'string') {
+    closedItems.current = closedItems.current.split('|');
   }
-  let select = 0;
+  const select = useRef(0);
   const handleSubmitAvatar = (event) => {
     let jsonSrc;
     let jsonAlt;
-    if (select !== 0) {
+    if (select.current !== 0) {
       perfilJson.forEach((json) => {
         const { id } = json;
-        if (select === id) {
+        if (select.current === id) {
           jsonSrc = json.src;
           jsonAlt = json.alt;
         }
@@ -143,18 +142,14 @@ const Perfil = () => {
       }
     }
     if (background === 'lindo') {
-      document.querySelector('.App').style.backgroundColor = 'coral';
-      document.querySelector('.App').style.backgroundImage = `url(${avocado})`;
+      document.querySelector('.container').style.backgroundColor = 'coral';
+      document.querySelector('.container').style.backgroundImage = `url(${virus})`;
     } else {
-      document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${avocado}) coral`;
+      document.querySelector('.container').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${virus}) coral`;
     }
 
     return () => {
-      if (background === 'lindo') {
-        document.querySelector('.App').style.backgroundImage = `url(${palmera})`;
-      } else {
-        document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) coral`;
-      }
+      backgroundColor('coral');
     };
   }, []);
 
@@ -169,7 +164,7 @@ const Perfil = () => {
         </div>
       </div>
       <div className='mt-4'>
-        {!closedItems.find((element) => element === '.perfil-info') && (
+        {!closedItems.current.find((element) => element === '.perfil-info') && (
           <div className='p-2 rounded bg-transparent-pink-1 text-white perfil-info'>
             <Close parent='.perfil-info' />
             <h2 className='text-center text-xl'>¿Que podes hacer en tu perfil?</h2>
@@ -193,7 +188,7 @@ const Perfil = () => {
                 <button
                   type='button'
                   onClick={() => {
-                    select = id ;
+                    select.current = id ;
                   }}
                   key={id}
                 >

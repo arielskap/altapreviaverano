@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Header from '../components/Header';
 import GameGeneric from '../components/GameGeneric';
-import { gameGeneric, setLocalStorageJson, getLocalStorageJson, mostrarInstruc, animateCSS } from '../funciones';
+import { gameGeneric, setLocalStorageJson, getLocalStorageJson, mostrarInstruc, animateCSS, backgroundColor } from '../funciones';
 import masProbableJson from '../json/masProbable.json';
 import ModalV2 from '../components/ModalV2';
 
@@ -76,7 +76,7 @@ const MasProbable = () => {
       tudoBomTudoLegal();
     }
 
-    document.querySelector('.App').style.backgroundColor = 'purple';
+    backgroundColor('purple');
     mostrarInstruc('masProbable');
   }, []);
 

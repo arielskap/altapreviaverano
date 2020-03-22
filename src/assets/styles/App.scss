@@ -1,7 +1,7 @@
 @import './Fonts.scss';
 @import './Vars.scss';
 
-html, body, #app, .App{
+html, body{
     font-family: 'Walter Turncoat Regular';
     background-color: cornsilk;
     top: 0;
@@ -9,26 +9,24 @@ html, body, #app, .App{
 }
 
 .App{
-    background-image: url('../static/palmera.png');
-    background-repeat: round;
-}
-
-/*.App{
+    background-color: #1a202c;
+    width: 100%; height: 100%;
     position: relative;
+    background-repeat: space;
+    background-size: 26% 19%;
+    background-image: url("../static/toilet-paper2.svg");
 }
 
-.App::after{
+.App::before {
     content: "";
-    background: url('../static/palmera.png');
-    background-repeat: round;
-    opacity: 0.8;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
     position: absolute;
-    z-index: -1;   
-}*/
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-repeat: space;
+    background-size: 26% 19%;
+    background-image: url("../static/toilet-paper2.svg");
+    filter: opacity(50%);
+  }
 
 .bg-black-transparent{
     background-color: rgba($color: #000000, $alpha: .8);

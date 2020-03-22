@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { backgroundColor } from '../funciones';
 import '../assets/styles/components/Modal.scss';
-import palmera from '../assets/static/palmera.png';
 
 const Mensaje = () => {
   useEffect(() => {
-    const isBeautify = localStorage.getItem('background');
-    if (isBeautify !== 'lindo') {
-      document.querySelector('.App').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), url(${palmera}) cornsilk`;
-    }
+    backgroundColor('#1a202c');
   }, []);
   return (
-    <section className='Mensaje bg-transparent-black-1 h-screen w-full flex items-center justify-center'>
-      <div className='mx-4 bg-transparent-white-1 rounded-lg p-2 animated fadeIn faster border-2 border-purple-600'>
+    <section className='Mensaje bg-transparent-black-strong h-screen w-full flex items-center justify-center'>
+      <div className='mx-4 bg-transparent-black-strong rounded-lg p-2 animated fadeIn faster border-2 border-purple-600'>
         <h1 className='text-center text-lg text-red-700'>
           Informacion
           <span role='img' aria-label='Informacion'>❗</span>

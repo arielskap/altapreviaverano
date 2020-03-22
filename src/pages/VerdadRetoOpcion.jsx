@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
-import { animateCSS, mostrarInstruc } from '../funciones';
+import { animateCSS, mostrarInstruc, backgroundColor } from '../funciones';
 import '../assets/styles/components/VerdadRetoOpcion.scss';
 
 const VerdadRetoOpcion = () => {
@@ -17,7 +17,7 @@ const VerdadRetoOpcion = () => {
   };
 
   useEffect(() => {
-    document.querySelector('.App').style.backgroundColor = 'black';
+    backgroundColor('black');
     if (document.querySelector('.tippy-popper')) {
       document.querySelector('.tippy-popper').remove();
     }

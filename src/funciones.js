@@ -204,11 +204,25 @@ export const mostrarInstruc = (juego) => {
   }
 };
 
+export const backgroundColor = (color) => {
+  const isBeautify = localStorage.getItem('background');
+  if (isBeautify !== 'lindo') {
+    document.querySelector('#app').style.background = `linear-gradient(rgba(0,0,0,1), rgba(255,255,255,.1)), ${color}`;
+    document.querySelector('.App').style.backgroundColor = 'transparent';
+  } else {
+    document.querySelector('.App').style.backgroundColor = color;
+  }
+};
+
 export const hasRandom = ({ body, type }) => {
   let array;
   let randomElement;
+  let types;
   let newText = body;
-  if (body.includes('[...]') && type) {
+  let flag = true;
+  console.log(type);
+  const randomSwitch = (type) => {
+    let array;
     switch (type.toLowerCase()) {
       case 'tiempo':
         array = ['larga', 'corta'];
@@ -235,8 +249,27 @@ export const hasRandom = ({ body, type }) => {
         array = ['recibí', 'envia'];
         break;
     }
-    randomElement = array[Math.floor(Math.random() * array.length)];
-    newText = body.replace('[...]', randomElement);
+    return array;
+  };
+
+  if (body.includes('[...]') && type) {
+    if (type.includes(',')) {
+      types = type.replace(/ /g, '').split(',');
+      types.forEach((element) => {
+        array = randomSwitch(element);
+        randomElement = array[Math.floor(Math.random() * array.length)];
+        if (flag) {
+          newText = body.replace('[...]', randomElement);
+          flag = false;
+        } else {
+          newText = newText.replace('[...]', randomElement);
+        }
+      });
+    } else {
+      array = randomSwitch(type);
+      randomElement = array[Math.floor(Math.random() * array.length)];
+      newText = body.replace('[...]', randomElement);
+    }
   }
   return newText;
 };

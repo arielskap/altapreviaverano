@@ -5,7 +5,8 @@ import Boom from '../components/Boom';
 import { animateCSS } from '../funciones';
 import '../assets/styles/components/Home.scss';
 import information from '../assets/static/information.png';
-import crashBaile from '../assets/static/Baile_de_Crash.gif';
+//import crashBaile from '../assets/static/Baile_de_Crash.gif';
+import crashBaile from '../assets/static/crash_duro.gif';
 
 const Home = () => {
   const [visible, setVisible] = useState(false);
@@ -40,10 +41,10 @@ const Home = () => {
             <Boom />
           </div>
           <h1 className='text-4xl HomeBody-h1 animated jackInTheBox faster rounded-t'>Alta Previa</h1>
-          <Tippy content='Casi que ya estamos en otoño...' visible={visible2}>
+          <Tippy content='Más viral que el gangnam style' visible={visible2}>
             <h2 className='text-2xl HomeBody-h2 animated jackInTheBox faster rounded-b' onClick={() => setVisible2(!visible2)}>
-              Verano
-              <span className='surf' role='img' aria-label='Surf'>🏄</span>
+              Coronavirus
+              <span className='surf' role='img' aria-label='Surf'>🧫‍</span>
             </h2>
           </Tippy>
         </div>
@@ -63,7 +64,7 @@ const Home = () => {
         </div>
         <div className='flex justify-center w-full'>
           <div className='max-w-sm'>
-            <Tippy content='Perreito... como en los viejos tiempos, pe perreito pe pe perreito' visible={visible}>
+            <Tippy content='Ahhhhhh alto cagaso de estornudar' visible={visible}>
               <img className='crash object-contain' src={crashBaile} alt='Gif Meme' onClick={() => setVisible(!visible)} />
             </Tippy>
           </div>

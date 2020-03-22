@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Header from '../components/Header';
 import GameGeneric from '../components/GameGeneric';
-import { gameGeneric, setLocalStorageJson, getLocalStorageJson, mostrarInstruc, animateCSS } from '../funciones';
+import { gameGeneric, setLocalStorageJson, getLocalStorageJson, mostrarInstruc, animateCSS, backgroundColor } from '../funciones';
 import yoNuncaJson from '../json/yoNunca.json';
 import ModalV2 from '../components/ModalV2';
 
@@ -74,7 +74,7 @@ function YoNunca() {
       tudoBomTudoLegal();
     }
 
-    document.querySelector('.App').style.backgroundColor = 'pink';
+    backgroundColor('pink');
     mostrarInstruc('yoNunca');
   }, []);
 

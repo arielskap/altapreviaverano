@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import constructor from '../constructor';
 import Mensaje from '../pages/Mensaje';
 import AcercaDe from '../pages/AcercaDe';
@@ -18,10 +18,10 @@ import 'tippy.js/dist/tippy.css';
 import ScrollToTop from '../components/ScrollToTop';
 import SecondModal from '../components/SecondModal';
 import Modal from '../components/Modal';
-
-constructor();
+import Country from '../pages/Country';
 
 const App = () => {
+  constructor();
   return (
     <section className='App'>
       <Modal color='red' className='Modal-internet' title='Sin Internet bro' button='Ya estoy habilitando los 20G'>Mira krak sin internet tus posibilidades en esta aplicacion son escasas, así que dale gastate todos los datos</Modal>
@@ -29,6 +29,11 @@ const App = () => {
         <HashRouter>
           <Switch>
             <Route exact path='/'>
+              { localStorage.getItem('countryFirst') ?
+                <Redirect to='/message' /> :
+                <Country />}
+            </Route>
+            <Route path='/message'>
               <Mensaje />
             </Route>
             <Route path='/home'>
